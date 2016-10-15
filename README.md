@@ -1,16 +1,34 @@
-# Deployment Successful!
-You have succesfully deployed the SDK to this repository.
+# Getting Started
 
-This repository contains two branches. 
-* master
-* CodeGen-NODE
+Message360
+=================
+This file was automatically generated for message360 by APIMATIC v2.0 ( https://apimatic.io ) on 10/15/2016
 
-Changes made on the generated branch will be overwritten.
 
-Make sure to make your customisations on a different branch (e.g master) and then pull new versions of the generated code.
+How To Install: 
+=============
+The generated code relies on node package manager (npm) being available to resolve dependencies.
+Once published you will need copy the folder 'message360' in to your 'node_modules' folder.
 
-For any enquires contact support@apimatic.io
+  
+How To Use:
+===========
+The following shows how import the controllers and use:
 
-Happy generating!
+1) Import the module:
 
-APIMATIC
+        var message360 = require('message360');
+
+2) Configure any authentication parameters. For example:
+
+        var config = message360.configuration;
+        config.apikey = a_secret_key;
+
+3) Access various controllers by:
+
+        var controller = message360.XYZ;
+        controller.getItems(id, callback);
+    
+
+
+
