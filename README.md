@@ -1,34 +1,36 @@
-#
+#Getting started
 
-Message360
-=================
-This file was automatically generated for message360 by APIMATIC v2.0 ( https://apimatic.io ) on 10/21/2016
+# Message360
 
+This file was automatically generated for message360 by APIMATIC v2.0 ([https://apimatic.io](https://apimatic.io)) on 12/01/2016.
 
-How To Install: 
-=============
-The generated code relies on node package manager (npm) being available to resolve dependencies.
-Once published you will need copy the folder 'message360' in to your 'node_modules' folder.
+## Installation
 
-  
-How To Use:
-===========
-The following shows how import the controllers and use:
+The SDK relies on [Node Package Manager](https://www.npmjs.com/) (NPM) being available to resolve dependencies.
+Once published you will need copy the folder `message360` in to your `node_modules` folder.
 
-1) Import the module:
+## Usage
 
-        var message360 = require('message360');
+The following shows how import and use the controller:
 
-2) Configure any authentication parameters. For example:
+1. Import the module:
 
-        var config = message360.configuration;
-        config.apikey = a_secret_key;
+    ```js
+    var message360 = require('message360');
+    ```
 
-3) Access various controllers by:
+2. Configure any authentication parameters. For example:
 
-        var controller = message360.XYZ;
-        controller.getItems(id, callback);
-    
+    ```js
+    var config = message360.configuration;
+    config.apikey = a_secret_key;
+    ```
 
+3. Access various controllers by:
+
+    ```js
+    var controller = message360.XYZ;
+    controller.getItems(id, callback);
+    ```
 
 
