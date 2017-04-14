@@ -70,17 +70,16 @@ Tests can be run in a number of ways:
 ###### (Run specific controller's tests)
 
 1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  message360 API V2Controller`  to run all the tests in that controller file.
+2. Type `mocha  message360 API V3Controller`  to run all the tests in that controller file.
 
-> To increase mocha's default timeout, you can change the `TESTTIMEOUT` parameter's value in `Configuration.js`.  
-> ***NOTE:*** Changing default timeout is available for only Binary/File type endpoint tests
+> To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.  
 
-![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=message360%20API%20V2Controller)
+![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=message360%20API%20V3Controller)
 
 ## Initialization
 
 ### Authentication
-In order to setup authentication and initialization of the API client, you need the following information.
+In order to setup authentication in the API client, you need the following information.
 
 | Parameter | Description |
 |-----------|-------------|
@@ -92,11 +91,12 @@ In order to setup authentication and initialization of the API client, you need 
 API client can be initialized as following:
 
 ```JavaScript
-// Configuration parameters and credentials
-$basicAuthUserName = "basicAuthUserName"; // The username to use with basic authentication
-$basicAuthPassword = "basicAuthPassword"; // The password to use with basic authentication
-
 var lib = require('lib');
+
+// Configuration parameters and credentials
+lib.Configuration.basicAuthUserName = "basicAuthUserName"; // The username to use with basic authentication
+lib.Configuration.basicAuthPassword = "basicAuthPassword"; // The password to use with basic authentication
+
 ```
 
 ## Class Reference
@@ -151,8 +151,8 @@ function createViewTemplate(input, callback)
 ```javascript
 
     var input = [];
-        input["templateid"] = uniqid();
-        input["responseType"] = "ResponseType";
+        input['templateid'] = uniqid();
+        input['responseType'] = 'ResponseType';
 
     controller.createViewTemplate(input, function(error, response, context) {
 
@@ -190,13 +190,13 @@ function createSendShortCode(input, formParams, callback)
 ```javascript
 
     var input = [];
-        input["shortcode"] = "shortcode";
-        input["tocountrycode"] = "tocountrycode";
-        input["to"] = "to";
-        input["templateid"] = uniqid();
-        input["method"] = "Method";
-        input["messageStatusCallback"] = "MessageStatusCallback";
-        input["responseType"] = "ResponseType";
+        input['shortcode'] = 'shortcode';
+        input['tocountrycode'] = 'tocountrycode';
+        input['to'] = 'to';
+        input['templateid'] = uniqid();
+        input['method'] = 'Method';
+        input['messageStatusCallback'] = 'MessageStatusCallback';
+        input['responseType'] = 'ResponseType';
     // key-value map for optional form parameters
     var formParams = [];
 
@@ -234,12 +234,12 @@ function createListInboundShortCode(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 230;
-        input["pagesize"] = 230;
-        input["from"] = "from";
-        input["shortcode"] = "Shortcode";
-        input["dateReceived"] = "DateReceived";
-        input["responseType"] = "ResponseType";
+        input['page'] = 179;
+        input['pagesize'] = 179;
+        input['from'] = 'from';
+        input['shortcode'] = 'Shortcode';
+        input['dateReceived'] = 'DateReceived';
+        input['responseType'] = 'ResponseType';
 
     controller.createListInboundShortCode(input, function(error, response, context) {
 
@@ -275,12 +275,12 @@ function createListShortCode(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 230;
-        input["pagesize"] = 230;
-        input["from"] = "from";
-        input["to"] = "to";
-        input["datesent"] = "datesent";
-        input["responseType"] = "ResponseType";
+        input['page'] = 179;
+        input['pagesize'] = 179;
+        input['from'] = 'from';
+        input['to'] = 'to';
+        input['datesent'] = 'datesent';
+        input['responseType'] = 'ResponseType';
 
     controller.createListShortCode(input, function(error, response, context) {
 
@@ -314,10 +314,10 @@ function createListTemplates(input, callback)
 ```javascript
 
     var input = [];
-        input["type"] = "type";
-        input["page"] = 66;
-        input["pagesize"] = 66;
-        input["responseType"] = "ResponseType";
+        input['type'] = 'type';
+        input['page'] = 179;
+        input['pagesize'] = 179;
+        input['responseType'] = 'ResponseType';
 
     controller.createListTemplates(input, function(error, response, context) {
 
@@ -349,8 +349,8 @@ function createViewShortCode(input, callback)
 ```javascript
 
     var input = [];
-        input["messagesid"] = "messagesid";
-        input["responseType"] = "ResponseType";
+        input['messagesid'] = 'messagesid';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewShortCode(input, function(error, response, context) {
 
@@ -397,11 +397,11 @@ function createDeafMuteParticipant(input, callback)
 ```javascript
 
     var input = [];
-        input["conferenceSid"] = "conferenceSid";
-        input["participantSid"] = "ParticipantSid";
-        input["muted"] = false;
-        input["deaf"] = false;
-        input["responseType"] = "ResponseType";
+        input['conferenceSid'] = 'conferenceSid';
+        input['participantSid'] = 'ParticipantSid';
+        input['muted'] = true;
+        input['deaf'] = true;
+        input['responseType'] = 'ResponseType';
 
     controller.createDeafMuteParticipant(input, function(error, response, context) {
 
@@ -438,13 +438,13 @@ function createListConference(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 66;
-        input["pageSize"] = 66;
-        input["friendlyName"] = "FriendlyName";
-        input["status"] = Object.keys(InterruptedCallStatus)[0];
-        input["dateCreated"] = "DateCreated";
-        input["dateUpdated"] = "DateUpdated";
-        input["responseType"] = "ResponseType";
+        input['page'] = 179;
+        input['pageSize'] = 179;
+        input['friendlyName'] = 'FriendlyName';
+        input['status'] = Object.keys(InterruptedCallStatus)[0];
+        input['dateCreated'] = 'DateCreated';
+        input['dateUpdated'] = 'DateUpdated';
+        input['responseType'] = 'ResponseType';
 
     controller.createListConference(input, function(error, response, context) {
 
@@ -476,8 +476,8 @@ function createViewConference(input, callback)
 ```javascript
 
     var input = [];
-        input["conferencesid"] = "conferencesid";
-        input["responseType"] = "ResponseType";
+        input['conferencesid'] = 'conferencesid';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewConference(input, function(error, response, context) {
 
@@ -513,12 +513,12 @@ function addParticipant(input, callback)
 ```javascript
 
     var input = [];
-        input["conferencesid"] = "conferencesid";
-        input["participantnumber"] = "participantnumber";
-        input["tocountrycode"] = 66;
-        input["muted"] = false;
-        input["deaf"] = false;
-        input["responseType"] = "ResponseType";
+        input['conferencesid'] = 'conferencesid';
+        input['participantnumber'] = 'participantnumber';
+        input['tocountrycode'] = 179;
+        input['muted'] = true;
+        input['deaf'] = true;
+        input['responseType'] = 'ResponseType';
 
     controller.addParticipant(input, function(error, response, context) {
 
@@ -554,12 +554,12 @@ function createListParticipant(input, callback)
 ```javascript
 
     var input = [];
-        input["conferenceSid"] = "ConferenceSid";
-        input["page"] = 66;
-        input["pagesize"] = 66;
-        input["muted"] = false;
-        input["deaf"] = false;
-        input["responseType"] = "ResponseType";
+        input['conferenceSid'] = 'ConferenceSid';
+        input['page'] = 179;
+        input['pagesize'] = 179;
+        input['muted'] = true;
+        input['deaf'] = true;
+        input['responseType'] = 'ResponseType';
 
     controller.createListParticipant(input, function(error, response, context) {
 
@@ -592,9 +592,9 @@ function createViewParticipant(input, callback)
 ```javascript
 
     var input = [];
-        input["conferenceSid"] = "ConferenceSid";
-        input["participantSid"] = "ParticipantSid";
-        input["responseType"] = "ResponseType";
+        input['conferenceSid'] = 'ConferenceSid';
+        input['participantSid'] = 'ParticipantSid';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewParticipant(input, function(error, response, context) {
 
@@ -638,8 +638,8 @@ function createDeleteInvalid(input, callback)
 ```javascript
 
     var input = [];
-        input["email"] = "email";
-        input["responseType"] = "ResponseType";
+        input['email'] = 'email';
+        input['responseType'] = 'ResponseType';
 
     controller.createDeleteInvalid(input, function(error, response, context) {
 
@@ -672,9 +672,9 @@ function createListBlocks(input, callback)
 ```javascript
 
     var input = [];
-        input["offset"] = "offset";
-        input["limit"] = "limit";
-        input["responseType"] = "ResponseType";
+        input['offset'] = 'offset';
+        input['limit'] = 'limit';
+        input['responseType'] = 'ResponseType';
 
     controller.createListBlocks(input, function(error, response, context) {
 
@@ -707,9 +707,9 @@ function createListSpam(input, callback)
 ```javascript
 
     var input = [];
-        input["responseType"] = "ResponseType";
-        input["offset"] = "offset";
-        input["limit"] = "limit";
+        input['responseType'] = 'ResponseType';
+        input['offset'] = 'offset';
+        input['limit'] = 'limit';
 
     controller.createListSpam(input, function(error, response, context) {
 
@@ -742,9 +742,9 @@ function createListBounces(input, callback)
 ```javascript
 
     var input = [];
-        input["responseType"] = "ResponseType";
-        input["offset"] = "offset";
-        input["limit"] = "limit";
+        input['responseType'] = 'ResponseType';
+        input['offset'] = 'offset';
+        input['limit'] = 'limit';
 
     controller.createListBounces(input, function(error, response, context) {
 
@@ -776,8 +776,8 @@ function createDeleteBounces(input, callback)
 ```javascript
 
     var input = [];
-        input["email"] = "email";
-        input["responseType"] = "ResponseType";
+        input['email'] = 'email';
+        input['responseType'] = 'ResponseType';
 
     controller.createDeleteBounces(input, function(error, response, context) {
 
@@ -810,9 +810,9 @@ function createListInvalid(input, callback)
 ```javascript
 
     var input = [];
-        input["responseType"] = "ResponseType";
-        input["offet"] = "offet";
-        input["limit"] = "limit";
+        input['responseType'] = 'ResponseType';
+        input['offet'] = 'offet';
+        input['limit'] = 'limit';
 
     controller.createListInvalid(input, function(error, response, context) {
 
@@ -845,9 +845,9 @@ function createListUnsubscribes(input, callback)
 ```javascript
 
     var input = [];
-        input["responseType"] = "ResponseType";
-        input["offset"] = "offset";
-        input["limit"] = "limit";
+        input['responseType'] = 'ResponseType';
+        input['offset'] = 'offset';
+        input['limit'] = 'limit';
 
     controller.createListUnsubscribes(input, function(error, response, context) {
 
@@ -879,8 +879,8 @@ function createDeleteUnsubscribes(input, callback)
 ```javascript
 
     var input = [];
-        input["email"] = "email";
-        input["responseType"] = "ResponseType";
+        input['email'] = 'email';
+        input['responseType'] = 'ResponseType';
 
     controller.createDeleteUnsubscribes(input, function(error, response, context) {
 
@@ -912,8 +912,8 @@ function addUnsubscribes(input, callback)
 ```javascript
 
     var input = [];
-        input["email"] = "email";
-        input["responseType"] = "ResponseType";
+        input['email'] = 'email';
+        input['responseType'] = 'ResponseType';
 
     controller.addUnsubscribes(input, function(error, response, context) {
 
@@ -945,8 +945,8 @@ function createDeleteBlock(input, callback)
 ```javascript
 
     var input = [];
-        input["email"] = "email";
-        input["responseType"] = "ResponseType";
+        input['email'] = 'email';
+        input['responseType'] = 'ResponseType';
 
     controller.createDeleteBlock(input, function(error, response, context) {
 
@@ -978,8 +978,8 @@ function createDeleteSpam(input, callback)
 ```javascript
 
     var input = [];
-        input["email"] = "email";
-        input["responseType"] = "ResponseType";
+        input['email'] = 'email';
+        input['responseType'] = 'ResponseType';
 
     controller.createDeleteSpam(input, function(error, response, context) {
 
@@ -1018,15 +1018,15 @@ function createSendEmail(input, callback)
 ```javascript
 
     var input = [];
-        input["to"] = "to";
-        input["from"] = "from";
-        input["type"] = Object.keys(SendEmailAs)[0];
-        input["subject"] = "subject";
-        input["message"] = "message";
-        input["cc"] = "cc";
-        input["bcc"] = "bcc";
-        input["attachment"] = "attachment";
-        input["responseType"] = "ResponseType";
+        input['to'] = 'to';
+        input['from'] = 'from';
+        input['type'] = Object.keys(SendEmailAs)[0];
+        input['subject'] = 'subject';
+        input['message'] = 'message';
+        input['cc'] = 'cc';
+        input['bcc'] = 'bcc';
+        input['attachment'] = 'attachment';
+        input['responseType'] = 'ResponseType';
 
     controller.createSendEmail(input, function(error, response, context) {
 
@@ -1071,9 +1071,9 @@ function createVerifyNumber(input, callback)
 ```javascript
 
     var input = [];
-        input["phonenumber"] = "phonenumber";
-        input["type"] = "type";
-        input["responseType"] = "ResponseType";
+        input['phonenumber'] = 'phonenumber';
+        input['type'] = 'type';
+        input['responseType'] = 'ResponseType';
 
     controller.createVerifyNumber(input, function(error, response, context) {
 
@@ -1117,8 +1117,8 @@ function createCarrierLookup(input, callback)
 ```javascript
 
     var input = [];
-        input["phonenumber"] = "phonenumber";
-        input["responseType"] = "ResponseType";
+        input['phonenumber'] = 'phonenumber';
+        input['responseType'] = 'ResponseType';
 
     controller.createCarrierLookup(input, function(error, response, context) {
 
@@ -1151,9 +1151,9 @@ function createCarrierLookupList(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 66;
-        input["pagesize"] = 66;
-        input["responseType"] = "ResponseType";
+        input['page'] = 15;
+        input['pagesize'] = 15;
+        input['responseType'] = 'ResponseType';
 
     controller.createCarrierLookupList(input, function(error, response, context) {
 
@@ -1197,8 +1197,8 @@ function createViewCall(input, callback)
 ```javascript
 
     var input = [];
-        input["callsid"] = "callsid";
-        input["responseType"] = "ResponseType";
+        input['callsid'] = 'callsid';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewCall(input, function(error, response, context) {
 
@@ -1249,27 +1249,27 @@ function createGroupCall(input, callback)
 ```javascript
 
     var input = [];
-        input["fromCountryCode"] = "FromCountryCode";
-        input["from"] = "From";
-        input["toCountryCode"] = "ToCountryCode";
-        input["to"] = "To";
-        input["url"] = "Url";
-        input["method"] = Object.keys(HttpAction)[0];
-        input["statusCallBackUrl"] = "StatusCallBackUrl";
-        input["statusCallBackMethod"] = Object.keys(HttpAction)[0];
-        input["fallBackUrl"] = "FallBackUrl";
-        input["fallBackMethod"] = Object.keys(HttpAction)[0];
-        input["heartBeatUrl"] = "HeartBeatUrl";
-        input["heartBeatMethod"] = Object.keys(HttpAction)[0];
-        input["timeout"] = 66;
-        input["playDtmf"] = "PlayDtmf";
-        input["hideCallerId"] = "HideCallerId";
-        input["record"] = false;
-        input["recordCallBackUrl"] = "RecordCallBackUrl";
-        input["recordCallBackMethod"] = Object.keys(HttpAction)[0];
-        input["transcribe"] = false;
-        input["transcribeCallBackUrl"] = "TranscribeCallBackUrl";
-        input["responseType"] = "ResponseType";
+        input['fromCountryCode'] = 'FromCountryCode';
+        input['from'] = 'From';
+        input['toCountryCode'] = 'ToCountryCode';
+        input['to'] = 'To';
+        input['url'] = 'Url';
+        input['method'] = Object.keys(HttpAction)[0];
+        input['statusCallBackUrl'] = 'StatusCallBackUrl';
+        input['statusCallBackMethod'] = Object.keys(HttpAction)[0];
+        input['fallBackUrl'] = 'FallBackUrl';
+        input['fallBackMethod'] = Object.keys(HttpAction)[0];
+        input['heartBeatUrl'] = 'HeartBeatUrl';
+        input['heartBeatMethod'] = Object.keys(HttpAction)[0];
+        input['timeout'] = 15;
+        input['playDtmf'] = 'PlayDtmf';
+        input['hideCallerId'] = 'HideCallerId';
+        input['record'] = false;
+        input['recordCallBackUrl'] = 'RecordCallBackUrl';
+        input['recordCallBackMethod'] = Object.keys(HttpAction)[0];
+        input['transcribe'] = false;
+        input['transcribeCallBackUrl'] = 'TranscribeCallBackUrl';
+        input['responseType'] = 'ResponseType';
 
     controller.createGroupCall(input, function(error, response, context) {
 
@@ -1307,14 +1307,14 @@ function createVoiceEffect(input, callback)
 ```javascript
 
     var input = [];
-        input["callSid"] = "CallSid";
-        input["audioDirection"] = Object.keys(AudioDirection)[0];
-        input["pitchSemiTones"] = 66.7199933373928;
-        input["pitchOctaves"] = 66.7199933373928;
-        input["pitch"] = 66.7199933373928;
-        input["rate"] = 66.7199933373928;
-        input["tempo"] = 66.7199933373928;
-        input["responseType"] = "ResponseType";
+        input['callSid'] = 'CallSid';
+        input['audioDirection'] = Object.keys(AudioDirection)[0];
+        input['pitchSemiTones'] = 15.5642606413757;
+        input['pitchOctaves'] = 15.5642606413757;
+        input['pitch'] = 15.5642606413757;
+        input['rate'] = 15.5642606413757;
+        input['tempo'] = 15.5642606413757;
+        input['responseType'] = 'ResponseType';
 
     controller.createVoiceEffect(input, function(error, response, context) {
 
@@ -1351,13 +1351,13 @@ function createRecordCall(input, callback)
 ```javascript
 
     var input = [];
-        input["callSid"] = "CallSid";
-        input["record"] = false;
-        input["direction"] = Object.keys(Direction)[0];
-        input["timeLimit"] = 66;
-        input["callBackUrl"] = "CallBackUrl";
-        input["fileformat"] = Object.keys(AudioFormat)[0];
-        input["responseType"] = "ResponseType";
+        input['callSid'] = 'CallSid';
+        input['record'] = false;
+        input['direction'] = Object.keys(Direction)[0];
+        input['timeLimit'] = 15;
+        input['callBackUrl'] = 'CallBackUrl';
+        input['fileformat'] = Object.keys(AudioFormat)[0];
+        input['responseType'] = 'ResponseType';
 
     controller.createRecordCall(input, function(error, response, context) {
 
@@ -1394,13 +1394,13 @@ function createPlayAudio(input, callback)
 ```javascript
 
     var input = [];
-        input["callSid"] = "CallSid";
-        input["audioUrl"] = "AudioUrl";
-        input["length"] = 66;
-        input["direction"] = Object.keys(Direction)[0];
-        input["loop"] = false;
-        input["mix"] = false;
-        input["responseType"] = "ResponseType";
+        input['callSid'] = 'CallSid';
+        input['audioUrl'] = 'AudioUrl';
+        input['length'] = 15;
+        input['direction'] = Object.keys(Direction)[0];
+        input['loop'] = false;
+        input['mix'] = false;
+        input['responseType'] = 'ResponseType';
 
     controller.createPlayAudio(input, function(error, response, context) {
 
@@ -1435,11 +1435,11 @@ function createInterruptedCall(input, callback)
 ```javascript
 
     var input = [];
-        input["callSid"] = "CallSid";
-        input["url"] = "Url";
-        input["method"] = Object.keys(HttpAction)[0];
-        input["status"] = Object.keys(InterruptedCallStatus)[0];
-        input["responseType"] = "ResponseType";
+        input['callSid'] = 'CallSid';
+        input['url'] = 'Url';
+        input['method'] = Object.keys(HttpAction)[0];
+        input['status'] = Object.keys(InterruptedCallStatus)[0];
+        input['responseType'] = 'ResponseType';
 
     controller.createInterruptedCall(input, function(error, response, context) {
 
@@ -1473,10 +1473,10 @@ function createSendDigit(input, callback)
 ```javascript
 
     var input = [];
-        input["callSid"] = "CallSid";
-        input["playDtmf"] = "PlayDtmf";
-        input["playDtmfDirection"] = Object.keys(Direction)[0];
-        input["responseType"] = "ResponseType";
+        input['callSid'] = 'CallSid';
+        input['playDtmf'] = 'PlayDtmf';
+        input['playDtmfDirection'] = Object.keys(Direction)[0];
+        input['responseType'] = 'ResponseType';
 
     controller.createSendDigit(input, function(error, response, context) {
 
@@ -1528,28 +1528,28 @@ function createMakeCall(input, callback)
 ```javascript
 
     var input = [];
-        input["fromCountryCode"] = "FromCountryCode";
-        input["from"] = "From";
-        input["toCountryCode"] = "ToCountryCode";
-        input["to"] = "To";
-        input["url"] = "Url";
-        input["method"] = Object.keys(HttpAction)[0];
-        input["statusCallBackUrl"] = "StatusCallBackUrl";
-        input["statusCallBackMethod"] = Object.keys(HttpAction)[0];
-        input["fallBackUrl"] = "FallBackUrl";
-        input["fallBackMethod"] = Object.keys(HttpAction)[0];
-        input["heartBeatUrl"] = "HeartBeatUrl";
-        input["heartBeatMethod"] = false;
-        input["timeout"] = 66;
-        input["playDtmf"] = "PlayDtmf";
-        input["hideCallerId"] = false;
-        input["record"] = false;
-        input["recordCallBackUrl"] = "RecordCallBackUrl";
-        input["recordCallBackMethod"] = Object.keys(HttpAction)[0];
-        input["transcribe"] = false;
-        input["transcribeCallBackUrl"] = "TranscribeCallBackUrl";
-        input["ifMachine"] = Object.keys(ifMachine)[0];
-        input["responseType"] = "ResponseType";
+        input['fromCountryCode'] = 'FromCountryCode';
+        input['from'] = 'From';
+        input['toCountryCode'] = 'ToCountryCode';
+        input['to'] = 'To';
+        input['url'] = 'Url';
+        input['method'] = Object.keys(HttpAction)[0];
+        input['statusCallBackUrl'] = 'StatusCallBackUrl';
+        input['statusCallBackMethod'] = Object.keys(HttpAction)[0];
+        input['fallBackUrl'] = 'FallBackUrl';
+        input['fallBackMethod'] = Object.keys(HttpAction)[0];
+        input['heartBeatUrl'] = 'HeartBeatUrl';
+        input['heartBeatMethod'] = false;
+        input['timeout'] = 15;
+        input['playDtmf'] = 'PlayDtmf';
+        input['hideCallerId'] = false;
+        input['record'] = false;
+        input['recordCallBackUrl'] = 'RecordCallBackUrl';
+        input['recordCallBackMethod'] = Object.keys(HttpAction)[0];
+        input['transcribe'] = false;
+        input['transcribeCallBackUrl'] = 'TranscribeCallBackUrl';
+        input['ifMachine'] = Object.keys(ifMachine)[0];
+        input['responseType'] = 'ResponseType';
 
     controller.createMakeCall(input, function(error, response, context) {
 
@@ -1585,14 +1585,61 @@ function createListCalls(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 66;
-        input["pageSize"] = 66;
-        input["to"] = "To";
-        input["from"] = "From";
-        input["dateCreated"] = "DateCreated";
-        input["responseType"] = "ResponseType";
+        input['page'] = 15;
+        input['pageSize'] = 15;
+        input['to'] = 'To';
+        input['from'] = 'From';
+        input['dateCreated'] = 'DateCreated';
+        input['responseType'] = 'ResponseType';
 
     controller.createListCalls(input, function(error, response, context) {
+
+    
+	});
+```
+
+
+
+#### <a name="create_send_ringless_vm"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createSendRinglessVM") createSendRinglessVM
+
+> API endpoint used to send a Ringless Voicemail
+
+
+```javascript
+function createSendRinglessVM(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| fromCountryCode |  ``` Required ```  | From country code |
+| from |  ``` Required ```  | This number to display on Caller ID as calling |
+| toCountryCode |  ``` Required ```  | To country code |
+| to |  ``` Required ```  | To number |
+| voiceMailURL |  ``` Required ```  | URL to an audio file |
+| method |  ``` Required ```  ``` DefaultValue ```  | Not currently used in this version |
+| statusCallBackUrl |  ``` Optional ```  | URL to post the status of the Ringless request |
+| statsCallBackMethod |  ``` Optional ```  | POST or GET |
+| responseType |  ``` Optional ```  ``` DefaultValue ```  | Response type format xml or json |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['fromCountryCode'] = 'FromCountryCode';
+        input['from'] = 'From';
+        input['toCountryCode'] = 'ToCountryCode';
+        input['to'] = 'To';
+        input['voiceMailURL'] = 'VoiceMailURL';
+        input['method'] = 'Method';
+        input['statusCallBackUrl'] = 'StatusCallBackUrl';
+        input['statsCallBackMethod'] = 'StatsCallBackMethod';
+        input['responseType'] = 'ResponseType';
+
+    controller.createSendRinglessVM(input, function(error, response, context) {
 
     
 	});
@@ -1634,8 +1681,8 @@ function createCheckFunds(input, callback)
 ```javascript
 
     var input = [];
-        input["accountSid"] = account_sid;
-        input["authToken"] = auth_token;
+        input['accountSid'] = account_sid;
+        input['authToken'] = auth_token;
 
     controller.createCheckFunds(input, function(error, response, context) {
 
@@ -1669,10 +1716,10 @@ function createToken(input, callback)
 ```javascript
 
     var input = [];
-        input["accountSid"] = account_sid;
-        input["authToken"] = auth_token;
-        input["username"] = "username";
-        input["password"] = "password";
+        input['accountSid'] = account_sid;
+        input['authToken'] = auth_token;
+        input['username'] = 'username';
+        input['password'] = 'password';
 
     controller.createToken(input, function(error, response, context) {
 
@@ -1718,10 +1765,10 @@ function createSubAccount(input, callback)
 ```javascript
 
     var input = [];
-        input["firstName"] = "FirstName";
-        input["lastName"] = "LastName";
-        input["email"] = "Email";
-        input["responseType"] = "ResponseType";
+        input['firstName'] = 'FirstName';
+        input['lastName'] = 'LastName';
+        input['email'] = 'Email';
+        input['responseType'] = 'ResponseType';
 
     controller.createSubAccount(input, function(error, response, context) {
 
@@ -1754,9 +1801,9 @@ function createSuspendSubAccount(input, callback)
 ```javascript
 
     var input = [];
-        input["subAccountSID"] = "SubAccountSID";
-        input["activate"] = Object.keys(ActivateStatus)[0];
-        input["responseType"] = "ResponseType";
+        input['subAccountSID'] = 'SubAccountSID';
+        input['activate'] = Object.keys(ActivateStatus)[0];
+        input['responseType'] = 'ResponseType';
 
     controller.createSuspendSubAccount(input, function(error, response, context) {
 
@@ -1789,9 +1836,9 @@ function createDeleteSubAccount(input, callback)
 ```javascript
 
     var input = [];
-        input["subAccountSID"] = "SubAccountSID";
-        input["mergeNumber"] = Object.keys(MergeNumberStatus)[0];
-        input["responseType"] = "ResponseType";
+        input['subAccountSID'] = 'SubAccountSID';
+        input['mergeNumber'] = Object.keys(MergeNumberStatus)[0];
+        input['responseType'] = 'ResponseType';
 
     controller.createDeleteSubAccount(input, function(error, response, context) {
 
@@ -1843,16 +1890,16 @@ function createAddress(input, callback)
 ```javascript
 
     var input = [];
-        input["name"] = "Name";
-        input["address"] = "Address";
-        input["country"] = "Country";
-        input["state"] = "State";
-        input["city"] = "City";
-        input["zip"] = "Zip";
-        input["description"] = "Description";
-        input["email"] = "email";
-        input["phone"] = "Phone";
-        input["responseType"] = "ResponseType";
+        input['name'] = 'Name';
+        input['address'] = 'Address';
+        input['country'] = 'Country';
+        input['state'] = 'State';
+        input['city'] = 'City';
+        input['zip'] = 'Zip';
+        input['description'] = 'Description';
+        input['email'] = 'email';
+        input['phone'] = 'Phone';
+        input['responseType'] = 'ResponseType';
 
     controller.createAddress(input, function(error, response, context) {
 
@@ -1884,8 +1931,8 @@ function createDeleteAddress(input, callback)
 ```javascript
 
     var input = [];
-        input["addressSID"] = "AddressSID";
-        input["responseType"] = "ResponseType";
+        input['addressSID'] = 'AddressSID';
+        input['responseType'] = 'ResponseType';
 
     controller.createDeleteAddress(input, function(error, response, context) {
 
@@ -1917,8 +1964,8 @@ function createVerifyAddress(input, callback)
 ```javascript
 
     var input = [];
-        input["addressSID"] = "AddressSID";
-        input["responseType"] = "ResponseType";
+        input['addressSID'] = 'AddressSID';
+        input['responseType'] = 'ResponseType';
 
     controller.createVerifyAddress(input, function(error, response, context) {
 
@@ -1953,11 +2000,11 @@ function createListAddress(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 158;
-        input["pageSize"] = 158;
-        input["addressSID"] = "AddressSID";
-        input["dateCreated"] = "DateCreated";
-        input["responseType"] = "ResponseType";
+        input['page'] = 15;
+        input['pageSize'] = 15;
+        input['addressSID'] = 'AddressSID';
+        input['dateCreated'] = 'DateCreated';
+        input['responseType'] = 'ResponseType';
 
     controller.createListAddress(input, function(error, response, context) {
 
@@ -1989,8 +2036,8 @@ function createViewAddress(input, callback)
 ```javascript
 
     var input = [];
-        input["addressSID"] = "AddressSID";
-        input["responseType"] = "ResponseType";
+        input['addressSID'] = 'AddressSID';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewAddress(input, function(error, response, context) {
 
@@ -2047,21 +2094,21 @@ function updatePhoneNumber(input, callback)
 ```javascript
 
     var input = [];
-        input["phoneNumber"] = "PhoneNumber";
-        input["friendlyName"] = "FriendlyName";
-        input["voiceUrl"] = "VoiceUrl";
-        input["voiceMethod"] = Object.keys(HttpAction)[0];
-        input["voiceFallbackUrl"] = "VoiceFallbackUrl";
-        input["voiceFallbackMethod"] = Object.keys(HttpAction)[0];
-        input["hangupCallback"] = "HangupCallback";
-        input["hangupCallbackMethod"] = Object.keys(HttpAction)[0];
-        input["heartbeatUrl"] = "HeartbeatUrl";
-        input["heartbeatMethod"] = Object.keys(HttpAction)[0];
-        input["smsUrl"] = "SmsUrl";
-        input["smsMethod"] = Object.keys(HttpAction)[0];
-        input["smsFallbackUrl"] = "SmsFallbackUrl";
-        input["smsFallbackMethod"] = Object.keys(HttpAction)[0];
-        input["responseType"] = "ResponseType";
+        input['phoneNumber'] = 'PhoneNumber';
+        input['friendlyName'] = 'FriendlyName';
+        input['voiceUrl'] = 'VoiceUrl';
+        input['voiceMethod'] = Object.keys(HttpAction)[0];
+        input['voiceFallbackUrl'] = 'VoiceFallbackUrl';
+        input['voiceFallbackMethod'] = Object.keys(HttpAction)[0];
+        input['hangupCallback'] = 'HangupCallback';
+        input['hangupCallbackMethod'] = Object.keys(HttpAction)[0];
+        input['heartbeatUrl'] = 'HeartbeatUrl';
+        input['heartbeatMethod'] = Object.keys(HttpAction)[0];
+        input['smsUrl'] = 'SmsUrl';
+        input['smsMethod'] = Object.keys(HttpAction)[0];
+        input['smsFallbackUrl'] = 'SmsFallbackUrl';
+        input['smsFallbackMethod'] = Object.keys(HttpAction)[0];
+        input['responseType'] = 'ResponseType';
 
     controller.updatePhoneNumber(input, function(error, response, context) {
 
@@ -2093,8 +2140,8 @@ function createBuyNumber(input, callback)
 ```javascript
 
     var input = [];
-        input["phoneNumber"] = "PhoneNumber";
-        input["responseType"] = "ResponseType";
+        input['phoneNumber'] = 'PhoneNumber';
+        input['responseType'] = 'ResponseType';
 
     controller.createBuyNumber(input, function(error, response, context) {
 
@@ -2126,8 +2173,8 @@ function createReleaseNumber(input, callback)
 ```javascript
 
     var input = [];
-        input["phoneNumber"] = "PhoneNumber";
-        input["responseType"] = "ResponseType";
+        input['phoneNumber'] = 'PhoneNumber';
+        input['responseType'] = 'ResponseType';
 
     controller.createReleaseNumber(input, function(error, response, context) {
 
@@ -2159,8 +2206,8 @@ function createViewNumberDetails(input, callback)
 ```javascript
 
     var input = [];
-        input["phoneNumber"] = "PhoneNumber";
-        input["responseType"] = "ResponseType";
+        input['phoneNumber'] = 'PhoneNumber';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewNumberDetails(input, function(error, response, context) {
 
@@ -2195,11 +2242,11 @@ function createListNumber(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 158;
-        input["pageSize"] = 158;
-        input["numberType"] = Object.keys(Number Type)[0];
-        input["friendlyName"] = "FriendlyName";
-        input["responseType"] = "ResponseType";
+        input['page'] = 15;
+        input['pageSize'] = 15;
+        input['numberType'] = Object.keys(Number Type)[0];
+        input['friendlyName'] = 'FriendlyName';
+        input['responseType'] = 'ResponseType';
 
     controller.createListNumber(input, function(error, response, context) {
 
@@ -2233,10 +2280,10 @@ function createAvailablePhoneNumber(input, callback)
 ```javascript
 
     var input = [];
-        input["numberType"] = Object.keys(Number Type)[0];
-        input["areaCode"] = "AreaCode";
-        input["pageSize"] = 158;
-        input["responseType"] = "ResponseType";
+        input['numberType'] = Object.keys(Number Type)[0];
+        input['areaCode'] = 'AreaCode';
+        input['pageSize'] = 15;
+        input['responseType'] = 'ResponseType';
 
     controller.createAvailablePhoneNumber(input, function(error, response, context) {
 
@@ -2283,11 +2330,11 @@ function createListRecording(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 158;
-        input["pageSize"] = 158;
-        input["dateCreated"] = "DateCreated";
-        input["callSid"] = "CallSid";
-        input["responseType"] = "ResponseType";
+        input['page'] = 15;
+        input['pageSize'] = 15;
+        input['dateCreated'] = 'DateCreated';
+        input['callSid'] = 'CallSid';
+        input['responseType'] = 'ResponseType';
 
     controller.createListRecording(input, function(error, response, context) {
 
@@ -2319,8 +2366,8 @@ function createDeleteRecording(input, callback)
 ```javascript
 
     var input = [];
-        input["recordingSid"] = "RecordingSid";
-        input["responseType"] = "ResponseType";
+        input['recordingSid'] = 'RecordingSid';
+        input['responseType'] = 'ResponseType';
 
     controller.createDeleteRecording(input, function(error, response, context) {
 
@@ -2352,8 +2399,8 @@ function createViewRecording(input, callback)
 ```javascript
 
     var input = [];
-        input["recordingSid"] = "RecordingSid";
-        input["responseType"] = "ResponseType";
+        input['recordingSid'] = 'RecordingSid';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewRecording(input, function(error, response, context) {
 
@@ -2400,11 +2447,11 @@ function createListInboundSMS(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 158;
-        input["pagesize"] = "pagesize";
-        input["from"] = "from";
-        input["to"] = "to";
-        input["responseType"] = "ResponseType";
+        input['page'] = 15;
+        input['pagesize'] = 'pagesize';
+        input['from'] = 'from';
+        input['to'] = 'to';
+        input['responseType'] = 'ResponseType';
 
     controller.createListInboundSMS(input, function(error, response, context) {
 
@@ -2440,12 +2487,12 @@ function createListSMS(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 158;
-        input["pagesize"] = 158;
-        input["from"] = "from";
-        input["to"] = "to";
-        input["datesent"] = "datesent";
-        input["responseType"] = "ResponseType";
+        input['page'] = 15;
+        input['pagesize'] = 15;
+        input['from'] = 'from';
+        input['to'] = 'to';
+        input['datesent'] = 'datesent';
+        input['responseType'] = 'ResponseType';
 
     controller.createListSMS(input, function(error, response, context) {
 
@@ -2483,14 +2530,14 @@ function createSendSMS(input, callback)
 ```javascript
 
     var input = [];
-        input["fromcountrycode"] = 158;
-        input["from"] = "from";
-        input["tocountrycode"] = 158;
-        input["to"] = "to";
-        input["body"] = "body";
-        input["method"] = Object.keys(HttpAction)[0];
-        input["messagestatuscallback"] = "messagestatuscallback";
-        input["responseType"] = "ResponseType";
+        input['fromcountrycode'] = 15;
+        input['from'] = 'from';
+        input['tocountrycode'] = 15;
+        input['to'] = 'to';
+        input['body'] = 'body';
+        input['method'] = Object.keys(HttpAction)[0];
+        input['messagestatuscallback'] = 'messagestatuscallback';
+        input['responseType'] = 'ResponseType';
 
     controller.createSendSMS(input, function(error, response, context) {
 
@@ -2522,8 +2569,8 @@ function createViewSMS(input, callback)
 ```javascript
 
     var input = [];
-        input["messagesid"] = "messagesid";
-        input["responseType"] = "ResponseType";
+        input['messagesid'] = 'messagesid';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewSMS(input, function(error, response, context) {
 
@@ -2567,8 +2614,8 @@ function createAudioURLTranscription(input, callback)
 ```javascript
 
     var input = [];
-        input["audioUrl"] = "AudioUrl";
-        input["responseType"] = "ResponseType";
+        input['audioUrl'] = 'AudioUrl';
+        input['responseType'] = 'ResponseType';
 
     controller.createAudioURLTranscription(input, function(error, response, context) {
 
@@ -2600,8 +2647,8 @@ function createRecordingTranscription(input, callback)
 ```javascript
 
     var input = [];
-        input["recordingSid"] = "RecordingSid";
-        input["responseType"] = "ResponseType";
+        input['recordingSid'] = 'RecordingSid';
+        input['responseType'] = 'ResponseType';
 
     controller.createRecordingTranscription(input, function(error, response, context) {
 
@@ -2633,8 +2680,8 @@ function createViewTranscription(input, callback)
 ```javascript
 
     var input = [];
-        input["transcriptionSid"] = "TranscriptionSid";
-        input["responseType"] = "ResponseType";
+        input['transcriptionSid'] = 'TranscriptionSid';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewTranscription(input, function(error, response, context) {
 
@@ -2669,11 +2716,11 @@ function createListTranscription(input, callback)
 ```javascript
 
     var input = [];
-        input["page"] = 158;
-        input["pageSize"] = 158;
-        input["status"] = Object.keys(Status)[0];
-        input["dateTranscribed"] = "DateTranscribed";
-        input["responseType"] = "ResponseType";
+        input['page'] = 15;
+        input['pageSize'] = 15;
+        input['status'] = Object.keys(Status)[0];
+        input['dateTranscribed'] = 'DateTranscribed';
+        input['responseType'] = 'ResponseType';
 
     controller.createListTranscription(input, function(error, response, context) {
 
@@ -2719,10 +2766,10 @@ function createListUsage(input, callback)
 ```javascript
 
     var input = [];
-        input["productCode"] = Object.keys(Product Code)[0];
-        input["startDate"] = "startDate";
-        input["endDate"] = "endDate";
-        input["responseType"] = "ResponseType";
+        input['productCode'] = Object.keys(Product Code)[0];
+        input['startDate'] = 'startDate';
+        input['endDate'] = 'endDate';
+        input['responseType'] = 'ResponseType';
 
     controller.createListUsage(input, function(error, response, context) {
 
@@ -2766,8 +2813,8 @@ function createViewAccount(input, callback)
 ```javascript
 
     var input = [];
-        input["date"] = "Date";
-        input["responseType"] = "ResponseType";
+        input['date'] = 'Date';
+        input['responseType'] = 'ResponseType';
 
     controller.createViewAccount(input, function(error, response, context) {
 
