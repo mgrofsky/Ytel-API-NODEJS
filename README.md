@@ -241,8 +241,8 @@ function listOutboundSharedShortcodes(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 106;
-        input['pagesize'] = 106;
+        input['page'] = 43;
+        input['pagesize'] = 43;
         input['from'] = 'from';
         input['to'] = 'to';
         input['datesent'] = 'datesent';
@@ -282,8 +282,8 @@ function listInboundSharedShortcodes(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 106;
-        input['pagesize'] = 106;
+        input['page'] = 43;
+        input['pagesize'] = 43;
         input['from'] = 'from';
         input['shortcode'] = 'Shortcode';
         input['dateReceived'] = 'DateReceived';
@@ -366,8 +366,8 @@ function listTemplates(input, callback)
     var input = [];
         input['responseType'] = 'ResponseType';
         input['type'] = 'type';
-        input['page'] = 106;
-        input['pagesize'] = 106;
+        input['page'] = 2;
+        input['pagesize'] = 2;
         input['shortcode'] = 'Shortcode';
 
     controller.listTemplates(input, function(error, response, context) {
@@ -437,10 +437,10 @@ function listKeyword(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 106;
-        input['pageSize'] = 106;
+        input['page'] = 2;
+        input['pageSize'] = 2;
         input['keyword'] = 'Keyword';
-        input['shortcode'] = 106;
+        input['shortcode'] = 2;
 
     controller.listKeyword(input, function(error, response, context) {
 
@@ -508,8 +508,8 @@ function listAssignment(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pageSize'] = 64;
+        input['page'] = 2;
+        input['pageSize'] = 2;
         input['shortcode'] = 'Shortcode';
 
     controller.listAssignment(input, function(error, response, context) {
@@ -768,7 +768,7 @@ function createConference(input, callback)
         input['record'] = false;
         input['recordCallbackMethod'] = Object.keys(HttpAction)[0];
         input['schdeuleTime'] = 'SchdeuleTime';
-        input['timeout'] = 64;
+        input['timeout'] = 2;
 
     controller.createConference(input, function(error, response, context) {
 
@@ -878,8 +878,8 @@ function listParticipant(input, callback)
     var input = [];
         input['conferenceSid'] = 'ConferenceSid';
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pagesize'] = 64;
+        input['page'] = 2;
+        input['pagesize'] = 2;
         input['muted'] = false;
         input['deaf'] = false;
 
@@ -917,8 +917,8 @@ function listConference(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pageSize'] = 64;
+        input['page'] = 2;
+        input['pageSize'] = 2;
         input['friendlyName'] = 'FriendlyName';
         input['dateCreated'] = 'DateCreated';
 
@@ -968,8 +968,8 @@ function listTranscription(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pageSize'] = 64;
+        input['page'] = 2;
+        input['pageSize'] = 2;
         input['status'] = Object.keys(Status)[0];
         input['dateTranscribed'] = 'DateTranscribed';
 
@@ -1119,7 +1119,7 @@ function availablePhoneNumber(input, callback)
         input['numberType'] = Object.keys(Number Type)[0];
         input['areaCode'] = 'AreaCode';
         input['responseType'] = 'ResponseType';
-        input['pageSize'] = 64;
+        input['pageSize'] = 2;
 
     controller.availablePhoneNumber(input, function(error, response, context) {
 
@@ -1155,8 +1155,8 @@ function listNumber(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pageSize'] = 64;
+        input['page'] = 2;
+        input['pageSize'] = 2;
         input['numberType'] = Object.keys(Number Type)[0];
         input['friendlyName'] = 'FriendlyName';
 
@@ -1561,8 +1561,8 @@ function listRecording(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pageSize'] = 64;
+        input['page'] = 2;
+        input['pageSize'] = 2;
         input['dateCreated'] = 'DateCreated';
         input['callSid'] = 'CallSid';
 
@@ -2121,8 +2121,8 @@ function listSMS(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pagesize'] = 64;
+        input['page'] = 2;
+        input['pagesize'] = 2;
         input['from'] = 'from';
         input['to'] = 'to';
         input['datesent'] = 'datesent';
@@ -2162,8 +2162,8 @@ function listInboundSMS(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pagesize'] = 64;
+        input['page'] = 2;
+        input['pagesize'] = 2;
         input['from'] = 'from';
         input['to'] = 'to';
         input['dateSent'] = 'DateSent';
@@ -2243,7 +2243,7 @@ function makeCall(input, callback)
         input['fallBackMethod'] = Object.keys(HttpAction)[0];
         input['heartBeatUrl'] = 'HeartBeatUrl';
         input['heartBeatMethod'] = Object.keys(HttpAction)[0];
-        input['timeout'] = 64;
+        input['timeout'] = 2;
         input['playDtmf'] = 'PlayDtmf';
         input['hideCallerId'] = false;
         input['record'] = false;
@@ -2296,7 +2296,7 @@ function playAudio(input, callback)
         input['audioUrl'] = 'AudioUrl';
         input['sayText'] = 'SayText';
         input['responseType'] = 'ResponseType';
-        input['length'] = 64;
+        input['length'] = 2;
         input['direction'] = Object.keys(Direction)[0];
         input['mix'] = false;
 
@@ -2339,7 +2339,7 @@ function recordCall(input, callback)
         input['record'] = false;
         input['responseType'] = 'ResponseType';
         input['direction'] = Object.keys(Direction)[0];
-        input['timeLimit'] = 64;
+        input['timeLimit'] = 2;
         input['callBackUrl'] = 'CallBackUrl';
         input['fileformat'] = Object.keys(AudioFormat)[0];
 
@@ -2382,11 +2382,11 @@ function voiceEffect(input, callback)
         input['callSid'] = 'CallSid';
         input['responseType'] = 'ResponseType';
         input['audioDirection'] = Object.keys(AudioDirection)[0];
-        input['pitchSemiTones'] = 64.2805029821026;
-        input['pitchOctaves'] = 64.2805029821026;
-        input['pitch'] = 64.2805029821026;
-        input['rate'] = 64.2805029821026;
-        input['tempo'] = 64.2805029821026;
+        input['pitchSemiTones'] = 2.22931437065327;
+        input['pitchOctaves'] = 2.22931437065327;
+        input['pitch'] = 2.22931437065327;
+        input['rate'] = 2.22931437065327;
+        input['tempo'] = 2.22931437065327;
 
     controller.voiceEffect(input, function(error, response, context) {
 
@@ -2526,7 +2526,7 @@ function groupCall(input, callback)
         input['fallBackMethod'] = Object.keys(HttpAction)[0];
         input['heartBeatUrl'] = 'HeartBeatUrl';
         input['heartBeatMethod'] = Object.keys(HttpAction)[0];
-        input['timeout'] = 64;
+        input['timeout'] = 2;
         input['playDtmf'] = 'PlayDtmf';
         input['hideCallerId'] = 'HideCallerId';
         input['record'] = false;
@@ -2570,8 +2570,8 @@ function listCalls(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pageSize'] = 64;
+        input['page'] = 2;
+        input['pageSize'] = 2;
         input['to'] = 'To';
         input['from'] = 'From';
         input['dateCreated'] = 'DateCreated';
@@ -2698,8 +2698,8 @@ function carrierLookupList(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pagesize'] = 64;
+        input['page'] = 2;
+        input['pagesize'] = 93;
 
     controller.carrierLookupList(input, function(error, response, context) {
 
@@ -2862,8 +2862,8 @@ function listAddress(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 64;
-        input['pageSize'] = 64;
+        input['page'] = 93;
+        input['pageSize'] = 93;
         input['addressSID'] = 'AddressSID';
         input['dateCreated'] = 'DateCreated';
 
@@ -3038,6 +3038,8 @@ function createSubAccount(input, callback)
 | firstName |  ``` Required ```  | Sub account user first name |
 | lastName |  ``` Required ```  | sub account user last name |
 | email |  ``` Required ```  | Sub account email address |
+| friendlyName |  ``` Required ```  | Descriptive name of the sub account |
+| password |  ``` Required ```  | The password of the sub account.  Please make sure to make as password that is at least 8 characters long, contain a symbol, uppercase and a number. |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 
 
@@ -3050,6 +3052,8 @@ function createSubAccount(input, callback)
         input['firstName'] = 'FirstName';
         input['lastName'] = 'LastName';
         input['email'] = 'Email';
+        input['friendlyName'] = 'FriendlyName';
+        input['password'] = 'Password';
         input['responseType'] = 'ResponseType';
 
     controller.createSubAccount(input, function(error, response, context) {
@@ -3143,8 +3147,8 @@ function sendDedicatedShortcode(input, callback)
 ```javascript
 
     var input = [];
-        input['shortcode'] = 155;
-        input['to'] = 155.775784873765;
+        input['shortcode'] = 93;
+        input['to'] = 93.7245962623156;
         input['body'] = 'body';
         input['responseType'] = 'ResponseType';
         input['method'] = Object.keys(HttpAction)[0];
@@ -3221,8 +3225,8 @@ function listShortcode(input, callback)
         input['shortcode'] = 'Shortcode';
         input['to'] = 'To';
         input['dateSent'] = 'DateSent';
-        input['page'] = 155;
-        input['pageSize'] = 155;
+        input['page'] = 93;
+        input['pageSize'] = 93;
 
     controller.listShortcode(input, function(error, response, context) {
 
@@ -3259,8 +3263,8 @@ function listInboundShortcode(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 155;
-        input['pageSize'] = 155;
+        input['page'] = 93;
+        input['pageSize'] = 93;
         input['from'] = 'From';
         input['shortcode'] = 'Shortcode';
         input['dateReceived'] = 'DateReceived';
