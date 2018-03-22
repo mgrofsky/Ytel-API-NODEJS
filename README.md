@@ -1,6 +1,6 @@
 # Getting started
 
-message360 API version 3
+Ytel API version 3
 
 ## How to Build
 
@@ -13,7 +13,7 @@ To check if node and npm have been successfully installed, write the following c
 * `node --version`
 * `npm -version`
 
-![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Message360-Node)
+![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Ytel-Node)
 
 Now use npm to resolve all dependencies by running the following command in the root directory (of the SDK folder):
 
@@ -21,13 +21,13 @@ Now use npm to resolve all dependencies by running the following command in the 
 npm install
 ```
 
-![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Message360-Node)
+![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Ytel-Node)
 
 ![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency2)
 
 This will install all dependencies in the `node_modules` folder.
 
-Once dependencies are resolved, you will need to move the folder `Message360 ` in to your `node_modules` folder.
+Once dependencies are resolved, you will need to move the folder `Ytel ` in to your `node_modules` folder.
 
 ## How to Use
 
@@ -42,7 +42,7 @@ Click on `File` and select `Open Folder`.
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
-![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Message360-Node)
+![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Ytel-Node)
 
 ### 2. Creating a Test File
 
@@ -54,9 +54,9 @@ var lib = require('lib');
 
 Save changes.
 
-![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Message360-Node)
+![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Ytel-Node)
 
-![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Message360-Node)
+![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Ytel-Node)
 
 ### 3. Running The Test File
 
@@ -66,7 +66,7 @@ To run the `index.js` file, open up the command prompt and navigate to the Path 
 node index.js
 ```
 
-![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Message360-Node)
+![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Ytel-Node)
 
 
 ## How to Test
@@ -87,11 +87,11 @@ Tests can be run in a number of ways:
 ### Method 3 (Run specific controller's tests)
 
 1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  message360 API V3Controller`  to run all the tests in that controller file.
+2. Type `mocha  Ytel API V3Controller`  to run all the tests in that controller file.
 
 > To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.
 
-![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=message360%20API%20V3Controller)
+![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=Ytel%20API%20V3Controller)
 
 ## Initialization
 
@@ -122,10 +122,10 @@ lib.Configuration.basicAuthPassword = "basicAuthPassword"; // The password to us
 
 ## <a name="list_of_controllers"></a>List of Controllers
 
+* [WebRTCController](#web_rtc_controller)
 * [SharedShortCodeController](#shared_short_code_controller)
 * [ConferenceController](#conference_controller)
 * [PhoneNumberController](#phone_number_controller)
-* [WebRTCController](#web_rtc_controller)
 * [TranscriptionController](#transcription_controller)
 * [RecordingController](#recording_controller)
 * [EmailController](#email_controller)
@@ -140,6 +140,88 @@ lib.Configuration.basicAuthPassword = "basicAuthPassword"; // The password to us
 * [PostCardController](#post_card_controller)
 * [LetterController](#letter_controller)
 * [AreaMailController](#area_mail_controller)
+
+## <a name="web_rtc_controller"></a>![Class: ](https://apidocs.io/img/class.png ".WebRTCController") WebRTCController
+
+### Get singleton instance
+
+The singleton instance of the ``` WebRTCController ``` class can be accessed from the API Client.
+
+```javascript
+var controller = lib.WebRTCController;
+```
+
+### <a name="create_token"></a>![Method: ](https://apidocs.io/img/method.png ".WebRTCController.createToken") createToken
+
+> Ytel webrtc
+
+
+```javascript
+function createToken(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| accountSid |  ``` Required ```  | Your Ytel Account SID |
+| authToken |  ``` Required ```  | Your Ytel Token |
+| username |  ``` Required ```  | WebRTC username authentication |
+| password |  ``` Required ```  | WebRTC password authentication |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['accountSid'] = account_sid;
+        input['authToken'] = auth_token;
+        input['username'] = 'username';
+        input['password'] = 'password';
+
+    controller.createToken(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="check_funds"></a>![Method: ](https://apidocs.io/img/method.png ".WebRTCController.checkFunds") checkFunds
+
+> TODO: Add a method description
+
+
+```javascript
+function checkFunds(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| accountSid |  ``` Required ```  | Your Ytel Account SID |
+| authToken |  ``` Required ```  | Your Ytel Token |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['accountSid'] = account_sid;
+        input['authToken'] = auth_token;
+
+    controller.checkFunds(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+[Back to List of Controllers](#list_of_controllers)
 
 ## <a name="shared_short_code_controller"></a>![Class: ](https://apidocs.io/img/class.png ".SharedShortCodeController") SharedShortCodeController
 
@@ -244,8 +326,8 @@ function listOutboundSharedShortcodes(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 95;
-        input['pagesize'] = 95;
+        input['page'] = 82;
+        input['pagesize'] = 82;
         input['shortcode'] = 'Shortcode';
         input['to'] = 'to';
         input['datesent'] = 'datesent';
@@ -285,8 +367,8 @@ function listInboundSharedShortcodes(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 95;
-        input['pagesize'] = 95;
+        input['page'] = 82;
+        input['pagesize'] = 82;
         input['from'] = 'from';
         input['shortcode'] = 'Shortcode';
         input['datecreated'] = 'Datecreated';
@@ -301,7 +383,7 @@ function listInboundSharedShortcodes(input, callback)
 
 ### <a name="send_shared_shortcode"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.sendSharedShortcode") sendSharedShortcode
 
-> Send an SMS from a message360 ShortCode
+> Send an SMS from a Ytel ShortCode
 
 
 ```javascript
@@ -369,8 +451,8 @@ function listTemplates(input, callback)
     var input = [];
         input['responseType'] = 'ResponseType';
         input['type'] = 'type';
-        input['page'] = 95;
-        input['pagesize'] = 95;
+        input['page'] = 40;
+        input['pagesize'] = 40;
         input['shortcode'] = 'Shortcode';
 
     controller.listTemplates(input, function(error, response, context) {
@@ -416,7 +498,7 @@ function viewKeyword(input, callback)
 
 ### <a name="list_keyword"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.listKeyword") listKeyword
 
-> Retrieve a list of keywords associated with your message360 account.
+> Retrieve a list of keywords associated with your Ytel account.
 
 
 ```javascript
@@ -440,10 +522,10 @@ function listKeyword(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 95;
-        input['pagesize'] = 95;
+        input['page'] = 40;
+        input['pagesize'] = 40;
         input['keyword'] = 'Keyword';
-        input['shortcode'] = 95;
+        input['shortcode'] = 40;
 
     controller.listKeyword(input, function(error, response, context) {
 
@@ -465,7 +547,7 @@ function viewAssignement(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| shortcode |  ``` Required ```  | List of valid Shortcode to your message360 account |
+| shortcode |  ``` Required ```  | List of valid Shortcode to your Ytel account |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 
 
@@ -488,7 +570,7 @@ function viewAssignement(input, callback)
 
 ### <a name="list_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.listAssignment") listAssignment
 
-> Retrieve a list of shortcode assignment associated with your message360 account.
+> Retrieve a list of shortcode assignment associated with your Ytel account.
 
 
 ```javascript
@@ -511,8 +593,8 @@ function listAssignment(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 95;
-        input['pagesize'] = 95;
+        input['page'] = 40;
+        input['pagesize'] = 40;
         input['shortcode'] = 'Shortcode';
 
     controller.listAssignment(input, function(error, response, context) {
@@ -535,7 +617,7 @@ function updateAssignment(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| shortcode |  ``` Required ```  | List of valid shortcode to your message360 account |
+| shortcode |  ``` Required ```  | List of valid shortcode to your Ytel account |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 | friendlyName |  ``` Optional ```  | User generated name of the shortcode |
 | callbackUrl |  ``` Optional ```  | URL that can be requested to receive notification when call has ended. A set of default parameters will be sent here once the call is finished. |
@@ -726,7 +808,7 @@ function addParticipant(input, callback)
 
 ### <a name="create_conference"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConference") createConference
 
-> Here you can experiment with initiating a conference call through message360 and view the request response generated when doing so.
+> Here you can experiment with initiating a conference call through Ytel and view the request response generated when doing so.
 
 
 ```javascript
@@ -771,7 +853,7 @@ function createConference(input, callback)
         input['recordCallBackUrl'] = 'RecordCallBackUrl';
         input['recordCallBackMethod'] = Object.keys(HttpAction)[0];
         input['scheduleTime'] = 'ScheduleTime';
-        input['timeout'] = 95;
+        input['timeout'] = 40;
 
     controller.createConference(input, function(error, response, context) {
 
@@ -881,8 +963,8 @@ function listParticipant(input, callback)
     var input = [];
         input['conferenceSid'] = 'ConferenceSid';
         input['responseType'] = 'ResponseType';
-        input['page'] = 95;
-        input['pagesize'] = 95;
+        input['page'] = 40;
+        input['pagesize'] = 40;
         input['muted'] = false;
         input['deaf'] = false;
 
@@ -920,8 +1002,8 @@ function listConference(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 95;
-        input['pagesize'] = 95;
+        input['page'] = 40;
+        input['pagesize'] = 40;
         input['friendlyName'] = 'FriendlyName';
         input['dateCreated'] = 'DateCreated';
 
@@ -947,7 +1029,7 @@ var controller = lib.PhoneNumberController;
 
 ### <a name="available_phone_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.availablePhoneNumber") availablePhoneNumber
 
-> Retrieve a list of available phone numbers that can be purchased and used for your message360 account.
+> Retrieve a list of available phone numbers that can be purchased and used for your Ytel account.
 
 
 ```javascript
@@ -972,9 +1054,42 @@ function availablePhoneNumber(input, callback)
         input['numbertype'] = Object.keys(Number Type)[0];
         input['areacode'] = 'areacode';
         input['responseType'] = 'ResponseType';
-        input['pagesize'] = 95;
+        input['pagesize'] = 40;
 
     controller.availablePhoneNumber(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="mass_release_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.massReleaseNumber") massReleaseNumber
+
+> Remove a purchased Ytel number from your account.
+
+
+```javascript
+function massReleaseNumber(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| phoneNumber |  ``` Required ```  | A valid Ytel comma separated numbers (E.164 format). |
+| responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['phoneNumber'] = 'PhoneNumber';
+        input['responseType'] = 'ResponseType';
+
+    controller.massReleaseNumber(input, function(error, response, context) {
 
     
     });
@@ -994,7 +1109,7 @@ function viewNumberDetails(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid message360 10-digit phone number (E.164 format). |
+| phoneNumber |  ``` Required ```  | A valid Ytel 10-digit phone number (E.164 format). |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 
 
@@ -1017,7 +1132,7 @@ function viewNumberDetails(input, callback)
 
 ### <a name="release_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.releaseNumber") releaseNumber
 
-> Remove a purchased message360 number from your account.
+> Remove a purchased Ytel number from your account.
 
 
 ```javascript
@@ -1027,7 +1142,7 @@ function releaseNumber(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid 10-digit message360 number (E.164 format). |
+| phoneNumber |  ``` Required ```  | A valid 10-digit Ytel number (E.164 format). |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 
 
@@ -1050,7 +1165,7 @@ function releaseNumber(input, callback)
 
 ### <a name="buy_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.buyNumber") buyNumber
 
-> Purchase a phone number to be used with your message360 account
+> Purchase a phone number to be used with your Ytel account
 
 
 ```javascript
@@ -1060,7 +1175,7 @@ function buyNumber(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid 10-digit message360 number (E.164 format). |
+| phoneNumber |  ``` Required ```  | A valid 10-digit Ytel number (E.164 format). |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 
 
@@ -1081,42 +1196,9 @@ function buyNumber(input, callback)
 
 
 
-### <a name="mass_release_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.massReleaseNumber") massReleaseNumber
-
-> Remove a purchased message360 number from your account.
-
-
-```javascript
-function massReleaseNumber(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid message360 comma separated numbers (E.164 format). |
-| responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['phoneNumber'] = 'PhoneNumber';
-        input['responseType'] = 'ResponseType';
-
-    controller.massReleaseNumber(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
 ### <a name="update_phone_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.updatePhoneNumber") updatePhoneNumber
 
-> Update properties for a message360 number that has been purchased for your account. Refer to the parameters list for the list of properties that can be updated.
+> Update properties for a Ytel number that has been purchased for your account. Refer to the parameters list for the list of properties that can be updated.
 
 
 ```javascript
@@ -1126,7 +1208,7 @@ function updatePhoneNumber(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid message360 number (E.164 format). |
+| phoneNumber |  ``` Required ```  | A valid Ytel number (E.164 format). |
 | voiceUrl |  ``` Required ```  | URL requested once the call connects |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 | friendlyName |  ``` Optional ```  | Phone number friendly name description |
@@ -1140,7 +1222,7 @@ function updatePhoneNumber(input, callback)
 | smsUrl |  ``` Optional ```  | URL requested when an SMS is received |
 | smsMethod |  ``` Optional ```  | Post or Get |
 | smsFallbackUrl |  ``` Optional ```  | URL used if any errors occur during execution of InboundXML from an SMS or at initial request of the SmsUrl. |
-| smsFallbackMethod |  ``` Optional ```  | The HTTP method message360 will use when URL requested if the SmsUrl is not available. |
+| smsFallbackMethod |  ``` Optional ```  | The HTTP method Ytel will use when URL requested if the SmsUrl is not available. |
 
 
 
@@ -1173,9 +1255,46 @@ function updatePhoneNumber(input, callback)
 
 
 
+### <a name="transfer_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.transferNumber") transferNumber
+
+> Transfer phone number that has been purchased for from one account to another account.
+
+
+```javascript
+function transferNumber(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| phonenumber |  ``` Required ```  | A valid 10-digit Ytel number (E.164 format). |
+| fromaccountsid |  ``` Required ```  | A specific Accountsid from where Number is getting transfer. |
+| toaccountsid |  ``` Required ```  | A specific Accountsid to which Number is getting transfer. |
+| responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['phonenumber'] = 'phonenumber';
+        input['fromaccountsid'] = 'fromaccountsid';
+        input['toaccountsid'] = 'toaccountsid';
+        input['responseType'] = 'ResponseType';
+
+    controller.transferNumber(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 ### <a name="list_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.listNumber") listNumber
 
-> Retrieve a list of purchased phones numbers associated with your message360 account.
+> Retrieve a list of purchased phones numbers associated with your Ytel account.
 
 
 ```javascript
@@ -1199,8 +1318,8 @@ function listNumber(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 95;
-        input['pageSize'] = 95;
+        input['page'] = 40;
+        input['pageSize'] = 40;
         input['numberType'] = Object.keys(Number Type)[0];
         input['friendlyName'] = 'FriendlyName';
 
@@ -1214,7 +1333,7 @@ function listNumber(input, callback)
 
 ### <a name="mass_update_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.massUpdateNumber") massUpdateNumber
 
-> Update properties for a message360 numbers that has been purchased for your account. Refer to the parameters list for the list of properties that can be updated.
+> Update properties for a Ytel numbers that has been purchased for your account. Refer to the parameters list for the list of properties that can be updated.
 
 
 ```javascript
@@ -1224,7 +1343,7 @@ function massUpdateNumber(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid comma(,) separated message360 numbers. (E.164 format). |
+| phoneNumber |  ``` Required ```  | A valid comma(,) separated Ytel numbers. (E.164 format). |
 | voiceUrl |  ``` Required ```  | The URL returning InboundXML incoming calls should execute when connected. |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 | friendlyName |  ``` Optional ```  | A human-readable value for labeling the number. |
@@ -1232,13 +1351,13 @@ function massUpdateNumber(input, callback)
 | voiceFallbackUrl |  ``` Optional ```  | URL used if any errors occur during execution of InboundXML on a call or at initial request of the voice url |
 | voiceFallbackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the VoiceFallbackUrl once incoming call connects. |
 | hangupCallback |  ``` Optional ```  | URL that can be requested to receive notification when and how incoming call has ended. |
-| hangupCallbackMethod |  ``` Optional ```  | The HTTP method message360 will use when requesting the HangupCallback URL. |
+| hangupCallbackMethod |  ``` Optional ```  | The HTTP method Ytel will use when requesting the HangupCallback URL. |
 | heartbeatUrl |  ``` Optional ```  | URL that can be used to monitor the phone number. |
-| heartbeatMethod |  ``` Optional ```  | The HTTP method message360 will use when requesting the HeartbeatUrl. |
+| heartbeatMethod |  ``` Optional ```  | The HTTP method Ytel will use when requesting the HeartbeatUrl. |
 | smsUrl |  ``` Optional ```  | URL requested when an SMS is received. |
-| smsMethod |  ``` Optional ```  | The HTTP method message360 will use when requesting the SmsUrl. |
+| smsMethod |  ``` Optional ```  | The HTTP method Ytel will use when requesting the SmsUrl. |
 | smsFallbackUrl |  ``` Optional ```  | URL used if any errors occur during execution of InboundXML from an SMS or at initial request of the SmsUrl. |
-| smsFallbackMethod |  ``` Optional ```  | The HTTP method message360 will use when URL requested if the SmsUrl is not available. |
+| smsFallbackMethod |  ``` Optional ```  | The HTTP method Ytel will use when URL requested if the SmsUrl is not available. |
 
 
 
@@ -1306,7 +1425,7 @@ function getDIDScoreNumber(input, callback)
 
 ### <a name="bulk_buy_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.bulkBuyNumber") bulkBuyNumber
 
-> Purchase a selected number of DID's from specific area codes to be used with your message360 account.
+> Purchase a selected number of DID's from specific area codes to be used with your Ytel account.
 
 
 ```javascript
@@ -1336,125 +1455,6 @@ function bulkBuyNumber(input, callback)
         input['leftover'] = 'Leftover';
 
     controller.bulkBuyNumber(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="transfer_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.transferNumber") transferNumber
-
-> Transfer phone number that has been purchased for from one account to another account.
-
-
-```javascript
-function transferNumber(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| phonenumber |  ``` Required ```  | A valid 10-digit message360 number (E.164 format). |
-| fromaccountsid |  ``` Required ```  | A specific Accountsid from where Number is getting transfer. |
-| toaccountsid |  ``` Required ```  | A specific Accountsid to which Number is getting transfer. |
-| responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['phonenumber'] = 'phonenumber';
-        input['fromaccountsid'] = 'fromaccountsid';
-        input['toaccountsid'] = 'toaccountsid';
-        input['responseType'] = 'ResponseType';
-
-    controller.transferNumber(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="web_rtc_controller"></a>![Class: ](https://apidocs.io/img/class.png ".WebRTCController") WebRTCController
-
-### Get singleton instance
-
-The singleton instance of the ``` WebRTCController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.WebRTCController;
-```
-
-### <a name="check_funds"></a>![Method: ](https://apidocs.io/img/method.png ".WebRTCController.checkFunds") checkFunds
-
-> TODO: Add a method description
-
-
-```javascript
-function checkFunds(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| accountSid |  ``` Required ```  | Your message360 Account SID |
-| authToken |  ``` Required ```  | Your message360 Token |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['accountSid'] = account_sid;
-        input['authToken'] = auth_token;
-
-    controller.checkFunds(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_token"></a>![Method: ](https://apidocs.io/img/method.png ".WebRTCController.createToken") createToken
-
-> message360 webrtc
-
-
-```javascript
-function createToken(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| accountSid |  ``` Required ```  | Your message360 Account SID |
-| authToken |  ``` Required ```  | Your message360 Token |
-| username |  ``` Required ```  | WebRTC username authentication |
-| password |  ``` Required ```  | WebRTC password authentication |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['accountSid'] = account_sid;
-        input['authToken'] = auth_token;
-        input['username'] = 'username';
-        input['password'] = 'password';
-
-    controller.createToken(input, function(error, response, context) {
 
     
     });
@@ -1575,7 +1575,7 @@ function audioURLTranscription(input, callback)
 
 ### <a name="list_transcription"></a>![Method: ](https://apidocs.io/img/method.png ".TranscriptionController.listTranscription") listTranscription
 
-> Retrieve a list of transcription objects for your message360 account.
+> Retrieve a list of transcription objects for your Ytel account.
 
 
 ```javascript
@@ -1599,8 +1599,8 @@ function listTranscription(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 95;
-        input['pagesize'] = 95;
+        input['page'] = 40;
+        input['pagesize'] = 40;
         input['status'] = Object.keys(Status)[0];
         input['dateTranscribed'] = 'dateTranscribed';
 
@@ -1659,7 +1659,7 @@ function viewRecording(input, callback)
 
 ### <a name="delete_recording"></a>![Method: ](https://apidocs.io/img/method.png ".RecordingController.deleteRecording") deleteRecording
 
-> Remove a recording from your message360 account.
+> Remove a recording from your Ytel account.
 
 
 ```javascript
@@ -1716,8 +1716,8 @@ function listRecording(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 95;
-        input['pagesize'] = 95;
+        input['page'] = 40;
+        input['pagesize'] = 40;
         input['datecreated'] = 'Datecreated';
         input['callsid'] = 'callsid';
 
@@ -2175,7 +2175,7 @@ var controller = lib.SMSController;
 
 ### <a name="send_sms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.sendSMS") sendSMS
 
-> Send an SMS from a message360 number
+> Send an SMS from a Ytel number
 
 
 ```javascript
@@ -2185,7 +2185,7 @@ function sendSMS(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| from |  ``` Required ```  | The 10-digit SMS-enabled message360 number (E.164 format) in which the message is sent. |
+| from |  ``` Required ```  | The 10-digit SMS-enabled Ytel number (E.164 format) in which the message is sent. |
 | to |  ``` Required ```  | The 10-digit phone number (E.164 format) that will receive the message. |
 | body |  ``` Required ```  | The body message that is to be sent in the text. |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
@@ -2278,8 +2278,8 @@ function listSMS(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 53;
-        input['pageSize'] = 53;
+        input['page'] = 40;
+        input['pageSize'] = 40;
         input['from'] = 'From';
         input['to'] = 'To';
         input['dateSent'] = 'DateSent';
@@ -2319,8 +2319,8 @@ function listInboundSMS(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 53;
-        input['pageSize'] = 53;
+        input['page'] = 40;
+        input['pageSize'] = 40;
         input['from'] = 'From';
         input['to'] = 'To';
         input['dateSent'] = 'DateSent';
@@ -2380,7 +2380,7 @@ var controller = lib.CallController;
 
 ### <a name="make_call"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.makeCall") makeCall
 
-> You can experiment with initiating a call through Message360 and view the request response generated when doing so and get the response in json
+> You can experiment with initiating a call through Ytel and view the request response generated when doing so and get the response in json
 
 
 ```javascript
@@ -2390,7 +2390,7 @@ function makeCall(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| from |  ``` Required ```  | A valid message360 Voice enabled number (E.164 format) that will be initiating the phone call. |
+| from |  ``` Required ```  | A valid Ytel Voice enabled number (E.164 format) that will be initiating the phone call. |
 | to |  ``` Required ```  | To number |
 | url |  ``` Required ```  | URL requested once the call connects |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
@@ -2401,7 +2401,7 @@ function makeCall(input, callback)
 | fallBackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required FallbackUrl once call connects. |
 | heartBeatUrl |  ``` Optional ```  | URL that can be requested every 60 seconds during the call to notify of elapsed tim |
 | heartBeatMethod |  ``` Optional ```  | Specifies the HTTP method used to request HeartbeatUrl. |
-| timeout |  ``` Optional ```  | Time (in seconds) Message360 should wait while the call is ringing before canceling the call |
+| timeout |  ``` Optional ```  | Time (in seconds) Ytel should wait while the call is ringing before canceling the call |
 | playDtmf |  ``` Optional ```  | DTMF Digits to play to the call once it connects. 0-9, #, or * |
 | hideCallerId |  ``` Optional ```  | Specifies if the caller id will be hidden |
 | record |  ``` Optional ```  | Specifies if the call should be recorded |
@@ -2409,7 +2409,7 @@ function makeCall(input, callback)
 | recordCallBackMethod |  ``` Optional ```  | Method used to request the RecordCallback URL. |
 | transcribe |  ``` Optional ```  | Specifies if the call recording should be transcribed |
 | transcribeCallBackUrl |  ``` Optional ```  | Transcription parameters will be sent here upon completion |
-| ifMachine |  ``` Optional ```  | How Message360 should handle the receiving numbers voicemail machine |
+| ifMachine |  ``` Optional ```  | How Ytel should handle the receiving numbers voicemail machine |
 | ifMachineUrl |  ``` Optional ```  | URL requested when IfMachine=continue |
 | ifMachineMethod |  ``` Optional ```  | Method used to request the IfMachineUrl. |
 | feedback |  ``` Optional ```  | Specify if survey should be enable or not |
@@ -2433,18 +2433,18 @@ function makeCall(input, callback)
         input['fallBackMethod'] = Object.keys(HttpAction)[0];
         input['heartBeatUrl'] = 'HeartBeatUrl';
         input['heartBeatMethod'] = Object.keys(HttpAction)[0];
-        input['timeout'] = 53;
+        input['timeout'] = 40;
         input['playDtmf'] = 'PlayDtmf';
         input['hideCallerId'] = false;
         input['record'] = false;
         input['recordCallBackUrl'] = 'RecordCallBackUrl';
         input['recordCallBackMethod'] = Object.keys(HttpAction)[0];
-        input['transcribe'] = false;
+        input['transcribe'] = true;
         input['transcribeCallBackUrl'] = 'TranscribeCallBackUrl';
         input['ifMachine'] = Object.keys(ifMachine)[0];
         input['ifMachineUrl'] = 'IfMachineUrl';
         input['ifMachineMethod'] = Object.keys(HttpAction)[0];
-        input['feedback'] = false;
+        input['feedback'] = true;
         input['surveyId'] = 'SurveyId';
 
     controller.makeCall(input, function(error, response, context) {
@@ -2486,9 +2486,9 @@ function playAudio(input, callback)
         input['audioUrl'] = 'AudioUrl';
         input['sayText'] = 'SayText';
         input['responseType'] = 'ResponseType';
-        input['length'] = 53;
+        input['length'] = 131;
         input['direction'] = Object.keys(Direction)[0];
-        input['mix'] = false;
+        input['mix'] = true;
 
     controller.playAudio(input, function(error, response, context) {
 
@@ -2526,10 +2526,10 @@ function recordCall(input, callback)
 
     var input = [];
         input['callSid'] = 'CallSid';
-        input['record'] = false;
+        input['record'] = true;
         input['responseType'] = 'ResponseType';
         input['direction'] = Object.keys(Direction)[0];
-        input['timeLimit'] = 53;
+        input['timeLimit'] = 131;
         input['callBackUrl'] = 'CallBackUrl';
         input['fileformat'] = Object.keys(AudioFormat)[0];
 
@@ -2572,11 +2572,11 @@ function voiceEffect(input, callback)
         input['callSid'] = 'CallSid';
         input['responseType'] = 'ResponseType';
         input['audioDirection'] = Object.keys(AudioDirection)[0];
-        input['pitchSemiTones'] = 53.7597159872575;
-        input['pitchOctaves'] = 53.7597159872575;
-        input['pitch'] = 53.7597159872575;
-        input['rate'] = 53.7597159872575;
-        input['tempo'] = 53.7597159872575;
+        input['pitchSemiTones'] = 131.896007448386;
+        input['pitchOctaves'] = 131.896007448386;
+        input['pitch'] = 131.896007448386;
+        input['rate'] = 131.896007448386;
+        input['tempo'] = 131.896007448386;
 
     controller.voiceEffect(input, function(error, response, context) {
 
@@ -2662,80 +2662,9 @@ function interruptedCall(input, callback)
 
 
 
-### <a name="group_call"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.groupCall") groupCall
-
-> Group Call
-
-
-```javascript
-function groupCall(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| from |  ``` Required ```  | This number to display on Caller ID as calling |
-| to |  ``` Required ```  | Please enter multiple E164 number. You can add max 10 numbers. Add numbers separated with comma. e.g : 1111111111,2222222222 |
-| url |  ``` Required ```  | URL requested once the call connects |
-| responseType |  ``` Required ```  ``` DefaultValue ```  | TODO: Add a parameter description |
-| groupConfirmKey |  ``` Required ```  | Define the DTMF that the called party should send to bridge the call. Allowed Values : 0-9, #, * |
-| groupConfirmFile |  ``` Required ```  | Specify the audio file you want to play when the called party picks up the call |
-| method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once call connects. |
-| statusCallBackUrl |  ``` Optional ```  | URL that can be requested to receive notification when call has ended. A set of default parameters will be sent here once the call is finished. |
-| statusCallBackMethod |  ``` Optional ```  | Specifies the HTTP methodlinkclass used to request StatusCallbackUrl. |
-| fallBackUrl |  ``` Optional ```  | URL requested if the initial Url parameter fails or encounters an error |
-| fallBackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required FallbackUrl once call connects. |
-| heartBeatUrl |  ``` Optional ```  | URL that can be requested every 60 seconds during the call to notify of elapsed time and pass other general information. |
-| heartBeatMethod |  ``` Optional ```  | Specifies the HTTP method used to request HeartbeatUrl. |
-| timeout |  ``` Optional ```  | Time (in seconds) Message360 should wait while the call is ringing before canceling the call |
-| playDtmf |  ``` Optional ```  | DTMF Digits to play to the call once it connects. 0-9, #, or * |
-| hideCallerId |  ``` Optional ```  | Specifies if the caller id will be hidden |
-| record |  ``` Optional ```  | Specifies if the call should be recorded |
-| recordCallBackUrl |  ``` Optional ```  | Recording parameters will be sent here upon completion |
-| recordCallBackMethod |  ``` Optional ```  | Method used to request the RecordCallback URL. |
-| transcribe |  ``` Optional ```  | Specifies if the call recording should be transcribed |
-| transcribeCallBackUrl |  ``` Optional ```  | Transcription parameters will be sent here upon completion |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['from'] = 'From';
-        input['to'] = 'To';
-        input['url'] = 'Url';
-        input['responseType'] = 'ResponseType';
-        input['groupConfirmKey'] = 'GroupConfirmKey';
-        input['groupConfirmFile'] = Object.keys(AudioFormat)[0];
-        input['method'] = Object.keys(HttpAction)[0];
-        input['statusCallBackUrl'] = 'StatusCallBackUrl';
-        input['statusCallBackMethod'] = Object.keys(HttpAction)[0];
-        input['fallBackUrl'] = 'FallBackUrl';
-        input['fallBackMethod'] = Object.keys(HttpAction)[0];
-        input['heartBeatUrl'] = 'HeartBeatUrl';
-        input['heartBeatMethod'] = Object.keys(HttpAction)[0];
-        input['timeout'] = 53;
-        input['playDtmf'] = 'PlayDtmf';
-        input['hideCallerId'] = 'HideCallerId';
-        input['record'] = false;
-        input['recordCallBackUrl'] = 'RecordCallBackUrl';
-        input['recordCallBackMethod'] = Object.keys(HttpAction)[0];
-        input['transcribe'] = false;
-        input['transcribeCallBackUrl'] = 'TranscribeCallBackUrl';
-
-    controller.groupCall(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
 ### <a name="list_calls"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.listCalls") listCalls
 
-> A list of calls associated with your Message360 account
+> A list of calls associated with your Ytel account
 
 
 ```javascript
@@ -2760,8 +2689,8 @@ function listCalls(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 53;
-        input['pageSize'] = 53;
+        input['page'] = 131;
+        input['pageSize'] = 131;
         input['to'] = 'To';
         input['from'] = 'From';
         input['dateCreated'] = 'DateCreated';
@@ -2776,7 +2705,7 @@ function listCalls(input, callback)
 
 ### <a name="send_ringless_vm"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.sendRinglessVM") sendRinglessVM
 
-> Initiate an outbound Ringless Voicemail through message360.
+> Initiate an outbound Ringless Voicemail through Ytel.
 
 
 ```javascript
@@ -2786,7 +2715,7 @@ function sendRinglessVM(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| from |  ``` Required ```  | A valid message360 Voice enabled number (E.164 format) that will be initiating the phone call. |
+| from |  ``` Required ```  | A valid Ytel Voice enabled number (E.164 format) that will be initiating the phone call. |
 | rVMCallerId |  ``` Required ```  | A required secondary Caller ID for RVM to work. |
 | to |  ``` Required ```  | A valid number (E.164 format) that will receive the phone call. |
 | voiceMailURL |  ``` Required ```  | The URL requested once the RVM connects. A set of default parameters will be sent here. |
@@ -2884,6 +2813,77 @@ function viewCallDetail(callSid, responseType, callback)
 
 
 
+### <a name="group_call"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.groupCall") groupCall
+
+> Group Call
+
+
+```javascript
+function groupCall(input, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| from |  ``` Required ```  | This number to display on Caller ID as calling |
+| to |  ``` Required ```  | Please enter multiple E164 number. You can add max 10 numbers. Add numbers separated with comma. e.g : 1111111111,2222222222 |
+| url |  ``` Required ```  | URL requested once the call connects |
+| responseType |  ``` Required ```  ``` DefaultValue ```  | TODO: Add a parameter description |
+| groupConfirmKey |  ``` Required ```  | Define the DTMF that the called party should send to bridge the call. Allowed Values : 0-9, #, * |
+| groupConfirmFile |  ``` Required ```  | Specify the audio file you want to play when the called party picks up the call |
+| method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once call connects. |
+| statusCallBackUrl |  ``` Optional ```  | URL that can be requested to receive notification when call has ended. A set of default parameters will be sent here once the call is finished. |
+| statusCallBackMethod |  ``` Optional ```  | Specifies the HTTP methodlinkclass used to request StatusCallbackUrl. |
+| fallBackUrl |  ``` Optional ```  | URL requested if the initial Url parameter fails or encounters an error |
+| fallBackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required FallbackUrl once call connects. |
+| heartBeatUrl |  ``` Optional ```  | URL that can be requested every 60 seconds during the call to notify of elapsed time and pass other general information. |
+| heartBeatMethod |  ``` Optional ```  | Specifies the HTTP method used to request HeartbeatUrl. |
+| timeout |  ``` Optional ```  | Time (in seconds) we should wait while the call is ringing before canceling the call |
+| playDtmf |  ``` Optional ```  | DTMF Digits to play to the call once it connects. 0-9, #, or * |
+| hideCallerId |  ``` Optional ```  | Specifies if the caller id will be hidden |
+| record |  ``` Optional ```  | Specifies if the call should be recorded |
+| recordCallBackUrl |  ``` Optional ```  | Recording parameters will be sent here upon completion |
+| recordCallBackMethod |  ``` Optional ```  | Method used to request the RecordCallback URL. |
+| transcribe |  ``` Optional ```  | Specifies if the call recording should be transcribed |
+| transcribeCallBackUrl |  ``` Optional ```  | Transcription parameters will be sent here upon completion |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var input = [];
+        input['from'] = 'From';
+        input['to'] = 'To';
+        input['url'] = 'Url';
+        input['responseType'] = 'ResponseType';
+        input['groupConfirmKey'] = 'GroupConfirmKey';
+        input['groupConfirmFile'] = Object.keys(AudioFormat)[0];
+        input['method'] = Object.keys(HttpAction)[0];
+        input['statusCallBackUrl'] = 'StatusCallBackUrl';
+        input['statusCallBackMethod'] = Object.keys(HttpAction)[0];
+        input['fallBackUrl'] = 'FallBackUrl';
+        input['fallBackMethod'] = Object.keys(HttpAction)[0];
+        input['heartBeatUrl'] = 'HeartBeatUrl';
+        input['heartBeatMethod'] = Object.keys(HttpAction)[0];
+        input['timeout'] = 131;
+        input['playDtmf'] = 'PlayDtmf';
+        input['hideCallerId'] = 'HideCallerId';
+        input['record'] = true;
+        input['recordCallBackUrl'] = 'RecordCallBackUrl';
+        input['recordCallBackMethod'] = Object.keys(HttpAction)[0];
+        input['transcribe'] = true;
+        input['transcribeCallBackUrl'] = 'TranscribeCallBackUrl';
+
+    controller.groupCall(input, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="carrier_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CarrierController") CarrierController
@@ -2920,8 +2920,8 @@ function carrierLookupList(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 53;
-        input['pageSize'] = 53;
+        input['page'] = 131;
+        input['pageSize'] = 131;
 
     controller.carrierLookupList(input, function(error, response, context) {
 
@@ -3084,8 +3084,8 @@ function listAddress(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 53;
-        input['pagesize'] = 53;
+        input['page'] = 131;
+        input['pagesize'] = 131;
         input['addressid'] = 'addressid';
         input['dateCreated'] = 'dateCreated';
 
@@ -3300,7 +3300,7 @@ var controller = lib.AccountController;
 
 ### <a name="view_account"></a>![Method: ](https://apidocs.io/img/method.png ".AccountController.viewAccount") viewAccount
 
-> Retrieve information regarding your message360 account by a specific date. The response object will contain data such as account status, balance, and account usage totals.
+> Retrieve information regarding your Ytel account by a specific date. The response object will contain data such as account status, balance, and account usage totals.
 
 
 ```javascript
@@ -3345,7 +3345,7 @@ var controller = lib.UsageController;
 
 ### <a name="list_usage"></a>![Method: ](https://apidocs.io/img/method.png ".UsageController.listUsage") listUsage
 
-> Retrieve usage metrics regarding your message360 account. The results includes inbound/outbound voice calls and inbound/outbound SMS messages as well as carrier lookup requests.
+> Retrieve usage metrics regarding your Ytel account. The results includes inbound/outbound voice calls and inbound/outbound SMS messages as well as carrier lookup requests.
 
 
 ```javascript
@@ -3420,8 +3420,8 @@ function sendDedicatedShortcode(input, callback)
 ```javascript
 
     var input = [];
-        input['shortcode'] = 53;
-        input['to'] = 53.7597159872575;
+        input['shortcode'] = 131;
+        input['to'] = 131.896007448386;
         input['body'] = 'body';
         input['responseType'] = 'ResponseType';
         input['method'] = Object.keys(HttpAction)[0];
@@ -3498,8 +3498,8 @@ function listShortcode(input, callback)
         input['shortcode'] = 'Shortcode';
         input['to'] = 'To';
         input['dateSent'] = 'DateSent';
-        input['page'] = 53;
-        input['pageSize'] = 53;
+        input['page'] = 131;
+        input['pageSize'] = 131;
 
     controller.listShortcode(input, function(error, response, context) {
 
@@ -3511,7 +3511,7 @@ function listShortcode(input, callback)
 
 ### <a name="list_inbound_shortcode"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.listInboundShortcode") listInboundShortcode
 
-> Retrive a list of inbound Sms Short Code messages associated with your message360 account.
+> Retrive a list of inbound Sms Short Code messages associated with your Ytel account.
 
 
 ```javascript
@@ -3536,8 +3536,8 @@ function listInboundShortcode(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 53;
-        input['pagesize'] = 53;
+        input['page'] = 131;
+        input['pagesize'] = 131;
         input['from'] = 'From';
         input['shortcode'] = 'Shortcode';
         input['datecreated'] = 'Datecreated';
@@ -3562,7 +3562,7 @@ function viewDedicatedShortcodeAssignment(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| shortcode |  ``` Required ```  | List of valid Dedicated Short Code to your message360 account |
+| shortcode |  ``` Required ```  | List of valid Dedicated Short Code to your Ytel account |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 
 
@@ -3595,7 +3595,7 @@ function updateDedicatedShortCodeAssignment(input, callback)
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| shortcode |  ``` Required ```  | List of valid dedicated shortcode to your message360 account. |
+| shortcode |  ``` Required ```  | List of valid dedicated shortcode to your Ytel account. |
 | responseType |  ``` Required ```  ``` DefaultValue ```  | Response type format xml or json |
 | friendlyName |  ``` Optional ```  | User generated name of the dedicated shortcode. |
 | callbackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required StatusCallBackUrl once call connects. |
@@ -3628,7 +3628,7 @@ function updateDedicatedShortCodeAssignment(input, callback)
 
 ### <a name="list_short_code_assignment"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.listShortCodeAssignment") listShortCodeAssignment
 
-> Retrieve a list of Short Code assignment associated with your message360 account.
+> Retrieve a list of Short Code assignment associated with your Ytel account.
 
 
 ```javascript
@@ -3783,8 +3783,8 @@ function listPostcards(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 53;
-        input['pagesize'] = 53;
+        input['page'] = 131;
+        input['pagesize'] = 131;
         input['postcardid'] = 'postcardid';
         input['dateCreated'] = 'dateCreated';
 
@@ -3951,8 +3951,8 @@ function listLetters(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 53;
-        input['pagesize'] = 53;
+        input['page'] = 131;
+        input['pagesize'] = 131;
         input['lettersid'] = 'lettersid';
         input['dateCreated'] = 'dateCreated';
 
@@ -4113,8 +4113,8 @@ function listAreaMail(input, callback)
 
     var input = [];
         input['responseType'] = 'ResponseType';
-        input['page'] = 53;
-        input['pagesize'] = 53;
+        input['page'] = 131;
+        input['pagesize'] = 131;
         input['areamailsid'] = 'areamailsid';
         input['dateCreated'] = 'dateCreated';
 
