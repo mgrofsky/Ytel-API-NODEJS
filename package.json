@@ -1,6 +1,6 @@
 {
-  "name": "ytel",
-  "version": "3.1.0",
+  "name": "ytelapilib",
+  "version": "3.11.0",
   "description": "Ytel API version 3",
   "main": "./lib/index.js",
   "scripts": {
