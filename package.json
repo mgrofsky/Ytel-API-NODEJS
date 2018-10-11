@@ -1,10 +1,11 @@
 {
-  "name": "ytelapilib",
-  "version": "3.11.0",
+  "name": "ytelapiv3lib",
+  "version": "3.1.2",
   "description": "Ytel API version 3",
   "main": "./lib/index.js",
   "scripts": {
-    "lint": "eslint lib"
+    "lint": "eslint lib",
+    "test": "mocha --recursive"
   },
   "keywords": [],
   "author": "APIMATIC SDK Generator",
@@ -18,8 +19,10 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3"
   },
-  "dependencies": {
+    "dependencies": {
     "request": "^2.55.0",
+    "mocha": "^3.1.2",
+    "chai": "^3.5.0",
     "moment": "^2.17.1"
   },
   "eslintConfig": {

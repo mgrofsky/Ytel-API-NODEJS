@@ -13,7 +13,7 @@ To check if node and npm have been successfully installed, write the following c
 * `node --version`
 * `npm -version`
 
-![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Ytel%20API-Node)
+![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Ytel%20API%20V3-Node)
 
 Now use npm to resolve all dependencies by running the following command in the root directory (of the SDK folder):
 
@@ -21,13 +21,13 @@ Now use npm to resolve all dependencies by running the following command in the 
 npm install
 ```
 
-![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Ytel%20API-Node)
+![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Ytel%20API%20V3-Node)
 
 ![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency2)
 
 This will install all dependencies in the `node_modules` folder.
 
-Once dependencies are resolved, you will need to move the folder `YtelAPILib ` in to your `node_modules` folder.
+Once dependencies are resolved, you will need to move the folder `YtelAPIV3Lib ` in to your `node_modules` folder.
 
 ## How to Use
 
@@ -42,7 +42,7 @@ Click on `File` and select `Open Folder`.
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
-![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Ytel%20API-Node)
+![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Ytel%20API%20V3-Node)
 
 ### 2. Creating a Test File
 
@@ -54,9 +54,9 @@ var lib = require('lib');
 
 Save changes.
 
-![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Ytel%20API-Node)
+![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Ytel%20API%20V3-Node)
 
-![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Ytel%20API-Node)
+![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Ytel%20API%20V3-Node)
 
 ### 3. Running The Test File
 
@@ -66,7 +66,7 @@ To run the `index.js` file, open up the command prompt and navigate to the Path 
 node index.js
 ```
 
-![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Ytel%20API-Node)
+![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Ytel%20API%20V3-Node)
 
 
 ## How to Test
@@ -87,11 +87,11 @@ Tests can be run in a number of ways:
 ### Method 3 (Run specific controller's tests)
 
 1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  Ytel APIController`  to run all the tests in that controller file.
+2. Type `mocha  Ytel API V3Controller`  to run all the tests in that controller file.
 
 > To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.
 
-![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=Ytel%20APIController)
+![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=Ytel%20API%20V3Controller)
 
 ## Initialization
 
@@ -150,13 +150,13 @@ The singleton instance of the ``` ShortCodeController ``` class can be accessed 
 var controller = lib.ShortCodeController;
 ```
 
-### <a name="create_dedicatedshortcode_listshortcode"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createDedicatedshortcodeListshortcode") createDedicatedshortcodeListshortcode
+### <a name="create_list_shortcodes"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createListShortcodes") createListShortcodes
 
 > Retrieve a list of Short Code assignment associated with your Ytel account.
 
 
 ```javascript
-function createDedicatedshortcodeListshortcode(input, callback)
+function createListShortcodes(shortcode, page, pagesize, callback)
 ```
 #### Parameters
 
@@ -172,12 +172,11 @@ function createDedicatedshortcodeListshortcode(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['shortcode'] = 'Shortcode';
-        input['page'] = 'page';
-        input['pagesize'] = 'pagesize';
+    var shortcode = 'Shortcode';
+    var page = 'page';
+    var pagesize = 'pagesize';
 
-    controller.createDedicatedshortcodeListshortcode(input, function(error, response, context) {
+    controller.createListShortcodes(shortcode, page, pagesize, function(error, response, context) {
 
     
     });
@@ -185,13 +184,187 @@ function createDedicatedshortcodeListshortcode(input, callback)
 
 
 
-### <a name="create_dedicatedshortcode_updateshortcode"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createDedicatedshortcodeUpdateshortcode") createDedicatedshortcodeUpdateshortcode
+### <a name="create_view_sms"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createViewSMS") createViewSMS
+
+> Retrieve a single Short Code object by its shortcode assignment.
+
+
+```javascript
+function createViewSMS(shortcode, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| shortcode |  ``` Required ```  | List of valid Dedicated Short Code to your Ytel account |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var shortcode = 'Shortcode';
+
+    controller.createViewSMS(shortcode, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_view_sms1"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createViewSMS1") createViewSMS1
+
+> View a single Sms Short Code message.
+
+
+```javascript
+function createViewSMS1(messageSid, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| messageSid |  ``` Required ```  | The unique identifier for the sms resource |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var messageSid = 'MessageSid';
+
+    controller.createViewSMS1(messageSid, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_sms"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createListSMS") createListSMS
+
+> Retrieve a list of Short Code messages.
+
+
+```javascript
+function createListSMS(shortcode, to, dateSent, page, pageSize, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| shortcode |  ``` Optional ```  | Only list messages sent from this Short Code |
+| to |  ``` Optional ```  | Only list messages sent to this number |
+| dateSent |  ``` Optional ```  | Only list messages sent with the specified date |
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pageSize |  ``` Optional ```  | The count of objects to return per page. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var shortcode = 'Shortcode';
+    var to = 'To';
+    var dateSent = 'DateSent';
+    var page = 44;
+    var pageSize = 44;
+
+    controller.createListSMS(shortcode, to, dateSent, page, pageSize, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_send_sms"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createSendSMS") createSendSMS
+
+> Send Dedicated Shortcode
+
+
+```javascript
+function createSendSMS(shortcode, to, body, method, messagestatuscallback, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| shortcode |  ``` Required ```  | Your dedicated shortcode |
+| to |  ``` Required ```  | The number to send your SMS to |
+| body |  ``` Required ```  | The body of your message |
+| method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once the Short Code message is sent.GET or POST |
+| messagestatuscallback |  ``` Optional ```  | URL that can be requested to receive notification when Short Code message was sent. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var shortcode = 44;
+    var to = 44.1663504527725;
+    var body = 'body';
+    var method = 'method';
+    var messagestatuscallback = 'messagestatuscallback';
+
+    controller.createSendSMS(shortcode, to, body, method, messagestatuscallback, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_inbound_sms"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createListInboundSMS") createListInboundSMS
+
+> Retrive a list of inbound Sms Short Code messages associated with your Ytel account.
+
+
+```javascript
+function createListInboundSMS(page, pagesize, from, shortcode, datecreated, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | Number of individual resources listed in the response per page |
+| from |  ``` Optional ```  | Only list SMS messages sent from this number |
+| shortcode |  ``` Optional ```  | Only list SMS messages sent to Shortcode |
+| datecreated |  ``` Optional ```  | Only list SMS messages sent in the specified date MAKE REQUEST |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 44;
+    var pagesize = 44;
+    var from = 'From';
+    var shortcode = 'Shortcode';
+    var datecreated = 'Datecreated';
+
+    controller.createListInboundSMS(page, pagesize, from, shortcode, datecreated, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_shortcode"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.updateShortcode") updateShortcode
 
 > Update a dedicated shortcode.
 
 
 ```javascript
-function createDedicatedshortcodeUpdateshortcode(input, callback)
+function updateShortcode(shortcode, friendlyName, callbackMethod, callbackUrl, fallbackMethod, fallbackUrl, callback)
 ```
 #### Parameters
 
@@ -210,192 +383,14 @@ function createDedicatedshortcodeUpdateshortcode(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['shortcode'] = 'Shortcode';
-        input['friendlyName'] = 'FriendlyName';
-        input['callbackMethod'] = 'CallbackMethod';
-        input['callbackUrl'] = 'CallbackUrl';
-        input['fallbackMethod'] = 'FallbackMethod';
-        input['fallbackUrl'] = 'FallbackUrl';
-
-    controller.createDedicatedshortcodeUpdateshortcode(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_dedicatedshortcode_viewshortcode"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createDedicatedshortcodeViewshortcode") createDedicatedshortcodeViewshortcode
-
-> Retrieve a single Short Code object by its shortcode assignment.
-
-
-```javascript
-function createDedicatedshortcodeViewshortcode(shortcode, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| shortcode |  ``` Required ```  | List of valid Dedicated Short Code to your Ytel account |
-
-
-
-#### Example Usage
-
-```javascript
-
     var shortcode = 'Shortcode';
+    var friendlyName = 'FriendlyName';
+    var callbackMethod = 'CallbackMethod';
+    var callbackUrl = 'CallbackUrl';
+    var fallbackMethod = 'FallbackMethod';
+    var fallbackUrl = 'FallbackUrl';
 
-    controller.createDedicatedshortcodeViewshortcode(shortcode, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_shortcode_viewsms"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createShortcodeViewsms") createShortcodeViewsms
-
-> View a single Sms Short Code message.
-
-
-```javascript
-function createShortcodeViewsms(messageSid, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| messageSid |  ``` Required ```  | The unique identifier for the sms resource |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var messageSid = 'MessageSid';
-
-    controller.createShortcodeViewsms(messageSid, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_dedicatedshortcode_getinboundsms"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createDedicatedshortcodeGetinboundsms") createDedicatedshortcodeGetinboundsms
-
-> Retrive a list of inbound Sms Short Code messages associated with your Ytel account.
-
-
-```javascript
-function createDedicatedshortcodeGetinboundsms(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | Number of individual resources listed in the response per page |
-| from |  ``` Optional ```  | Only list SMS messages sent from this number |
-| shortcode |  ``` Optional ```  | Only list SMS messages sent to Shortcode |
-| datecreated |  ``` Optional ```  | Only list SMS messages sent in the specified date MAKE REQUEST |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pagesize'] = 7;
-        input['from'] = 'From';
-        input['shortcode'] = 'Shortcode';
-        input['datecreated'] = 'Datecreated';
-
-    controller.createDedicatedshortcodeGetinboundsms(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_dedicatedshortcode_sendsms"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createDedicatedshortcodeSendsms") createDedicatedshortcodeSendsms
-
-> Send Dedicated Shortcode
-
-
-```javascript
-function createDedicatedshortcodeSendsms(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| shortcode |  ``` Required ```  | Your dedicated shortcode |
-| to |  ``` Required ```  | The number to send your SMS to |
-| body |  ``` Required ```  | The body of your message |
-| method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once the Short Code message is sent.GET or POST |
-| messagestatuscallback |  ``` Optional ```  | URL that can be requested to receive notification when Short Code message was sent. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['shortcode'] = 7;
-        input['to'] = 7.73365388751666;
-        input['body'] = 'body';
-        input['method'] = 'method';
-        input['messagestatuscallback'] = 'messagestatuscallback';
-
-    controller.createDedicatedshortcodeSendsms(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_shortcode_listsms"></a>![Method: ](https://apidocs.io/img/method.png ".ShortCodeController.createShortcodeListsms") createShortcodeListsms
-
-> Retrieve a list of Short Code messages.
-
-
-```javascript
-function createShortcodeListsms(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| shortcode |  ``` Optional ```  | Only list messages sent from this Short Code |
-| to |  ``` Optional ```  | Only list messages sent to this number |
-| dateSent |  ``` Optional ```  | Only list messages sent with the specified date |
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pageSize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['shortcode'] = 'Shortcode';
-        input['to'] = 'To';
-        input['dateSent'] = 'DateSent';
-        input['page'] = 7;
-        input['pageSize'] = 7;
-
-    controller.createShortcodeListsms(input, function(error, response, context) {
+    controller.updateShortcode(shortcode, friendlyName, callbackMethod, callbackUrl, fallbackMethod, fallbackUrl, function(error, response, context) {
 
     
     });
@@ -415,13 +410,13 @@ The singleton instance of the ``` AreaMailController ``` class can be accessed f
 var controller = lib.AreaMailController;
 ```
 
-### <a name="create_areamail_delete"></a>![Method: ](https://apidocs.io/img/method.png ".AreaMailController.createAreamailDelete") createAreamailDelete
+### <a name="create_delete_area_mail"></a>![Method: ](https://apidocs.io/img/method.png ".AreaMailController.createDeleteAreaMail") createDeleteAreaMail
 
 > Remove an AreaMail object by its AreaMailId.
 
 
 ```javascript
-function createAreamailDelete(areamailid, callback)
+function createDeleteAreaMail(areamailid, callback)
 ```
 #### Parameters
 
@@ -437,7 +432,7 @@ function createAreamailDelete(areamailid, callback)
 
     var areamailid = 'areamailid';
 
-    controller.createAreamailDelete(areamailid, function(error, response, context) {
+    controller.createDeleteAreaMail(areamailid, function(error, response, context) {
 
     
     });
@@ -445,13 +440,79 @@ function createAreamailDelete(areamailid, callback)
 
 
 
-### <a name="create_areamail_create"></a>![Method: ](https://apidocs.io/img/method.png ".AreaMailController.createAreamailCreate") createAreamailCreate
+### <a name="create_view_area_mail"></a>![Method: ](https://apidocs.io/img/method.png ".AreaMailController.createViewAreaMail") createViewAreaMail
+
+> Retrieve an AreaMail object by its AreaMailId.
+
+
+```javascript
+function createViewAreaMail(areamailid, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| areamailid |  ``` Required ```  | The unique identifier for an AreaMail object. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var areamailid = 'areamailid';
+
+    controller.createViewAreaMail(areamailid, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_area_mails"></a>![Method: ](https://apidocs.io/img/method.png ".AreaMailController.createListAreaMails") createListAreaMails
+
+> Retrieve a list of AreaMail objects.
+
+
+```javascript
+function createListAreaMails(page, pagesize, areamailsid, dateCreated, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | The count of objects to return per page. |
+| areamailsid |  ``` Optional ```  | The unique identifier for an AreaMail object. |
+| dateCreated |  ``` Optional ```  | The date the AreaMail was created. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 44;
+    var pagesize = 44;
+    var areamailsid = 'areamailsid';
+    var dateCreated = 'dateCreated';
+
+    controller.createListAreaMails(page, pagesize, areamailsid, dateCreated, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_area_mail"></a>![Method: ](https://apidocs.io/img/method.png ".AreaMailController.createAreaMail") createAreaMail
 
 > Create a new AreaMail object.
 
 
 ```javascript
-function createAreamailCreate(input, callback)
+function createAreaMail(routes, attachbyid, front, back, description, targettype, htmldata, callback)
 ```
 #### Parameters
 
@@ -471,83 +532,15 @@ function createAreamailCreate(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['routes'] = 'routes';
-        input['attachbyid'] = 'attachbyid';
-        input['front'] = 'front';
-        input['back'] = 'back';
-        input['description'] = 'description';
-        input['targettype'] = 'targettype';
-        input['htmldata'] = 'htmldata';
+    var routes = 'routes';
+    var attachbyid = 'attachbyid';
+    var front = 'front';
+    var back = 'back';
+    var description = 'description';
+    var targettype = 'targettype';
+    var htmldata = 'htmldata';
 
-    controller.createAreamailCreate(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_areamail_view"></a>![Method: ](https://apidocs.io/img/method.png ".AreaMailController.createAreamailView") createAreamailView
-
-> Retrieve an AreaMail object by its AreaMailId.
-
-
-```javascript
-function createAreamailView(areamailid, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| areamailid |  ``` Required ```  | The unique identifier for an AreaMail object. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var areamailid = 'areamailid';
-
-    controller.createAreamailView(areamailid, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_areamail_lists"></a>![Method: ](https://apidocs.io/img/method.png ".AreaMailController.createAreamailLists") createAreamailLists
-
-> Retrieve a list of AreaMail objects.
-
-
-```javascript
-function createAreamailLists(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
-| areamailsid |  ``` Optional ```  | The unique identifier for an AreaMail object. |
-| dateCreated |  ``` Optional ```  | The date the AreaMail was created. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pagesize'] = 7;
-        input['areamailsid'] = 'areamailsid';
-        input['dateCreated'] = 'dateCreated';
-
-    controller.createAreamailLists(input, function(error, response, context) {
+    controller.createAreaMail(routes, attachbyid, front, back, description, targettype, htmldata, function(error, response, context) {
 
     
     });
@@ -567,13 +560,13 @@ The singleton instance of the ``` PostCardController ``` class can be accessed f
 var controller = lib.PostCardController;
 ```
 
-### <a name="postcard_deletepostcard"></a>![Method: ](https://apidocs.io/img/method.png ".PostCardController.postcardDeletepostcard") postcardDeletepostcard
+### <a name="create_delete_postcard"></a>![Method: ](https://apidocs.io/img/method.png ".PostCardController.createDeletePostcard") createDeletePostcard
 
 > Remove a postcard object.
 
 
 ```javascript
-function postcardDeletepostcard(postcardid, callback)
+function createDeletePostcard(postcardid, callback)
 ```
 #### Parameters
 
@@ -589,7 +582,7 @@ function postcardDeletepostcard(postcardid, callback)
 
     var postcardid = 'postcardid';
 
-    controller.postcardDeletepostcard(postcardid, function(error, response, context) {
+    controller.createDeletePostcard(postcardid, function(error, response, context) {
 
     
     });
@@ -597,13 +590,13 @@ function postcardDeletepostcard(postcardid, callback)
 
 
 
-### <a name="postcard_viewpostcard"></a>![Method: ](https://apidocs.io/img/method.png ".PostCardController.postcardViewpostcard") postcardViewpostcard
+### <a name="create_view_postcard"></a>![Method: ](https://apidocs.io/img/method.png ".PostCardController.createViewPostcard") createViewPostcard
 
 > Retrieve a postcard object by its PostcardId.
 
 
 ```javascript
-function postcardViewpostcard(postcardid, callback)
+function createViewPostcard(postcardid, callback)
 ```
 #### Parameters
 
@@ -619,7 +612,7 @@ function postcardViewpostcard(postcardid, callback)
 
     var postcardid = 'postcardid';
 
-    controller.postcardViewpostcard(postcardid, function(error, response, context) {
+    controller.createViewPostcard(postcardid, function(error, response, context) {
 
     
     });
@@ -627,50 +620,13 @@ function postcardViewpostcard(postcardid, callback)
 
 
 
-### <a name="postcard_listpostcard"></a>![Method: ](https://apidocs.io/img/method.png ".PostCardController.postcardListpostcard") postcardListpostcard
-
-> Retrieve a list of postcard objects. The postcards objects are sorted by creation date, with the most recently created postcards appearing first.
-
-
-```javascript
-function postcardListpostcard(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
-| postcardid |  ``` Optional ```  | The unique identifier for a postcard object. |
-| dateCreated |  ``` Optional ```  | The date the postcard was created. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pagesize'] = 7;
-        input['postcardid'] = 'postcardid';
-        input['dateCreated'] = 'dateCreated';
-
-    controller.postcardListpostcard(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="postcard_createpostcard"></a>![Method: ](https://apidocs.io/img/method.png ".PostCardController.postcardCreatepostcard") postcardCreatepostcard
+### <a name="create_postcard"></a>![Method: ](https://apidocs.io/img/method.png ".PostCardController.createPostcard") createPostcard
 
 > Create, print, and mail a postcard to an address. The postcard front must be supplied as a PDF, image, or an HTML string. The back can be a PDF, image, HTML string, or it can be automatically generated by supplying a custom message.
 
 
 ```javascript
-function postcardCreatepostcard(input, callback)
+function createPostcard(to, from, attachbyid, front, back, message, setting, description, htmldata, callback)
 ```
 #### Parameters
 
@@ -692,18 +648,53 @@ function postcardCreatepostcard(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['to'] = 'to';
-        input['from'] = 'from';
-        input['attachbyid'] = 'attachbyid';
-        input['front'] = 'front';
-        input['back'] = 'back';
-        input['message'] = 'message';
-        input['setting'] = 'setting';
-        input['description'] = 'description';
-        input['htmldata'] = 'htmldata';
+    var to = 'to';
+    var from = 'from';
+    var attachbyid = 'attachbyid';
+    var front = 'front';
+    var back = 'back';
+    var message = 'message';
+    var setting = 'setting';
+    var description = 'description';
+    var htmldata = 'htmldata';
 
-    controller.postcardCreatepostcard(input, function(error, response, context) {
+    controller.createPostcard(to, from, attachbyid, front, back, message, setting, description, htmldata, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_postcards"></a>![Method: ](https://apidocs.io/img/method.png ".PostCardController.createListPostcards") createListPostcards
+
+> Retrieve a list of postcard objects. The postcards objects are sorted by creation date, with the most recently created postcards appearing first.
+
+
+```javascript
+function createListPostcards(page, pagesize, postcardid, dateCreated, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | The count of objects to return per page. |
+| postcardid |  ``` Optional ```  | The unique identifier for a postcard object. |
+| dateCreated |  ``` Optional ```  | The date the postcard was created. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 44;
+    var pagesize = 44;
+    var postcardid = 'postcardid';
+    var dateCreated = 'dateCreated';
+
+    controller.createListPostcards(page, pagesize, postcardid, dateCreated, function(error, response, context) {
 
     
     });
@@ -723,13 +714,13 @@ The singleton instance of the ``` LetterController ``` class can be accessed fro
 var controller = lib.LetterController;
 ```
 
-### <a name="create_letter_delete"></a>![Method: ](https://apidocs.io/img/method.png ".LetterController.createLetterDelete") createLetterDelete
+### <a name="create_delete_letter"></a>![Method: ](https://apidocs.io/img/method.png ".LetterController.createDeleteLetter") createDeleteLetter
 
 > Remove a letter object by its LetterId.
 
 
 ```javascript
-function createLetterDelete(lettersid, callback)
+function createDeleteLetter(lettersid, callback)
 ```
 #### Parameters
 
@@ -745,7 +736,7 @@ function createLetterDelete(lettersid, callback)
 
     var lettersid = 'lettersid';
 
-    controller.createLetterDelete(lettersid, function(error, response, context) {
+    controller.createDeleteLetter(lettersid, function(error, response, context) {
 
     
     });
@@ -753,13 +744,13 @@ function createLetterDelete(lettersid, callback)
 
 
 
-### <a name="create_letter_viewletter"></a>![Method: ](https://apidocs.io/img/method.png ".LetterController.createLetterViewletter") createLetterViewletter
+### <a name="create_view_letter"></a>![Method: ](https://apidocs.io/img/method.png ".LetterController.createViewLetter") createViewLetter
 
 > Retrieve a letter object by its LetterSid.
 
 
 ```javascript
-function createLetterViewletter(lettersid, callback)
+function createViewLetter(lettersid, callback)
 ```
 #### Parameters
 
@@ -775,7 +766,7 @@ function createLetterViewletter(lettersid, callback)
 
     var lettersid = 'lettersid';
 
-    controller.createLetterViewletter(lettersid, function(error, response, context) {
+    controller.createViewLetter(lettersid, function(error, response, context) {
 
     
     });
@@ -783,50 +774,13 @@ function createLetterViewletter(lettersid, callback)
 
 
 
-### <a name="create_letter_listsletter"></a>![Method: ](https://apidocs.io/img/method.png ".LetterController.createLetterListsletter") createLetterListsletter
-
-> Retrieve a list of letter objects. The letter objects are sorted by creation date, with the most recently created letters appearing first.
-
-
-```javascript
-function createLetterListsletter(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
-| lettersid |  ``` Optional ```  | The unique identifier for a letter object. |
-| dateCreated |  ``` Optional ```  | The date the letter was created. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pagesize'] = 7;
-        input['lettersid'] = 'lettersid';
-        input['dateCreated'] = 'dateCreated';
-
-    controller.createLetterListsletter(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_letter_create"></a>![Method: ](https://apidocs.io/img/method.png ".LetterController.createLetterCreate") createLetterCreate
+### <a name="create_letter"></a>![Method: ](https://apidocs.io/img/method.png ".LetterController.createLetter") createLetter
 
 > Create, print, and mail a letter to an address. The letter file must be supplied as a PDF or an HTML string.
 
 
 ```javascript
-function createLetterCreate(input, callback)
+function createLetter(to, from, attachbyid, file, color, description, extraservice, doublesided, template, htmldata, callback)
 ```
 #### Parameters
 
@@ -849,19 +803,54 @@ function createLetterCreate(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['to'] = 'to';
-        input['from'] = 'from';
-        input['attachbyid'] = 'attachbyid';
-        input['file'] = 'file';
-        input['color'] = 'color';
-        input['description'] = 'description';
-        input['extraservice'] = 'extraservice';
-        input['doublesided'] = 'doublesided';
-        input['template'] = 'template';
-        input['htmldata'] = 'htmldata';
+    var to = 'to';
+    var from = 'from';
+    var attachbyid = 'attachbyid';
+    var file = 'file';
+    var color = 'color';
+    var description = 'description';
+    var extraservice = 'extraservice';
+    var doublesided = 'doublesided';
+    var template = 'template';
+    var htmldata = 'htmldata';
 
-    controller.createLetterCreate(input, function(error, response, context) {
+    controller.createLetter(to, from, attachbyid, file, color, description, extraservice, doublesided, template, htmldata, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_letters"></a>![Method: ](https://apidocs.io/img/method.png ".LetterController.createListLetters") createListLetters
+
+> Retrieve a list of letter objects. The letter objects are sorted by creation date, with the most recently created letters appearing first.
+
+
+```javascript
+function createListLetters(page, pagesize, lettersid, dateCreated, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | The count of objects to return per page. |
+| lettersid |  ``` Optional ```  | The unique identifier for a letter object. |
+| dateCreated |  ``` Optional ```  | The date the letter was created. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 44;
+    var pagesize = 44;
+    var lettersid = 'lettersid';
+    var dateCreated = 'dateCreated';
+
+    controller.createListLetters(page, pagesize, lettersid, dateCreated, function(error, response, context) {
 
     
     });
@@ -881,13 +870,13 @@ The singleton instance of the ``` CallController ``` class can be accessed from 
 var controller = lib.CallController;
 ```
 
-### <a name="create_calls_viewcalldetail"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsViewcalldetail") createCallsViewcalldetail
+### <a name="create_view_call1"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createViewCall1") createViewCall1
 
 > Retrieve a single voice call’s information by its CallSid.
 
 
 ```javascript
-function createCallsViewcalldetail(callSid, callback)
+function createViewCall1(callSid, callback)
 ```
 #### Parameters
 
@@ -903,7 +892,7 @@ function createCallsViewcalldetail(callSid, callback)
 
     var callSid = 'callSid';
 
-    controller.createCallsViewcalldetail(callSid, function(error, response, context) {
+    controller.createViewCall1(callSid, function(error, response, context) {
 
     
     });
@@ -911,13 +900,13 @@ function createCallsViewcalldetail(callSid, callback)
 
 
 
-### <a name="create_calls_viewcalls"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsViewcalls") createCallsViewcalls
+### <a name="create_view_call"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createViewCall") createViewCall
 
 > Retrieve a single voice call’s information by its CallSid.
 
 
 ```javascript
-function createCallsViewcalls(callsid, callback)
+function createViewCall(callsid, callback)
 ```
 #### Parameters
 
@@ -933,7 +922,7 @@ function createCallsViewcalls(callsid, callback)
 
     var callsid = 'callsid';
 
-    controller.createCallsViewcalls(callsid, function(error, response, context) {
+    controller.createViewCall(callsid, function(error, response, context) {
 
     
     });
@@ -941,13 +930,13 @@ function createCallsViewcalls(callsid, callback)
 
 
 
-### <a name="create_calls_senddigits"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsSenddigits") createCallsSenddigits
+### <a name="create_play_dtmf"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createPlayDTMF") createPlayDTMF
 
 > Play Dtmf and send the Digit
 
 
 ```javascript
-function createCallsSenddigits(input, callback)
+function createPlayDTMF(callSid, playDtmf, playDtmfDirection, callback)
 ```
 #### Parameters
 
@@ -963,55 +952,11 @@ function createCallsSenddigits(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['callSid'] = 'CallSid';
-        input['playDtmf'] = 'PlayDtmf';
-        input['playDtmfDirection'] = Object.keys(PlayDtmfDirection)[0];
+    var callSid = 'CallSid';
+    var playDtmf = 'PlayDtmf';
+    var playDtmfDirection = Object.keys(PlayDtmfDirection)[0];
 
-    controller.createCallsSenddigits(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_calls_makervm"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsMakervm") createCallsMakervm
-
-> Initiate an outbound Ringless Voicemail through Ytel.
-
-
-```javascript
-function createCallsMakervm(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| from |  ``` Required ```  | A valid Ytel Voice enabled number (E.164 format) that will be initiating the phone call. |
-| rVMCallerId |  ``` Required ```  | A required secondary Caller ID for RVM to work. |
-| to |  ``` Required ```  | A valid number (E.164 format) that will receive the phone call. |
-| voiceMailURL |  ``` Required ```  | The URL requested once the RVM connects. A set of default parameters will be sent here. |
-| method |  ``` Optional ```  ``` DefaultValue ```  | Specifies the HTTP method used to request the required URL once call connects. |
-| statusCallBackUrl |  ``` Optional ```  | URL that can be requested to receive notification when call has ended. A set of default parameters will be sent here once the call is finished. |
-| statsCallBackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required StatusCallBackUrl once call connects. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['from'] = 'From';
-        input['rVMCallerId'] = 'RVMCallerId';
-        input['to'] = 'To';
-        input['voiceMailURL'] = 'VoiceMailURL';
-        input['method'] = 'Method';
-        input['statusCallBackUrl'] = 'StatusCallBackUrl';
-        input['statsCallBackMethod'] = 'StatsCallBackMethod';
-
-    controller.createCallsMakervm(input, function(error, response, context) {
+    controller.createPlayDTMF(callSid, playDtmf, playDtmfDirection, function(error, response, context) {
 
     
     });
@@ -1019,283 +964,13 @@ function createCallsMakervm(input, callback)
 
 
 
-### <a name="create_calls_listcalls"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsListcalls") createCallsListcalls
-
-> A list of calls associated with your Ytel account
-
-
-```javascript
-function createCallsListcalls(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pageSize |  ``` Optional ```  ``` DefaultValue ```  | Number of individual resources listed in the response per page |
-| to |  ``` Optional ```  | Filter calls that were sent to this 10-digit number (E.164 format). |
-| from |  ``` Optional ```  | Filter calls that were sent from this 10-digit number (E.164 format). |
-| dateCreated |  ``` Optional ```  | Return calls that are from a specified date. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pageSize'] = 7;
-        input['to'] = 'To';
-        input['from'] = 'From';
-        input['dateCreated'] = 'DateCreated';
-
-    controller.createCallsListcalls(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_calls_interruptcalls"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsInterruptcalls") createCallsInterruptcalls
-
-> Interrupt the Call by Call Sid
-
-
-```javascript
-function createCallsInterruptcalls(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| callSid |  ``` Required ```  | The unique identifier for voice call that is in progress. |
-| url |  ``` Optional ```  | URL the in-progress call will be redirected to |
-| method |  ``` Optional ```  | The method used to request the above Url parameter |
-| status |  ``` Optional ```  | Status to set the in-progress call to |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['callSid'] = 'CallSid';
-        input['url'] = 'Url';
-        input['method'] = 'Method';
-        input['status'] = Object.keys(Status24)[0];
-
-    controller.createCallsInterruptcalls(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_calls_recordcalls"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsRecordcalls") createCallsRecordcalls
-
-> Start or stop recording of an in-progress voice call.
-
-
-```javascript
-function createCallsRecordcalls(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| callSid |  ``` Required ```  | The unique identifier of each call resource |
-| record |  ``` Required ```  | Set true to initiate recording or false to terminate recording |
-| direction |  ``` Optional ```  | The leg of the call to record |
-| timeLimit |  ``` Optional ```  | Time in seconds the recording duration should not exceed |
-| callBackUrl |  ``` Optional ```  | URL consulted after the recording completes |
-| fileformat |  ``` Optional ```  | Format of the recording file. Can be .mp3 or .wav |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['callSid'] = 'CallSid';
-        input['record'] = false;
-        input['direction'] = Object.keys(Direction)[0];
-        input['timeLimit'] = 7;
-        input['callBackUrl'] = 'CallBackUrl';
-        input['fileformat'] = Object.keys(Fileformat)[0];
-
-    controller.createCallsRecordcalls(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_calls_playaudios"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsPlayaudios") createCallsPlayaudios
-
-> Play Audio from a url
-
-
-```javascript
-function createCallsPlayaudios(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| callSid |  ``` Required ```  | The unique identifier of each call resource |
-| audioUrl |  ``` Required ```  | URL to sound that should be played. You also can add more than one audio file using semicolons e.g. http://example.com/audio1.mp3;http://example.com/audio2.wav |
-| sayText |  ``` Required ```  | Valid alphanumeric string that should be played to the In-progress call. |
-| length |  ``` Optional ```  | Time limit in seconds for audio play back |
-| direction |  ``` Optional ```  | The leg of the call audio will be played to |
-| mix |  ``` Optional ```  | If false, all other audio will be muted |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['callSid'] = 'CallSid';
-        input['audioUrl'] = 'AudioUrl';
-        input['sayText'] = 'SayText';
-        input['length'] = 7;
-        input['direction'] = Object.keys(Direction)[0];
-        input['mix'] = false;
-
-    controller.createCallsPlayaudios(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_calls_voiceeffect"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsVoiceeffect") createCallsVoiceeffect
-
-> Add audio voice effects to the an in-progress voice call.
-
-
-```javascript
-function createCallsVoiceeffect(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| callSid |  ``` Required ```  | The unique identifier for the in-progress voice call. |
-| audioDirection |  ``` Optional ```  | The direction the audio effect should be placed on. If IN, the effects will occur on the incoming audio stream. If OUT, the effects will occur on the outgoing audio stream. |
-| pitchSemiTones |  ``` Optional ```  | Set the pitch in semitone (half-step) intervals. Value between -14 and 14 |
-| pitchOctaves |  ``` Optional ```  | Set the pitch in octave intervals.. Value between -1 and 1 |
-| pitch |  ``` Optional ```  | Set the pitch (lowness/highness) of the audio. The higher the value, the higher the pitch. Value greater than 0 |
-| rate |  ``` Optional ```  | Set the rate for audio. The lower the value, the lower the rate. value greater than 0 |
-| tempo |  ``` Optional ```  | Set the tempo (speed) of the audio. A higher value denotes a faster tempo. Value greater than 0 |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['callSid'] = 'CallSid';
-        input['audioDirection'] = Object.keys(AudioDirection)[0];
-        input['pitchSemiTones'] = 7.73365388751666;
-        input['pitchOctaves'] = 7.73365388751666;
-        input['pitch'] = 7.73365388751666;
-        input['rate'] = 7.73365388751666;
-        input['tempo'] = 7.73365388751666;
-
-    controller.createCallsVoiceeffect(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_calls_groupcall"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsGroupcall") createCallsGroupcall
-
-> Group Call
-
-
-```javascript
-function createCallsGroupcall(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| from |  ``` Required ```  | This number to display on Caller ID as calling |
-| to |  ``` Required ```  | Please enter multiple E164 number. You can add max 10 numbers. Add numbers separated with comma. e.g : 1111111111,2222222222 |
-| url |  ``` Required ```  | URL requested once the call connects |
-| groupConfirmKey |  ``` Required ```  | Define the DTMF that the called party should send to bridge the call. Allowed Values : 0-9, #, * |
-| groupConfirmFile |  ``` Required ```  | Specify the audio file you want to play when the called party picks up the call |
-| method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once call connects. |
-| statusCallBackUrl |  ``` Optional ```  | URL that can be requested to receive notification when call has ended. A set of default parameters will be sent here once the call is finished. |
-| statusCallBackMethod |  ``` Optional ```  | Specifies the HTTP methodlinkclass used to request StatusCallbackUrl. |
-| fallBackUrl |  ``` Optional ```  | URL requested if the initial Url parameter fails or encounters an error |
-| fallBackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required FallbackUrl once call connects. |
-| heartBeatUrl |  ``` Optional ```  | URL that can be requested every 60 seconds during the call to notify of elapsed time and pass other general information. |
-| heartBeatMethod |  ``` Optional ```  | Specifies the HTTP method used to request HeartbeatUrl. |
-| timeout |  ``` Optional ```  | Time (in seconds) we should wait while the call is ringing before canceling the call |
-| playDtmf |  ``` Optional ```  | DTMF Digits to play to the call once it connects. 0-9, #, or * |
-| hideCallerId |  ``` Optional ```  | Specifies if the caller id will be hidden |
-| record |  ``` Optional ```  | Specifies if the call should be recorded |
-| recordCallBackUrl |  ``` Optional ```  | Recording parameters will be sent here upon completion |
-| recordCallBackMethod |  ``` Optional ```  | Method used to request the RecordCallback URL. |
-| transcribe |  ``` Optional ```  | Specifies if the call recording should be transcribed |
-| transcribeCallBackUrl |  ``` Optional ```  | Transcription parameters will be sent here upon completion |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['from'] = 'From';
-        input['to'] = 'To';
-        input['url'] = 'Url';
-        input['groupConfirmKey'] = 'GroupConfirmKey';
-        input['groupConfirmFile'] = Object.keys(GroupConfirmFile)[0];
-        input['method'] = 'Method';
-        input['statusCallBackUrl'] = 'StatusCallBackUrl';
-        input['statusCallBackMethod'] = 'StatusCallBackMethod';
-        input['fallBackUrl'] = 'FallBackUrl';
-        input['fallBackMethod'] = 'FallBackMethod';
-        input['heartBeatUrl'] = 'HeartBeatUrl';
-        input['heartBeatMethod'] = 'HeartBeatMethod';
-        input['timeout'] = 7;
-        input['playDtmf'] = 'PlayDtmf';
-        input['hideCallerId'] = 'HideCallerId';
-        input['record'] = false;
-        input['recordCallBackUrl'] = 'RecordCallBackUrl';
-        input['recordCallBackMethod'] = 'RecordCallBackMethod';
-        input['transcribe'] = false;
-        input['transcribeCallBackUrl'] = 'TranscribeCallBackUrl';
-
-    controller.createCallsGroupcall(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_calls_makecall"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createCallsMakecall") createCallsMakecall
+### <a name="create_make_call"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createMakeCall") createMakeCall
 
 > You can experiment with initiating a call through Ytel and view the request response generated when doing so and get the response in json
 
 
 ```javascript
-function createCallsMakecall(input, callback)
+function createMakeCall(from, to, url, method, statusCallBackUrl, statusCallBackMethod, fallBackUrl, fallBackMethod, heartBeatUrl, heartBeatMethod, timeout, playDtmf, hideCallerId, record, recordCallBackUrl, recordCallBackMethod, transcribe, transcribeCallBackUrl, ifMachine, ifMachineUrl, ifMachineMethod, feedback, surveyId, callback)
 ```
 #### Parameters
 
@@ -1331,32 +1006,337 @@ function createCallsMakecall(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['from'] = 'From';
-        input['to'] = 'To';
-        input['url'] = 'Url';
-        input['method'] = 'Method';
-        input['statusCallBackUrl'] = 'StatusCallBackUrl';
-        input['statusCallBackMethod'] = 'StatusCallBackMethod';
-        input['fallBackUrl'] = 'FallBackUrl';
-        input['fallBackMethod'] = 'FallBackMethod';
-        input['heartBeatUrl'] = 'HeartBeatUrl';
-        input['heartBeatMethod'] = 'HeartBeatMethod';
-        input['timeout'] = 7;
-        input['playDtmf'] = 'PlayDtmf';
-        input['hideCallerId'] = false;
-        input['record'] = false;
-        input['recordCallBackUrl'] = 'RecordCallBackUrl';
-        input['recordCallBackMethod'] = 'RecordCallBackMethod';
-        input['transcribe'] = false;
-        input['transcribeCallBackUrl'] = 'TranscribeCallBackUrl';
-        input['ifMachine'] = Object.keys(ifMachine)[0];
-        input['ifMachineUrl'] = 'IfMachineUrl';
-        input['ifMachineMethod'] = 'IfMachineMethod';
-        input['feedback'] = false;
-        input['surveyId'] = 'SurveyId';
+    var from = 'From';
+    var to = 'To';
+    var url = 'Url';
+    var method = 'Method';
+    var statusCallBackUrl = 'StatusCallBackUrl';
+    var statusCallBackMethod = 'StatusCallBackMethod';
+    var fallBackUrl = 'FallBackUrl';
+    var fallBackMethod = 'FallBackMethod';
+    var heartBeatUrl = 'HeartBeatUrl';
+    var heartBeatMethod = 'HeartBeatMethod';
+    var timeout = 44;
+    var playDtmf = 'PlayDtmf';
+    var hideCallerId = false;
+    var record = false;
+    var recordCallBackUrl = 'RecordCallBackUrl';
+    var recordCallBackMethod = 'RecordCallBackMethod';
+    var transcribe = false;
+    var transcribeCallBackUrl = 'TranscribeCallBackUrl';
+    var ifMachine = Object.keys(IfMachine)[0];
+    var ifMachineUrl = 'IfMachineUrl';
+    var ifMachineMethod = 'IfMachineMethod';
+    var feedback = false;
+    var surveyId = 'SurveyId';
 
-    controller.createCallsMakecall(input, function(error, response, context) {
+    controller.createMakeCall(from, to, url, method, statusCallBackUrl, statusCallBackMethod, fallBackUrl, fallBackMethod, heartBeatUrl, heartBeatMethod, timeout, playDtmf, hideCallerId, record, recordCallBackUrl, recordCallBackMethod, transcribe, transcribeCallBackUrl, ifMachine, ifMachineUrl, ifMachineMethod, feedback, surveyId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_play_audio"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createPlayAudio") createPlayAudio
+
+> Play Audio from a url
+
+
+```javascript
+function createPlayAudio(callSid, audioUrl, sayText, length, direction, mix, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| callSid |  ``` Required ```  | The unique identifier of each call resource |
+| audioUrl |  ``` Required ```  | URL to sound that should be played. You also can add more than one audio file using semicolons e.g. http://example.com/audio1.mp3;http://example.com/audio2.wav |
+| sayText |  ``` Required ```  | Valid alphanumeric string that should be played to the In-progress call. |
+| length |  ``` Optional ```  | Time limit in seconds for audio play back |
+| direction |  ``` Optional ```  | The leg of the call audio will be played to |
+| mix |  ``` Optional ```  | If false, all other audio will be muted |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var callSid = 'CallSid';
+    var audioUrl = 'AudioUrl';
+    var sayText = 'SayText';
+    var length = 44;
+    var direction = Object.keys(Direction)[0];
+    var mix = false;
+
+    controller.createPlayAudio(callSid, audioUrl, sayText, length, direction, mix, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_record_call"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createRecordCall") createRecordCall
+
+> Start or stop recording of an in-progress voice call.
+
+
+```javascript
+function createRecordCall(callSid, record, direction, timeLimit, callBackUrl, fileformat, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| callSid |  ``` Required ```  | The unique identifier of each call resource |
+| record |  ``` Required ```  | Set true to initiate recording or false to terminate recording |
+| direction |  ``` Optional ```  | The leg of the call to record |
+| timeLimit |  ``` Optional ```  | Time in seconds the recording duration should not exceed |
+| callBackUrl |  ``` Optional ```  | URL consulted after the recording completes |
+| fileformat |  ``` Optional ```  | Format of the recording file. Can be .mp3 or .wav |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var callSid = 'CallSid';
+    var record = false;
+    var direction = Object.keys(Direction4)[0];
+    var timeLimit = 44;
+    var callBackUrl = 'CallBackUrl';
+    var fileformat = Object.keys(Fileformat)[0];
+
+    controller.createRecordCall(callSid, record, direction, timeLimit, callBackUrl, fileformat, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_voice_effect"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createVoiceEffect") createVoiceEffect
+
+> Add audio voice effects to the an in-progress voice call.
+
+
+```javascript
+function createVoiceEffect(callSid, audioDirection, pitchSemiTones, pitchOctaves, pitch, rate, tempo, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| callSid |  ``` Required ```  | The unique identifier for the in-progress voice call. |
+| audioDirection |  ``` Optional ```  | The direction the audio effect should be placed on. If IN, the effects will occur on the incoming audio stream. If OUT, the effects will occur on the outgoing audio stream. |
+| pitchSemiTones |  ``` Optional ```  | Set the pitch in semitone (half-step) intervals. Value between -14 and 14 |
+| pitchOctaves |  ``` Optional ```  | Set the pitch in octave intervals.. Value between -1 and 1 |
+| pitch |  ``` Optional ```  | Set the pitch (lowness/highness) of the audio. The higher the value, the higher the pitch. Value greater than 0 |
+| rate |  ``` Optional ```  | Set the rate for audio. The lower the value, the lower the rate. value greater than 0 |
+| tempo |  ``` Optional ```  | Set the tempo (speed) of the audio. A higher value denotes a faster tempo. Value greater than 0 |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var callSid = 'CallSid';
+    var audioDirection = Object.keys(AudioDirection)[0];
+    var pitchSemiTones = 44.1663504527725;
+    var pitchOctaves = 44.1663504527725;
+    var pitch = 44.1663504527725;
+    var rate = 44.1663504527725;
+    var tempo = 44.1663504527725;
+
+    controller.createVoiceEffect(callSid, audioDirection, pitchSemiTones, pitchOctaves, pitch, rate, tempo, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_interrupt_call"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createInterruptCall") createInterruptCall
+
+> Interrupt the Call by Call Sid
+
+
+```javascript
+function createInterruptCall(callSid, url, method, status, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| callSid |  ``` Required ```  | The unique identifier for voice call that is in progress. |
+| url |  ``` Optional ```  | URL the in-progress call will be redirected to |
+| method |  ``` Optional ```  | The method used to request the above Url parameter |
+| status |  ``` Optional ```  | Status to set the in-progress call to |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var callSid = 'CallSid';
+    var url = 'Url';
+    var method = 'Method';
+    var status = Object.keys(Status)[0];
+
+    controller.createInterruptCall(callSid, url, method, status, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_calls"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createListCalls") createListCalls
+
+> A list of calls associated with your Ytel account
+
+
+```javascript
+function createListCalls(page, pageSize, to, from, dateCreated, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pageSize |  ``` Optional ```  | Number of individual resources listed in the response per page |
+| to |  ``` Optional ```  | Filter calls that were sent to this 10-digit number (E.164 format). |
+| from |  ``` Optional ```  | Filter calls that were sent from this 10-digit number (E.164 format). |
+| dateCreated |  ``` Optional ```  | Return calls that are from a specified date. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 44;
+    var pageSize = 44;
+    var to = 'To';
+    var from = 'From';
+    var dateCreated = 'DateCreated';
+
+    controller.createListCalls(page, pageSize, to, from, dateCreated, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_send_rvm"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createSendRVM") createSendRVM
+
+> Initiate an outbound Ringless Voicemail through Ytel.
+
+
+```javascript
+function createSendRVM(from, rVMCallerId, to, voiceMailURL, method, statusCallBackUrl, statsCallBackMethod, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| from |  ``` Required ```  | A valid Ytel Voice enabled number (E.164 format) that will be initiating the phone call. |
+| rVMCallerId |  ``` Required ```  | A required secondary Caller ID for RVM to work. |
+| to |  ``` Required ```  | A valid number (E.164 format) that will receive the phone call. |
+| voiceMailURL |  ``` Required ```  | The URL requested once the RVM connects. A set of default parameters will be sent here. |
+| method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once call connects. |
+| statusCallBackUrl |  ``` Optional ```  | URL that can be requested to receive notification when call has ended. A set of default parameters will be sent here once the call is finished. |
+| statsCallBackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required StatusCallBackUrl once call connects. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var from = 'From';
+    var rVMCallerId = 'RVMCallerId';
+    var to = 'To';
+    var voiceMailURL = 'VoiceMailURL';
+    var method = 'Method';
+    var statusCallBackUrl = 'StatusCallBackUrl';
+    var statsCallBackMethod = 'StatsCallBackMethod';
+
+    controller.createSendRVM(from, rVMCallerId, to, voiceMailURL, method, statusCallBackUrl, statsCallBackMethod, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_group_call"></a>![Method: ](https://apidocs.io/img/method.png ".CallController.createGroupCall") createGroupCall
+
+> Group Call
+
+
+```javascript
+function createGroupCall(from, to, url, groupConfirmKey, groupConfirmFile, method, statusCallBackUrl, statusCallBackMethod, fallBackUrl, fallBackMethod, heartBeatUrl, heartBeatMethod, timeout, playDtmf, hideCallerId, record, recordCallBackUrl, recordCallBackMethod, transcribe, transcribeCallBackUrl, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| from |  ``` Required ```  | This number to display on Caller ID as calling |
+| to |  ``` Required ```  | Please enter multiple E164 number. You can add max 10 numbers. Add numbers separated with comma. e.g : 1111111111,2222222222 |
+| url |  ``` Required ```  | URL requested once the call connects |
+| groupConfirmKey |  ``` Required ```  | Define the DTMF that the called party should send to bridge the call. Allowed Values : 0-9, #, * |
+| groupConfirmFile |  ``` Required ```  | Specify the audio file you want to play when the called party picks up the call |
+| method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once call connects. |
+| statusCallBackUrl |  ``` Optional ```  | URL that can be requested to receive notification when call has ended. A set of default parameters will be sent here once the call is finished. |
+| statusCallBackMethod |  ``` Optional ```  | Specifies the HTTP methodlinkclass used to request StatusCallbackUrl. |
+| fallBackUrl |  ``` Optional ```  | URL requested if the initial Url parameter fails or encounters an error |
+| fallBackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required FallbackUrl once call connects. |
+| heartBeatUrl |  ``` Optional ```  | URL that can be requested every 60 seconds during the call to notify of elapsed time and pass other general information. |
+| heartBeatMethod |  ``` Optional ```  | Specifies the HTTP method used to request HeartbeatUrl. |
+| timeout |  ``` Optional ```  | Time (in seconds) we should wait while the call is ringing before canceling the call |
+| playDtmf |  ``` Optional ```  | DTMF Digits to play to the call once it connects. 0-9, #, or * |
+| hideCallerId |  ``` Optional ```  | Specifies if the caller id will be hidden |
+| record |  ``` Optional ```  | Specifies if the call should be recorded |
+| recordCallBackUrl |  ``` Optional ```  | Recording parameters will be sent here upon completion |
+| recordCallBackMethod |  ``` Optional ```  | Method used to request the RecordCallback URL. |
+| transcribe |  ``` Optional ```  | Specifies if the call recording should be transcribed |
+| transcribeCallBackUrl |  ``` Optional ```  | Transcription parameters will be sent here upon completion |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var from = 'From';
+    var to = 'To';
+    var url = 'Url';
+    var groupConfirmKey = 'GroupConfirmKey';
+    var groupConfirmFile = Object.keys(GroupConfirmFile)[0];
+    var method = 'Method';
+    var statusCallBackUrl = 'StatusCallBackUrl';
+    var statusCallBackMethod = 'StatusCallBackMethod';
+    var fallBackUrl = 'FallBackUrl';
+    var fallBackMethod = 'FallBackMethod';
+    var heartBeatUrl = 'HeartBeatUrl';
+    var heartBeatMethod = 'HeartBeatMethod';
+    var timeout = 44;
+    var playDtmf = 'PlayDtmf';
+    var hideCallerId = 'HideCallerId';
+    var record = false;
+    var recordCallBackUrl = 'RecordCallBackUrl';
+    var recordCallBackMethod = 'RecordCallBackMethod';
+    var transcribe = false;
+    var transcribeCallBackUrl = 'TranscribeCallBackUrl';
+
+    controller.createGroupCall(from, to, url, groupConfirmKey, groupConfirmFile, method, statusCallBackUrl, statusCallBackMethod, fallBackUrl, fallBackMethod, heartBeatUrl, heartBeatMethod, timeout, playDtmf, hideCallerId, record, recordCallBackUrl, recordCallBackMethod, transcribe, transcribeCallBackUrl, function(error, response, context) {
 
     
     });
@@ -1376,13 +1356,13 @@ The singleton instance of the ``` PhoneNumberController ``` class can be accesse
 var controller = lib.PhoneNumberController;
 ```
 
-### <a name="create_incomingphone_getdidscore"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneGetdidscore") createIncomingphoneGetdidscore
+### <a name="create_get_did_score"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createGetDIDScore") createGetDIDScore
 
 > Get DID Score Number
 
 
 ```javascript
-function createIncomingphoneGetdidscore(phonenumber, callback)
+function createGetDIDScore(phonenumber, callback)
 ```
 #### Parameters
 
@@ -1398,7 +1378,7 @@ function createIncomingphoneGetdidscore(phonenumber, callback)
 
     var phonenumber = 'Phonenumber';
 
-    controller.createIncomingphoneGetdidscore(phonenumber, function(error, response, context) {
+    controller.createGetDIDScore(phonenumber, function(error, response, context) {
 
     
     });
@@ -1406,180 +1386,13 @@ function createIncomingphoneGetdidscore(phonenumber, callback)
 
 
 
-### <a name="create_incomingphone_bulkbuy"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneBulkbuy") createIncomingphoneBulkbuy
-
-> Purchase a selected number of DID's from specific area codes to be used with your Ytel account.
-
-
-```javascript
-function createIncomingphoneBulkbuy(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| numberType |  ``` Required ```  | The capability the number supports. |
-| areaCode |  ``` Required ```  | Specifies the area code for the returned list of available numbers. Only available for North American numbers. |
-| quantity |  ``` Required ```  | A positive integer that tells how many number you want to buy at a time. |
-| leftover |  ``` Optional ```  | If desired quantity is unavailable purchase what is available . |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['numberType'] = Object.keys(numbertype16)[0];
-        input['areaCode'] = 'AreaCode';
-        input['quantity'] = 'Quantity';
-        input['leftover'] = 'Leftover';
-
-    controller.createIncomingphoneBulkbuy(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_incomingphone_listnumber"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneListnumber") createIncomingphoneListnumber
-
-> Retrieve a list of purchased phones numbers associated with your Ytel account.
-
-
-```javascript
-function createIncomingphoneListnumber(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | Which page of the overall response will be returned. Page indexing starts at 1. |
-| pageSize |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| numberType |  ``` Optional ```  | The capability supported by the number.Number type either SMS,Voice or all |
-| friendlyName |  ``` Optional ```  | A human-readable label added to the number object. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pageSize'] = 7;
-        input['numberType'] = Object.keys(numbertype16)[0];
-        input['friendlyName'] = 'FriendlyName';
-
-    controller.createIncomingphoneListnumber(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_incomingphone_buynumber"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneBuynumber") createIncomingphoneBuynumber
-
-> Purchase a phone number to be used with your Ytel account
-
-
-```javascript
-function createIncomingphoneBuynumber(phoneNumber, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid 10-digit Ytel number (E.164 format). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var phoneNumber = 'PhoneNumber';
-
-    controller.createIncomingphoneBuynumber(phoneNumber, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_incomingphone_releasenumber_by_response_type_post"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneReleasenumberByResponseTypePost") createIncomingphoneReleasenumberByResponseTypePost
-
-> Remove a purchased Ytel number from your account.
-
-
-```javascript
-function createIncomingphoneReleasenumberByResponseTypePost(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid 10-digit Ytel number (E.164 format). |
-| responseType |  ``` Required ```  | Response type format xml or json |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['phoneNumber'] = 'PhoneNumber';
-        input['responseType'] = 'ResponseType';
-
-    controller.createIncomingphoneReleasenumberByResponseTypePost(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_incomingphone_viewnumber"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneViewnumber") createIncomingphoneViewnumber
-
-> Retrieve the details for a phone number by its number.
-
-
-```javascript
-function createIncomingphoneViewnumber(phoneNumber, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid Ytel 10-digit phone number (E.164 format). |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var phoneNumber = 'PhoneNumber';
-
-    controller.createIncomingphoneViewnumber(phoneNumber, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_incomingphone_transferphonenumbers"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneTransferphonenumbers") createIncomingphoneTransferphonenumbers
+### <a name="create_move_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createMoveNumber") createMoveNumber
 
 > Transfer phone number that has been purchased for from one account to another account.
 
 
 ```javascript
-function createIncomingphoneTransferphonenumbers(input, callback)
+function createMoveNumber(phonenumber, fromaccountsid, toaccountsid, callback)
 ```
 #### Parameters
 
@@ -1595,12 +1408,11 @@ function createIncomingphoneTransferphonenumbers(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['phonenumber'] = 'phonenumber';
-        input['fromaccountsid'] = 'fromaccountsid';
-        input['toaccountsid'] = 'toaccountsid';
+    var phonenumber = 'phonenumber';
+    var fromaccountsid = 'fromaccountsid';
+    var toaccountsid = 'toaccountsid';
 
-    controller.createIncomingphoneTransferphonenumbers(input, function(error, response, context) {
+    controller.createMoveNumber(phonenumber, fromaccountsid, toaccountsid, function(error, response, context) {
 
     
     });
@@ -1608,13 +1420,105 @@ function createIncomingphoneTransferphonenumbers(input, callback)
 
 
 
-### <a name="create_incomingphone_massreleasenumber"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneMassreleasenumber") createIncomingphoneMassreleasenumber
+### <a name="create_purchase_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createPurchaseNumber") createPurchaseNumber
+
+> Purchase a phone number to be used with your Ytel account
+
+
+```javascript
+function createPurchaseNumber(phoneNumber, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| phoneNumber |  ``` Required ```  | A valid 10-digit Ytel number (E.164 format). |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var phoneNumber = 'PhoneNumber';
+
+    controller.createPurchaseNumber(phoneNumber, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_release_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createReleaseNumber") createReleaseNumber
 
 > Remove a purchased Ytel number from your account.
 
 
 ```javascript
-function createIncomingphoneMassreleasenumber(phoneNumber, callback)
+function createReleaseNumber(responseType, phoneNumber, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| responseType |  ``` Required ```  | Response type format xml or json |
+| phoneNumber |  ``` Required ```  | A valid 10-digit Ytel number (E.164 format). |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var responseType = 'ResponseType';
+    var phoneNumber = 'PhoneNumber';
+
+    controller.createReleaseNumber(responseType, phoneNumber, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_view_details"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createViewDetails") createViewDetails
+
+> Retrieve the details for a phone number by its number.
+
+
+```javascript
+function createViewDetails(phoneNumber, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| phoneNumber |  ``` Required ```  | A valid Ytel 10-digit phone number (E.164 format). |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var phoneNumber = 'PhoneNumber';
+
+    controller.createViewDetails(phoneNumber, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_bulk_release"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createBulkRelease") createBulkRelease
+
+> Remove a purchased Ytel number from your account.
+
+
+```javascript
+function createBulkRelease(phoneNumber, callback)
 ```
 #### Parameters
 
@@ -1630,7 +1534,7 @@ function createIncomingphoneMassreleasenumber(phoneNumber, callback)
 
     var phoneNumber = 'PhoneNumber';
 
-    controller.createIncomingphoneMassreleasenumber(phoneNumber, function(error, response, context) {
+    controller.createBulkRelease(phoneNumber, function(error, response, context) {
 
     
     });
@@ -1638,32 +1542,21 @@ function createIncomingphoneMassreleasenumber(phoneNumber, callback)
 
 
 
-### <a name="create_incomingphone_massupdatenumber"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneMassupdatenumber") createIncomingphoneMassupdatenumber
+### <a name="create_available_numbers"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createAvailableNumbers") createAvailableNumbers
 
-> Update properties for a Ytel numbers that has been purchased for your account. Refer to the parameters list for the list of properties that can be updated.
+> Retrieve a list of available phone numbers that can be purchased and used for your Ytel account.
 
 
 ```javascript
-function createIncomingphoneMassupdatenumber(input, callback)
+function createAvailableNumbers(numbertype, areacode, pagesize, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| phoneNumber |  ``` Required ```  | A valid comma(,) separated Ytel numbers. (E.164 format). |
-| voiceUrl |  ``` Required ```  | The URL returning InboundXML incoming calls should execute when connected. |
-| friendlyName |  ``` Optional ```  | A human-readable value for labeling the number. |
-| voiceMethod |  ``` Optional ```  | Specifies the HTTP method used to request the VoiceUrl once incoming call connects. |
-| voiceFallbackUrl |  ``` Optional ```  | URL used if any errors occur during execution of InboundXML on a call or at initial request of the voice url |
-| voiceFallbackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the VoiceFallbackUrl once incoming call connects. |
-| hangupCallback |  ``` Optional ```  | URL that can be requested to receive notification when and how incoming call has ended. |
-| hangupCallbackMethod |  ``` Optional ```  | The HTTP method Ytel will use when requesting the HangupCallback URL. |
-| heartbeatUrl |  ``` Optional ```  | URL that can be used to monitor the phone number. |
-| heartbeatMethod |  ``` Optional ```  | The HTTP method Ytel will use when requesting the HeartbeatUrl. |
-| smsUrl |  ``` Optional ```  | URL requested when an SMS is received. |
-| smsMethod |  ``` Optional ```  | The HTTP method Ytel will use when requesting the SmsUrl. |
-| smsFallbackUrl |  ``` Optional ```  | URL used if any errors occur during execution of InboundXML from an SMS or at initial request of the SmsUrl. |
-| smsFallbackMethod |  ``` Optional ```  | The HTTP method Ytel will use when URL requested if the SmsUrl is not available. |
+| numbertype |  ``` Required ```  | Number type either SMS,Voice or all |
+| areacode |  ``` Required ```  | Specifies the area code for the returned list of available numbers. Only available for North American numbers. |
+| pagesize |  ``` Optional ```  | The count of objects to return. |
 
 
 
@@ -1671,23 +1564,11 @@ function createIncomingphoneMassupdatenumber(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['phoneNumber'] = 'PhoneNumber';
-        input['voiceUrl'] = 'VoiceUrl';
-        input['friendlyName'] = 'FriendlyName';
-        input['voiceMethod'] = 'VoiceMethod';
-        input['voiceFallbackUrl'] = 'VoiceFallbackUrl';
-        input['voiceFallbackMethod'] = 'VoiceFallbackMethod';
-        input['hangupCallback'] = 'HangupCallback';
-        input['hangupCallbackMethod'] = 'HangupCallbackMethod';
-        input['heartbeatUrl'] = 'HeartbeatUrl';
-        input['heartbeatMethod'] = 'HeartbeatMethod';
-        input['smsUrl'] = 'SmsUrl';
-        input['smsMethod'] = 'SmsMethod';
-        input['smsFallbackUrl'] = 'SmsFallbackUrl';
-        input['smsFallbackMethod'] = 'SmsFallbackMethod';
+    var numbertype = Object.keys(numbertype)[0];
+    var areacode = 'areacode';
+    var pagesize = 44;
 
-    controller.createIncomingphoneMassupdatenumber(input, function(error, response, context) {
+    controller.createAvailableNumbers(numbertype, areacode, pagesize, function(error, response, context) {
 
     
     });
@@ -1695,13 +1576,13 @@ function createIncomingphoneMassupdatenumber(input, callback)
 
 
 
-### <a name="create_incomingphone_updatenumber"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneUpdatenumber") createIncomingphoneUpdatenumber
+### <a name="update_number"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.updateNumber") updateNumber
 
 > Update properties for a Ytel number that has been purchased for your account. Refer to the parameters list for the list of properties that can be updated.
 
 
 ```javascript
-function createIncomingphoneUpdatenumber(input, callback)
+function updateNumber(phoneNumber, voiceUrl, friendlyName, voiceMethod, voiceFallbackUrl, voiceFallbackMethod, hangupCallback, hangupCallbackMethod, heartbeatUrl, heartbeatMethod, smsUrl, smsMethod, smsFallbackUrl, smsFallbackMethod, callback)
 ```
 #### Parameters
 
@@ -1728,23 +1609,22 @@ function createIncomingphoneUpdatenumber(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['phoneNumber'] = 'PhoneNumber';
-        input['voiceUrl'] = 'VoiceUrl';
-        input['friendlyName'] = 'FriendlyName';
-        input['voiceMethod'] = 'VoiceMethod';
-        input['voiceFallbackUrl'] = 'VoiceFallbackUrl';
-        input['voiceFallbackMethod'] = 'VoiceFallbackMethod';
-        input['hangupCallback'] = 'HangupCallback';
-        input['hangupCallbackMethod'] = 'HangupCallbackMethod';
-        input['heartbeatUrl'] = 'HeartbeatUrl';
-        input['heartbeatMethod'] = 'HeartbeatMethod';
-        input['smsUrl'] = 'SmsUrl';
-        input['smsMethod'] = 'SmsMethod';
-        input['smsFallbackUrl'] = 'SmsFallbackUrl';
-        input['smsFallbackMethod'] = 'SmsFallbackMethod';
+    var phoneNumber = 'PhoneNumber';
+    var voiceUrl = 'VoiceUrl';
+    var friendlyName = 'FriendlyName';
+    var voiceMethod = 'VoiceMethod';
+    var voiceFallbackUrl = 'VoiceFallbackUrl';
+    var voiceFallbackMethod = 'VoiceFallbackMethod';
+    var hangupCallback = 'HangupCallback';
+    var hangupCallbackMethod = 'HangupCallbackMethod';
+    var heartbeatUrl = 'HeartbeatUrl';
+    var heartbeatMethod = 'HeartbeatMethod';
+    var smsUrl = 'SmsUrl';
+    var smsMethod = 'SmsMethod';
+    var smsFallbackUrl = 'SmsFallbackUrl';
+    var smsFallbackMethod = 'SmsFallbackMethod';
 
-    controller.createIncomingphoneUpdatenumber(input, function(error, response, context) {
+    controller.updateNumber(phoneNumber, voiceUrl, friendlyName, voiceMethod, voiceFallbackUrl, voiceFallbackMethod, hangupCallback, hangupCallbackMethod, heartbeatUrl, heartbeatMethod, smsUrl, smsMethod, smsFallbackUrl, smsFallbackMethod, function(error, response, context) {
 
     
     });
@@ -1752,21 +1632,22 @@ function createIncomingphoneUpdatenumber(input, callback)
 
 
 
-### <a name="create_incomingphone_availablenumber"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createIncomingphoneAvailablenumber") createIncomingphoneAvailablenumber
+### <a name="create_list_numbers"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createListNumbers") createListNumbers
 
-> Retrieve a list of available phone numbers that can be purchased and used for your Ytel account.
+> Retrieve a list of purchased phones numbers associated with your Ytel account.
 
 
 ```javascript
-function createIncomingphoneAvailablenumber(input, callback)
+function createListNumbers(page, pageSize, numberType, friendlyName, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| numbertype |  ``` Required ```  | Number type either SMS,Voice or all |
-| areacode |  ``` Required ```  | Specifies the area code for the returned list of available numbers. Only available for North American numbers. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return. |
+| page |  ``` Optional ```  | Which page of the overall response will be returned. Page indexing starts at 1. |
+| pageSize |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| numberType |  ``` Optional ```  | The capability supported by the number.Number type either SMS,Voice or all |
+| friendlyName |  ``` Optional ```  | A human-readable label added to the number object. |
 
 
 
@@ -1774,12 +1655,104 @@ function createIncomingphoneAvailablenumber(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['numbertype'] = Object.keys(numbertype16)[0];
-        input['areacode'] = 'areacode';
-        input['pagesize'] = 7;
+    var page = 44;
+    var pageSize = 44;
+    var numberType = Object.keys(NumberType14)[0];
+    var friendlyName = 'FriendlyName';
 
-    controller.createIncomingphoneAvailablenumber(input, function(error, response, context) {
+    controller.createListNumbers(page, pageSize, numberType, friendlyName, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_bulk_update_numbers"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createBulkUpdateNumbers") createBulkUpdateNumbers
+
+> Update properties for a Ytel numbers that has been purchased for your account. Refer to the parameters list for the list of properties that can be updated.
+
+
+```javascript
+function createBulkUpdateNumbers(phoneNumber, voiceUrl, friendlyName, voiceMethod, voiceFallbackUrl, voiceFallbackMethod, hangupCallback, hangupCallbackMethod, heartbeatUrl, heartbeatMethod, smsUrl, smsMethod, smsFallbackUrl, smsFallbackMethod, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| phoneNumber |  ``` Required ```  | A valid comma(,) separated Ytel numbers. (E.164 format). |
+| voiceUrl |  ``` Required ```  | The URL returning InboundXML incoming calls should execute when connected. |
+| friendlyName |  ``` Optional ```  | A human-readable value for labeling the number. |
+| voiceMethod |  ``` Optional ```  | Specifies the HTTP method used to request the VoiceUrl once incoming call connects. |
+| voiceFallbackUrl |  ``` Optional ```  | URL used if any errors occur during execution of InboundXML on a call or at initial request of the voice url |
+| voiceFallbackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the VoiceFallbackUrl once incoming call connects. |
+| hangupCallback |  ``` Optional ```  | URL that can be requested to receive notification when and how incoming call has ended. |
+| hangupCallbackMethod |  ``` Optional ```  | The HTTP method Ytel will use when requesting the HangupCallback URL. |
+| heartbeatUrl |  ``` Optional ```  | URL that can be used to monitor the phone number. |
+| heartbeatMethod |  ``` Optional ```  | The HTTP method Ytel will use when requesting the HeartbeatUrl. |
+| smsUrl |  ``` Optional ```  | URL requested when an SMS is received. |
+| smsMethod |  ``` Optional ```  | The HTTP method Ytel will use when requesting the SmsUrl. |
+| smsFallbackUrl |  ``` Optional ```  | URL used if any errors occur during execution of InboundXML from an SMS or at initial request of the SmsUrl. |
+| smsFallbackMethod |  ``` Optional ```  | The HTTP method Ytel will use when URL requested if the SmsUrl is not available. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var phoneNumber = 'PhoneNumber';
+    var voiceUrl = 'VoiceUrl';
+    var friendlyName = 'FriendlyName';
+    var voiceMethod = 'VoiceMethod';
+    var voiceFallbackUrl = 'VoiceFallbackUrl';
+    var voiceFallbackMethod = 'VoiceFallbackMethod';
+    var hangupCallback = 'HangupCallback';
+    var hangupCallbackMethod = 'HangupCallbackMethod';
+    var heartbeatUrl = 'HeartbeatUrl';
+    var heartbeatMethod = 'HeartbeatMethod';
+    var smsUrl = 'SmsUrl';
+    var smsMethod = 'SmsMethod';
+    var smsFallbackUrl = 'SmsFallbackUrl';
+    var smsFallbackMethod = 'SmsFallbackMethod';
+
+    controller.createBulkUpdateNumbers(phoneNumber, voiceUrl, friendlyName, voiceMethod, voiceFallbackUrl, voiceFallbackMethod, hangupCallback, hangupCallbackMethod, heartbeatUrl, heartbeatMethod, smsUrl, smsMethod, smsFallbackUrl, smsFallbackMethod, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_bulk_buy_numbers"></a>![Method: ](https://apidocs.io/img/method.png ".PhoneNumberController.createBulkBuyNumbers") createBulkBuyNumbers
+
+> Purchase a selected number of DID's from specific area codes to be used with your Ytel account.
+
+
+```javascript
+function createBulkBuyNumbers(numberType, areaCode, quantity, leftover, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| numberType |  ``` Required ```  | The capability the number supports. |
+| areaCode |  ``` Required ```  | Specifies the area code for the returned list of available numbers. Only available for North American numbers. |
+| quantity |  ``` Required ```  | A positive integer that tells how many number you want to buy at a time. |
+| leftover |  ``` Optional ```  | If desired quantity is unavailable purchase what is available . |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var numberType = Object.keys(NumberType15)[0];
+    var areaCode = 'AreaCode';
+    var quantity = 'Quantity';
+    var leftover = 'Leftover';
+
+    controller.createBulkBuyNumbers(numberType, areaCode, quantity, leftover, function(error, response, context) {
 
     
     });
@@ -1799,13 +1772,13 @@ The singleton instance of the ``` SMSController ``` class can be accessed from t
 var controller = lib.SMSController;
 ```
 
-### <a name="create_sms_viewdetailsms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createSmsViewdetailsms") createSmsViewdetailsms
+### <a name="create_view_sms1"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createViewSMS1") createViewSMS1
 
 > Retrieve a single SMS message object with details by its SmsSid.
 
 
 ```javascript
-function createSmsViewdetailsms(messageSid, callback)
+function createViewSMS1(messageSid, callback)
 ```
 #### Parameters
 
@@ -1821,7 +1794,7 @@ function createSmsViewdetailsms(messageSid, callback)
 
     var messageSid = 'MessageSid';
 
-    controller.createSmsViewdetailsms(messageSid, function(error, response, context) {
+    controller.createViewSMS1(messageSid, function(error, response, context) {
 
     
     });
@@ -1829,13 +1802,13 @@ function createSmsViewdetailsms(messageSid, callback)
 
 
 
-### <a name="create_sms_viewsms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createSmsViewsms") createSmsViewsms
+### <a name="create_view_sms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createViewSMS") createViewSMS
 
 > Retrieve a single SMS message object by its SmsSid.
 
 
 ```javascript
-function createSmsViewsms(messageSid, callback)
+function createViewSMS(messageSid, callback)
 ```
 #### Parameters
 
@@ -1851,7 +1824,7 @@ function createSmsViewsms(messageSid, callback)
 
     var messageSid = 'MessageSid';
 
-    controller.createSmsViewsms(messageSid, function(error, response, context) {
+    controller.createViewSMS(messageSid, function(error, response, context) {
 
     
     });
@@ -1859,91 +1832,13 @@ function createSmsViewsms(messageSid, callback)
 
 
 
-### <a name="create_sms_getinboundsms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createSmsGetinboundsms") createSmsGetinboundsms
-
-> Retrieve a list of Inbound SMS message objects.
-
-
-```javascript
-function createSmsGetinboundsms(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pageSize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
-| from |  ``` Optional ```  | Filter SMS message objects from this valid 10-digit phone number (E.164 format). |
-| to |  ``` Optional ```  | Filter SMS message objects to this valid 10-digit phone number (E.164 format). |
-| dateSent |  ``` Optional ```  | Filter sms message objects by this date. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pageSize'] = 7;
-        input['from'] = 'From';
-        input['to'] = 'To';
-        input['dateSent'] = 'DateSent';
-
-    controller.createSmsGetinboundsms(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_sms_listsms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createSmsListsms") createSmsListsms
-
-> Retrieve a list of Outbound SMS message objects.
-
-
-```javascript
-function createSmsListsms(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pageSize |  ``` Optional ```  ``` DefaultValue ```  | Number of individual resources listed in the response per page |
-| from |  ``` Optional ```  | Filter SMS message objects from this valid 10-digit phone number (E.164 format). |
-| to |  ``` Optional ```  | Filter SMS message objects to this valid 10-digit phone number (E.164 format). |
-| dateSent |  ``` Optional ```  | Only list SMS messages sent in the specified date range |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pageSize'] = 7;
-        input['from'] = 'From';
-        input['to'] = 'To';
-        input['dateSent'] = 'DateSent';
-
-    controller.createSmsListsms(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_sms_sendsms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createSmsSendsms") createSmsSendsms
+### <a name="create_send_sms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createSendSMS") createSendSMS
 
 > Send an SMS from a Ytel number
 
 
 ```javascript
-function createSmsSendsms(input, callback)
+function createSendSMS(from, to, body, method, messageStatusCallback, smartsms, deliveryStatus, callback)
 ```
 #### Parameters
 
@@ -1954,8 +1849,8 @@ function createSmsSendsms(input, callback)
 | body |  ``` Required ```  | The body message that is to be sent in the text. |
 | method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once SMS sent. |
 | messageStatusCallback |  ``` Optional ```  | URL that can be requested to receive notification when SMS has Sent. A set of default parameters will be sent here once the SMS is finished. |
-| smartsms |  ``` Optional ```  ``` DefaultValue ```  | Check's 'to' number can receive sms or not using Carrier API, if wireless = true then text sms is sent, else wireless = false then call is recieved to end user with audible message. |
-| deliveryStatus |  ``` Optional ```  ``` DefaultValue ```  | Delivery reports are a method to tell your system if the message has arrived on the destination phone. |
+| smartsms |  ``` Optional ```  | Check's 'to' number can receive sms or not using Carrier API, if wireless = true then text sms is sent, else wireless = false then call is recieved to end user with audible message. |
+| deliveryStatus |  ``` Optional ```  | Delivery reports are a method to tell your system if the message has arrived on the destination phone. |
 
 
 
@@ -1963,16 +1858,91 @@ function createSmsSendsms(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['from'] = 'From';
-        input['to'] = 'To';
-        input['body'] = 'Body';
-        input['method'] = 'Method';
-        input['messageStatusCallback'] = 'MessageStatusCallback';
-        input['smartsms'] = false;
-        input['deliveryStatus'] = false;
+    var from = 'From';
+    var to = 'To';
+    var body = 'Body';
+    var method = 'Method';
+    var messageStatusCallback = 'MessageStatusCallback';
+    var smartsms = false;
+    var deliveryStatus = false;
 
-    controller.createSmsSendsms(input, function(error, response, context) {
+    controller.createSendSMS(from, to, body, method, messageStatusCallback, smartsms, deliveryStatus, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_sms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createListSMS") createListSMS
+
+> Retrieve a list of Outbound SMS message objects.
+
+
+```javascript
+function createListSMS(page, pageSize, from, to, dateSent, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pageSize |  ``` Optional ```  | Number of individual resources listed in the response per page |
+| from |  ``` Optional ```  | Filter SMS message objects from this valid 10-digit phone number (E.164 format). |
+| to |  ``` Optional ```  | Filter SMS message objects to this valid 10-digit phone number (E.164 format). |
+| dateSent |  ``` Optional ```  | Only list SMS messages sent in the specified date range |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 207;
+    var pageSize = 207;
+    var from = 'From';
+    var to = 'To';
+    var dateSent = 'DateSent';
+
+    controller.createListSMS(page, pageSize, from, to, dateSent, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_inbound_sms"></a>![Method: ](https://apidocs.io/img/method.png ".SMSController.createListInboundSMS") createListInboundSMS
+
+> Retrieve a list of Inbound SMS message objects.
+
+
+```javascript
+function createListInboundSMS(page, pageSize, from, to, dateSent, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pageSize |  ``` Optional ```  | The count of objects to return per page. |
+| from |  ``` Optional ```  | Filter SMS message objects from this valid 10-digit phone number (E.164 format). |
+| to |  ``` Optional ```  | Filter SMS message objects to this valid 10-digit phone number (E.164 format). |
+| dateSent |  ``` Optional ```  | Filter sms message objects by this date. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 207;
+    var pageSize = 207;
+    var from = 'From';
+    var to = 'To';
+    var dateSent = 'DateSent';
+
+    controller.createListInboundSMS(page, pageSize, from, to, dateSent, function(error, response, context) {
 
     
     });
@@ -1992,13 +1962,13 @@ The singleton instance of the ``` SharedShortCodeController ``` class can be acc
 var controller = lib.SharedShortCodeController;
 ```
 
-### <a name="create_shortcode_viewshortcode"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createShortcodeViewshortcode") createShortcodeViewshortcode
+### <a name="create_view_shortcode"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createViewShortcode") createViewShortcode
 
 > The response returned here contains all resource properties associated with the given Shortcode.
 
 
 ```javascript
-function createShortcodeViewshortcode(shortcode, callback)
+function createViewShortcode(shortcode, callback)
 ```
 #### Parameters
 
@@ -2014,7 +1984,7 @@ function createShortcodeViewshortcode(shortcode, callback)
 
     var shortcode = 'Shortcode';
 
-    controller.createShortcodeViewshortcode(shortcode, function(error, response, context) {
+    controller.createViewShortcode(shortcode, function(error, response, context) {
 
     
     });
@@ -2022,13 +1992,13 @@ function createShortcodeViewshortcode(shortcode, callback)
 
 
 
-### <a name="create_keyword_view"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createKeywordView") createKeywordView
+### <a name="create_view_keyword"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createViewKeyword") createViewKeyword
 
 > View a set of properties for a single keyword.
 
 
 ```javascript
-function createKeywordView(keywordid, callback)
+function createViewKeyword(keywordid, callback)
 ```
 #### Parameters
 
@@ -2044,7 +2014,7 @@ function createKeywordView(keywordid, callback)
 
     var keywordid = 'Keywordid';
 
-    controller.createKeywordView(keywordid, function(error, response, context) {
+    controller.createViewKeyword(keywordid, function(error, response, context) {
 
     
     });
@@ -2052,13 +2022,227 @@ function createKeywordView(keywordid, callback)
 
 
 
-### <a name="create_shortcode_updateshortcode"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createShortcodeUpdateshortcode") createShortcodeUpdateshortcode
+### <a name="create_view_template"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createViewTemplate") createViewTemplate
+
+> View a Shared ShortCode Template
+
+
+```javascript
+function createViewTemplate(templateId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| templateId |  ``` Required ```  | The unique identifier for a template object |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var templateId = uniqid();
+
+    controller.createViewTemplate(templateId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_inbound_sms"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createListInboundSMS") createListInboundSMS
+
+> List All Inbound ShortCode
+
+
+```javascript
+function createListInboundSMS(datecreated, page, pagesize, from, shortcode, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| datecreated |  ``` Optional ```  | Only list messages sent with the specified date |
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | Number of individual resources listed in the response per page |
+| from |  ``` Optional ```  | From Number to Inbound ShortCode |
+| shortcode |  ``` Optional ```  | Only list messages sent to this Short Code |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var datecreated = 'Datecreated';
+    var page = 207;
+    var pagesize = 207;
+    var from = 'from';
+    var shortcode = 'Shortcode';
+
+    controller.createListInboundSMS(datecreated, page, pagesize, from, shortcode, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_send_sms"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createSendSMS") createSendSMS
+
+> Send an SMS from a Ytel ShortCode
+
+
+```javascript
+function createSendSMS(shortcode, to, templateid, data, method, messageStatusCallback, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| shortcode |  ``` Required ```  | The Short Code number that is the sender of this message |
+| to |  ``` Required ```  | A valid 10-digit number that should receive the message |
+| templateid |  ``` Required ```  | The unique identifier for the template used for the message |
+| data |  ``` Required ```  | format of your data, example: {companyname}:test,{otpcode}:1234 |
+| method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once the Short Code message is sent. |
+| messageStatusCallback |  ``` Optional ```  | URL that can be requested to receive notification when Short Code message was sent. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var shortcode = 'shortcode';
+    var to = 'to';
+    var templateid = uniqid();
+    var data = 'data';
+    var method = 'Method';
+    var messageStatusCallback = 'MessageStatusCallback';
+
+    controller.createSendSMS(shortcode, to, templateid, data, method, messageStatusCallback, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_templates"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createListTemplates") createListTemplates
+
+> List Shortcode Templates by Type
+
+
+```javascript
+function createListTemplates(type, page, pagesize, shortcode, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| type |  ``` Optional ```  | The type (category) of template Valid values: marketing, authorization |
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | The count of objects to return per page. |
+| shortcode |  ``` Optional ```  | Only list templates of type |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var type = 'type';
+    var page = 207;
+    var pagesize = 207;
+    var shortcode = 'Shortcode';
+
+    controller.createListTemplates(type, page, pagesize, shortcode, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_keywords"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createListKeywords") createListKeywords
+
+> Retrieve a list of keywords associated with your Ytel account.
+
+
+```javascript
+function createListKeywords(page, pagesize, keyword, shortcode, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | Number of individual resources listed in the response per page |
+| keyword |  ``` Optional ```  | Only list keywords of keyword |
+| shortcode |  ``` Optional ```  | Only list keywords of shortcode |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 207;
+    var pagesize = 207;
+    var keyword = 'Keyword';
+    var shortcode = 207;
+
+    controller.createListKeywords(page, pagesize, keyword, shortcode, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_shortcodes"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createListShortcodes") createListShortcodes
+
+> Retrieve a list of shortcode assignment associated with your Ytel account.
+
+
+```javascript
+function createListShortcodes(shortcode, page, pagesize, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| shortcode |  ``` Optional ```  | Only list keywords of shortcode |
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | Number of individual resources listed in the response per page |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var shortcode = 'Shortcode';
+    var page = 207;
+    var pagesize = 207;
+
+    controller.createListShortcodes(shortcode, page, pagesize, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_shortcode"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.updateShortcode") updateShortcode
 
 > Update Assignment
 
 
 ```javascript
-function createShortcodeUpdateshortcode(input, callback)
+function updateShortcode(shortcode, friendlyName, callbackUrl, callbackMethod, fallbackUrl, fallbackUrlMethod, callback)
 ```
 #### Parameters
 
@@ -2077,234 +2261,14 @@ function createShortcodeUpdateshortcode(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['shortcode'] = 'Shortcode';
-        input['friendlyName'] = 'FriendlyName';
-        input['callbackUrl'] = 'CallbackUrl';
-        input['callbackMethod'] = 'CallbackMethod';
-        input['fallbackUrl'] = 'FallbackUrl';
-        input['fallbackUrlMethod'] = 'FallbackUrlMethod';
-
-    controller.createShortcodeUpdateshortcode(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_template_view"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createTemplateView") createTemplateView
-
-> View a Shared ShortCode Template
-
-
-```javascript
-function createTemplateView(templateId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| templateId |  ``` Required ```  | The unique identifier for a template object |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var templateId = uniqid();
-
-    controller.createTemplateView(templateId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_shortcode_listshortcode"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createShortcodeListshortcode") createShortcodeListshortcode
-
-> Retrieve a list of shortcode assignment associated with your Ytel account.
-
-
-```javascript
-function createShortcodeListshortcode(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | Number of individual resources listed in the response per page |
-| shortcode |  ``` Optional ```  | Only list keywords of shortcode |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pagesize'] = 7;
-        input['shortcode'] = 'Shortcode';
-
-    controller.createShortcodeListshortcode(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_keyword_lists"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createKeywordLists") createKeywordLists
-
-> Retrieve a list of keywords associated with your Ytel account.
-
-
-```javascript
-function createKeywordLists(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | Number of individual resources listed in the response per page |
-| keyword |  ``` Optional ```  | Only list keywords of keyword |
-| shortcode |  ``` Optional ```  | Only list keywords of shortcode |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pagesize'] = 7;
-        input['keyword'] = 'Keyword';
-        input['shortcode'] = 7;
-
-    controller.createKeywordLists(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_template_lists"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createTemplateLists") createTemplateLists
-
-> List Shortcode Templates by Type
-
-
-```javascript
-function createTemplateLists(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| type |  ``` Optional ```  ``` DefaultValue ```  | The type (category) of template Valid values: marketing, authorization |
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
-| shortcode |  ``` Optional ```  | Only list templates of type |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['type'] = 'type';
-        input['page'] = 7;
-        input['pagesize'] = 7;
-        input['shortcode'] = 'Shortcode';
-
-    controller.createTemplateLists(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_shortcode_sendsms"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createShortcodeSendsms") createShortcodeSendsms
-
-> Send an SMS from a Ytel ShortCode
-
-
-```javascript
-function createShortcodeSendsms(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| shortcode |  ``` Required ```  | The Short Code number that is the sender of this message |
-| to |  ``` Required ```  | A valid 10-digit number that should receive the message |
-| templateid |  ``` Required ```  | The unique identifier for the template used for the message |
-| data |  ``` Required ```  | format of your data, example: {companyname}:test,{otpcode}:1234 |
-| method |  ``` Optional ```  ``` DefaultValue ```  | Specifies the HTTP method used to request the required URL once the Short Code message is sent. |
-| messageStatusCallback |  ``` Optional ```  | URL that can be requested to receive notification when Short Code message was sent. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['shortcode'] = 'shortcode';
-        input['to'] = 'to';
-        input['templateid'] = uniqid();
-        input['data'] = 'data';
-        input['method'] = 'Method';
-        input['messageStatusCallback'] = 'MessageStatusCallback';
-
-    controller.createShortcodeSendsms(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_shortcode_getinboundsms"></a>![Method: ](https://apidocs.io/img/method.png ".SharedShortCodeController.createShortcodeGetinboundsms") createShortcodeGetinboundsms
-
-> List All Inbound ShortCode
-
-
-```javascript
-function createShortcodeGetinboundsms(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | Number of individual resources listed in the response per page |
-| from |  ``` Optional ```  | From Number to Inbound ShortCode |
-| shortcode |  ``` Optional ```  | Only list messages sent to this Short Code |
-| datecreated |  ``` Optional ```  | Only list messages sent with the specified date |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 7;
-        input['pagesize'] = 221;
-        input['from'] = 'from';
-        input['shortcode'] = 'Shortcode';
-        input['datecreated'] = 'Datecreated';
-
-    controller.createShortcodeGetinboundsms(input, function(error, response, context) {
+    var shortcode = 'Shortcode';
+    var friendlyName = 'FriendlyName';
+    var callbackUrl = 'CallbackUrl';
+    var callbackMethod = 'CallbackMethod';
+    var fallbackUrl = 'FallbackUrl';
+    var fallbackUrlMethod = 'FallbackUrlMethod';
+
+    controller.updateShortcode(shortcode, friendlyName, callbackUrl, callbackMethod, fallbackUrl, fallbackUrlMethod, function(error, response, context) {
 
     
     });
@@ -2324,13 +2288,13 @@ The singleton instance of the ``` ConferenceController ``` class can be accessed
 var controller = lib.ConferenceController;
 ```
 
-### <a name="create_conferences_play_audio"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConferencesPlayAudio") createConferencesPlayAudio
+### <a name="create_play_audio"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createPlayAudio") createPlayAudio
 
 > Play an audio file during a conference.
 
 
 ```javascript
-function createConferencesPlayAudio(input, callback)
+function createPlayAudio(conferenceSid, participantSid, audioUrl, callback)
 ```
 #### Parameters
 
@@ -2346,12 +2310,11 @@ function createConferencesPlayAudio(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['conferenceSid'] = 'ConferenceSid';
-        input['participantSid'] = 'ParticipantSid';
-        input['audioUrl'] = Object.keys(AudioUrl)[0];
+    var conferenceSid = 'ConferenceSid';
+    var participantSid = 'ParticipantSid';
+    var audioUrl = Object.keys(AudioUrl)[0];
 
-    controller.createConferencesPlayAudio(input, function(error, response, context) {
+    controller.createPlayAudio(conferenceSid, participantSid, audioUrl, function(error, response, context) {
 
     
     });
@@ -2359,20 +2322,20 @@ function createConferencesPlayAudio(input, callback)
 
 
 
-### <a name="create_conferences_hangup_participant"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConferencesHangupParticipant") createConferencesHangupParticipant
+### <a name="create_hangup_participant"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createHangupParticipant") createHangupParticipant
 
 > Remove a participant from a conference.
 
 
 ```javascript
-function createConferencesHangupParticipant(input, callback)
+function createHangupParticipant(participantSid, conferenceSid, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| conferenceSid |  ``` Required ```  | The unique identifier for a conference object. |
 | participantSid |  ``` Required ```  | The unique identifier for a participant object. |
+| conferenceSid |  ``` Required ```  | The unique identifier for a conference object. |
 
 
 
@@ -2380,11 +2343,10 @@ function createConferencesHangupParticipant(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['conferenceSid'] = 'ConferenceSid';
-        input['participantSid'] = 'ParticipantSid';
+    var participantSid = 'ParticipantSid';
+    var conferenceSid = 'ConferenceSid';
 
-    controller.createConferencesHangupParticipant(input, function(error, response, context) {
+    controller.createHangupParticipant(participantSid, conferenceSid, function(error, response, context) {
 
     
     });
@@ -2392,13 +2354,13 @@ function createConferencesHangupParticipant(input, callback)
 
 
 
-### <a name="create_conferences_viewconference"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConferencesViewconference") createConferencesViewconference
+### <a name="create_view_conference"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createViewConference") createViewConference
 
 > Retrieve information about a conference by its ConferenceSid.
 
 
 ```javascript
-function createConferencesViewconference(conferenceSid, callback)
+function createViewConference(conferenceSid, callback)
 ```
 #### Parameters
 
@@ -2414,7 +2376,7 @@ function createConferencesViewconference(conferenceSid, callback)
 
     var conferenceSid = 'ConferenceSid';
 
-    controller.createConferencesViewconference(conferenceSid, function(error, response, context) {
+    controller.createViewConference(conferenceSid, function(error, response, context) {
 
     
     });
@@ -2422,89 +2384,13 @@ function createConferencesViewconference(conferenceSid, callback)
 
 
 
-### <a name="create_conferences_listconference"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConferencesListconference") createConferencesListconference
-
-> Retrieve a list of conference objects.
-
-
-```javascript
-function createConferencesListconference(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | Number of individual resources listed in the response per page |
-| friendlyName |  ``` Optional ```  | Only return conferences with the specified FriendlyName |
-| dateCreated |  ``` Optional ```  | Conference created date |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 221;
-        input['pagesize'] = 221;
-        input['friendlyName'] = 'FriendlyName';
-        input['dateCreated'] = 'DateCreated';
-
-    controller.createConferencesListconference(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_conferences_list_participant"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConferencesListParticipant") createConferencesListParticipant
-
-> Retrieve a list of participants for an in-progress conference.
-
-
-```javascript
-function createConferencesListParticipant(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| conferenceSid |  ``` Required ```  | The unique identifier for a conference. |
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
-| muted |  ``` Optional ```  | Specifies if participant should be muted. |
-| deaf |  ``` Optional ```  | Specifies if the participant should hear audio in the conference. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['conferenceSid'] = 'ConferenceSid';
-        input['page'] = 221;
-        input['pagesize'] = 221;
-        input['muted'] = true;
-        input['deaf'] = true;
-
-    controller.createConferencesListParticipant(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_conferences_view_participant"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConferencesViewParticipant") createConferencesViewParticipant
+### <a name="create_view_participant"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createViewParticipant") createViewParticipant
 
 > Retrieve information about a participant by its ParticipantSid.
 
 
 ```javascript
-function createConferencesViewParticipant(input, callback)
+function createViewParticipant(conferenceSid, participantSid, callback)
 ```
 #### Parameters
 
@@ -2519,48 +2405,10 @@ function createConferencesViewParticipant(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['conferenceSid'] = 'ConferenceSid';
-        input['participantSid'] = 'ParticipantSid';
+    var conferenceSid = 'ConferenceSid';
+    var participantSid = 'ParticipantSid';
 
-    controller.createConferencesViewParticipant(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_conferences_add_participant"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConferencesAddParticipant") createConferencesAddParticipant
-
-> Add Participant in conference 
-
-
-```javascript
-function createConferencesAddParticipant(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| conferenceSid |  ``` Required ```  | The unique identifier for a conference object. |
-| participantNumber |  ``` Required ```  | The phone number of the participant to be added. |
-| muted |  ``` Optional ```  | Specifies if participant should be muted. |
-| deaf |  ``` Optional ```  | Specifies if the participant should hear audio in the conference. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['conferenceSid'] = 'ConferenceSid';
-        input['participantNumber'] = 'ParticipantNumber';
-        input['muted'] = true;
-        input['deaf'] = true;
-
-    controller.createConferencesAddParticipant(input, function(error, response, context) {
+    controller.createViewParticipant(conferenceSid, participantSid, function(error, response, context) {
 
     
     });
@@ -2568,68 +2416,13 @@ function createConferencesAddParticipant(input, callback)
 
 
 
-### <a name="create_conferences_create_conference"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConferencesCreateConference") createConferencesCreateConference
-
-> Here you can experiment with initiating a conference call through Ytel and view the request response generated when doing so.
-
-
-```javascript
-function createConferencesCreateConference(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| from |  ``` Required ```  | A valid 10-digit number (E.164 format) that will be initiating the conference call. |
-| to |  ``` Required ```  | A valid 10-digit number (E.164 format) that is to receive the conference call. |
-| url |  ``` Required ```  | URL requested once the conference connects |
-| method |  ``` Optional ```  ``` DefaultValue ```  | Specifies the HTTP method used to request the required URL once call connects. |
-| statusCallBackUrl |  ``` Optional ```  | URL that can be requested to receive notification when call has ended. A set of default parameters will be sent here once the conference is finished. |
-| statusCallBackMethod |  ``` Optional ```  | Specifies the HTTP methodlinkclass used to request StatusCallbackUrl. |
-| fallbackUrl |  ``` Optional ```  | URL requested if the initial Url parameter fails or encounters an error |
-| fallbackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required FallbackUrl once call connects. |
-| record |  ``` Optional ```  | Specifies if the conference should be recorded. |
-| recordCallBackUrl |  ``` Optional ```  | Recording parameters will be sent here upon completion. |
-| recordCallBackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once conference connects. |
-| scheduleTime |  ``` Optional ```  | Schedule conference in future. Schedule time must be greater than current time |
-| timeout |  ``` Optional ```  | The number of seconds the call stays on the line while waiting for an answer. The max time limit is 999 and the default limit is 60 seconds but lower times can be set. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['from'] = 'From';
-        input['to'] = 'To';
-        input['url'] = 'Url';
-        input['method'] = 'Method';
-        input['statusCallBackUrl'] = 'StatusCallBackUrl';
-        input['statusCallBackMethod'] = 'StatusCallBackMethod';
-        input['fallbackUrl'] = 'FallbackUrl';
-        input['fallbackMethod'] = 'FallbackMethod';
-        input['record'] = true;
-        input['recordCallBackUrl'] = 'RecordCallBackUrl';
-        input['recordCallBackMethod'] = 'RecordCallBackMethod';
-        input['scheduleTime'] = 'ScheduleTime';
-        input['timeout'] = 221;
-
-    controller.createConferencesCreateConference(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_conferences_deaf_mute_participant"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConferencesDeafMuteParticipant") createConferencesDeafMuteParticipant
+### <a name="create_silence_participant"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createSilenceParticipant") createSilenceParticipant
 
 > Deaf Mute Participant
 
 
 ```javascript
-function createConferencesDeafMuteParticipant(input, callback)
+function createSilenceParticipant(conferenceSid, participantSid, muted, deaf, callback)
 ```
 #### Parameters
 
@@ -2646,13 +2439,176 @@ function createConferencesDeafMuteParticipant(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['conferenceSid'] = 'conferenceSid';
-        input['participantSid'] = 'ParticipantSid';
-        input['muted'] = true;
-        input['deaf'] = true;
+    var conferenceSid = 'conferenceSid';
+    var participantSid = 'ParticipantSid';
+    var muted = true;
+    var deaf = true;
 
-    controller.createConferencesDeafMuteParticipant(input, function(error, response, context) {
+    controller.createSilenceParticipant(conferenceSid, participantSid, muted, deaf, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="add_participant"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.addParticipant") addParticipant
+
+> Add Participant in conference 
+
+
+```javascript
+function addParticipant(conferenceSid, participantNumber, muted, deaf, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| conferenceSid |  ``` Required ```  | The unique identifier for a conference object. |
+| participantNumber |  ``` Required ```  | The phone number of the participant to be added. |
+| muted |  ``` Optional ```  | Specifies if participant should be muted. |
+| deaf |  ``` Optional ```  | Specifies if the participant should hear audio in the conference. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var conferenceSid = 'ConferenceSid';
+    var participantNumber = 'ParticipantNumber';
+    var muted = true;
+    var deaf = true;
+
+    controller.addParticipant(conferenceSid, participantNumber, muted, deaf, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_conference"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createConference") createConference
+
+> Here you can experiment with initiating a conference call through Ytel and view the request response generated when doing so.
+
+
+```javascript
+function createConference(url, from, to, method, statusCallBackUrl, statusCallBackMethod, fallbackUrl, fallbackMethod, record, recordCallBackUrl, recordCallBackMethod, scheduleTime, timeout, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| url |  ``` Required ```  | URL requested once the conference connects |
+| from |  ``` Required ```  | A valid 10-digit number (E.164 format) that will be initiating the conference call. |
+| to |  ``` Required ```  | A valid 10-digit number (E.164 format) that is to receive the conference call. |
+| method |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once call connects. |
+| statusCallBackUrl |  ``` Optional ```  | URL that can be requested to receive notification when call has ended. A set of default parameters will be sent here once the conference is finished. |
+| statusCallBackMethod |  ``` Optional ```  | Specifies the HTTP methodlinkclass used to request StatusCallbackUrl. |
+| fallbackUrl |  ``` Optional ```  | URL requested if the initial Url parameter fails or encounters an error |
+| fallbackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required FallbackUrl once call connects. |
+| record |  ``` Optional ```  | Specifies if the conference should be recorded. |
+| recordCallBackUrl |  ``` Optional ```  | Recording parameters will be sent here upon completion. |
+| recordCallBackMethod |  ``` Optional ```  | Specifies the HTTP method used to request the required URL once conference connects. |
+| scheduleTime |  ``` Optional ```  | Schedule conference in future. Schedule time must be greater than current time |
+| timeout |  ``` Optional ```  | The number of seconds the call stays on the line while waiting for an answer. The max time limit is 999 and the default limit is 60 seconds but lower times can be set. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var url = 'Url';
+    var from = 'From';
+    var to = 'To';
+    var method = 'Method';
+    var statusCallBackUrl = 'StatusCallBackUrl';
+    var statusCallBackMethod = 'StatusCallBackMethod';
+    var fallbackUrl = 'FallbackUrl';
+    var fallbackMethod = 'FallbackMethod';
+    var record = true;
+    var recordCallBackUrl = 'RecordCallBackUrl';
+    var recordCallBackMethod = 'RecordCallBackMethod';
+    var scheduleTime = 'ScheduleTime';
+    var timeout = 207;
+
+    controller.createConference(url, from, to, method, statusCallBackUrl, statusCallBackMethod, fallbackUrl, fallbackMethod, record, recordCallBackUrl, recordCallBackMethod, scheduleTime, timeout, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_participants"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createListParticipants") createListParticipants
+
+> Retrieve a list of participants for an in-progress conference.
+
+
+```javascript
+function createListParticipants(conferenceSid, page, pagesize, muted, deaf, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| conferenceSid |  ``` Required ```  | The unique identifier for a conference. |
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | The count of objects to return per page. |
+| muted |  ``` Optional ```  | Specifies if participant should be muted. |
+| deaf |  ``` Optional ```  | Specifies if the participant should hear audio in the conference. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var conferenceSid = 'ConferenceSid';
+    var page = 207;
+    var pagesize = 207;
+    var muted = true;
+    var deaf = true;
+
+    controller.createListParticipants(conferenceSid, page, pagesize, muted, deaf, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_list_conferences"></a>![Method: ](https://apidocs.io/img/method.png ".ConferenceController.createListConferences") createListConferences
+
+> Retrieve a list of conference objects.
+
+
+```javascript
+function createListConferences(page, pagesize, friendlyName, dateCreated, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | Number of individual resources listed in the response per page |
+| friendlyName |  ``` Optional ```  | Only return conferences with the specified FriendlyName |
+| dateCreated |  ``` Optional ```  | Conference created date |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 207;
+    var pagesize = 207;
+    var friendlyName = 'FriendlyName';
+    var dateCreated = 'DateCreated';
+
+    controller.createListConferences(page, pagesize, friendlyName, dateCreated, function(error, response, context) {
 
     
     });
@@ -2672,13 +2628,13 @@ The singleton instance of the ``` CarrierController ``` class can be accessed fr
 var controller = lib.CarrierController;
 ```
 
-### <a name="create_carrier_lookup"></a>![Method: ](https://apidocs.io/img/method.png ".CarrierController.createCarrierLookup") createCarrierLookup
+### <a name="create_lookup_carrier"></a>![Method: ](https://apidocs.io/img/method.png ".CarrierController.createLookupCarrier") createLookupCarrier
 
 > Get the Carrier Lookup
 
 
 ```javascript
-function createCarrierLookup(phoneNumber, callback)
+function createLookupCarrier(phoneNumber, callback)
 ```
 #### Parameters
 
@@ -2694,7 +2650,7 @@ function createCarrierLookup(phoneNumber, callback)
 
     var phoneNumber = 'PhoneNumber';
 
-    controller.createCarrierLookup(phoneNumber, function(error, response, context) {
+    controller.createLookupCarrier(phoneNumber, function(error, response, context) {
 
     
     });
@@ -2702,20 +2658,20 @@ function createCarrierLookup(phoneNumber, callback)
 
 
 
-### <a name="create_carrier_lookuplist"></a>![Method: ](https://apidocs.io/img/method.png ".CarrierController.createCarrierLookuplist") createCarrierLookuplist
+### <a name="create_carrier_results"></a>![Method: ](https://apidocs.io/img/method.png ".CarrierController.createCarrierResults") createCarrierResults
 
 > Retrieve a list of carrier lookup objects.
 
 
 ```javascript
-function createCarrierLookuplist(input, callback)
+function createCarrierResults(page, pageSize, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pageSize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pageSize |  ``` Optional ```  | The count of objects to return per page. |
 
 
 
@@ -2723,11 +2679,10 @@ function createCarrierLookuplist(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['page'] = 221;
-        input['pageSize'] = 221;
+    var page = 207;
+    var pageSize = 207;
 
-    controller.createCarrierLookuplist(input, function(error, response, context) {
+    controller.createCarrierResults(page, pageSize, function(error, response, context) {
 
     
     });
@@ -2747,13 +2702,13 @@ The singleton instance of the ``` EmailController ``` class can be accessed from
 var controller = lib.EmailController;
 ```
 
-### <a name="create_email_deleteinvalidemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailDeleteinvalidemail") createEmailDeleteinvalidemail
+### <a name="create_remove_invalid_email"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createRemoveInvalidEmail") createRemoveInvalidEmail
 
 > Remove an email from the invalid email list.
 
 
 ```javascript
-function createEmailDeleteinvalidemail(email, callback)
+function createRemoveInvalidEmail(email, callback)
 ```
 #### Parameters
 
@@ -2769,7 +2724,7 @@ function createEmailDeleteinvalidemail(email, callback)
 
     var email = 'Email';
 
-    controller.createEmailDeleteinvalidemail(email, function(error, response, context) {
+    controller.createRemoveInvalidEmail(email, function(error, response, context) {
 
     
     });
@@ -2777,13 +2732,13 @@ function createEmailDeleteinvalidemail(email, callback)
 
 
 
-### <a name="create_email_listblockemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailListblockemail") createEmailListblockemail
+### <a name="create_blocked_emails"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createBlockedEmails") createBlockedEmails
 
 > Retrieve a list of emails that have been blocked.
 
 
 ```javascript
-function createEmailListblockemail(input, callback)
+function createBlockedEmails(offset, limit, callback)
 ```
 #### Parameters
 
@@ -2798,11 +2753,10 @@ function createEmailListblockemail(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['offset'] = 'Offset';
-        input['limit'] = 'Limit';
+    var offset = 'Offset';
+    var limit = 'Limit';
 
-    controller.createEmailListblockemail(input, function(error, response, context) {
+    controller.createBlockedEmails(offset, limit, function(error, response, context) {
 
     
     });
@@ -2810,13 +2764,13 @@ function createEmailListblockemail(input, callback)
 
 
 
-### <a name="create_email_listspamemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailListspamemail") createEmailListspamemail
+### <a name="create_spam_emails"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createSpamEmails") createSpamEmails
 
 > Retrieve a list of emails that are on the spam list.
 
 
 ```javascript
-function createEmailListspamemail(input, callback)
+function createSpamEmails(offset, limit, callback)
 ```
 #### Parameters
 
@@ -2831,11 +2785,10 @@ function createEmailListspamemail(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['offset'] = 'Offset';
-        input['limit'] = 'Limit';
+    var offset = 'Offset';
+    var limit = 'Limit';
 
-    controller.createEmailListspamemail(input, function(error, response, context) {
+    controller.createSpamEmails(offset, limit, function(error, response, context) {
 
     
     });
@@ -2843,13 +2796,13 @@ function createEmailListspamemail(input, callback)
 
 
 
-### <a name="create_email_listbounceemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailListbounceemail") createEmailListbounceemail
+### <a name="create_bounced_emails"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createBouncedEmails") createBouncedEmails
 
 > Retrieve a list of emails that have bounced.
 
 
 ```javascript
-function createEmailListbounceemail(input, callback)
+function createBouncedEmails(offset, limit, callback)
 ```
 #### Parameters
 
@@ -2864,11 +2817,10 @@ function createEmailListbounceemail(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['offset'] = 'Offset';
-        input['limit'] = 'Limit';
+    var offset = 'Offset';
+    var limit = 'Limit';
 
-    controller.createEmailListbounceemail(input, function(error, response, context) {
+    controller.createBouncedEmails(offset, limit, function(error, response, context) {
 
     
     });
@@ -2876,13 +2828,13 @@ function createEmailListbounceemail(input, callback)
 
 
 
-### <a name="create_email_deletebouncesemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailDeletebouncesemail") createEmailDeletebouncesemail
+### <a name="create_remove_bounced_email"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createRemoveBouncedEmail") createRemoveBouncedEmail
 
 > Remove an email address from the bounced list.
 
 
 ```javascript
-function createEmailDeletebouncesemail(email, callback)
+function createRemoveBouncedEmail(email, callback)
 ```
 #### Parameters
 
@@ -2898,7 +2850,7 @@ function createEmailDeletebouncesemail(email, callback)
 
     var email = 'Email';
 
-    controller.createEmailDeletebouncesemail(email, function(error, response, context) {
+    controller.createRemoveBouncedEmail(email, function(error, response, context) {
 
     
     });
@@ -2906,13 +2858,13 @@ function createEmailDeletebouncesemail(email, callback)
 
 
 
-### <a name="create_email_listinvalidemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailListinvalidemail") createEmailListinvalidemail
+### <a name="create_invalid_emails"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createInvalidEmails") createInvalidEmails
 
 > Retrieve a list of invalid email addresses.
 
 
 ```javascript
-function createEmailListinvalidemail(input, callback)
+function createInvalidEmails(offset, limit, callback)
 ```
 #### Parameters
 
@@ -2927,11 +2879,10 @@ function createEmailListinvalidemail(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['offset'] = 'Offset';
-        input['limit'] = 'Limit';
+    var offset = 'Offset';
+    var limit = 'Limit';
 
-    controller.createEmailListinvalidemail(input, function(error, response, context) {
+    controller.createInvalidEmails(offset, limit, function(error, response, context) {
 
     
     });
@@ -2939,13 +2890,13 @@ function createEmailListinvalidemail(input, callback)
 
 
 
-### <a name="create_email_listunsubscribedemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailListunsubscribedemail") createEmailListunsubscribedemail
+### <a name="create_list_unsubscribed_emails"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createListUnsubscribedEmails") createListUnsubscribedEmails
 
 > Retrieve a list of email addresses from the unsubscribe list.
 
 
 ```javascript
-function createEmailListunsubscribedemail(input, callback)
+function createListUnsubscribedEmails(offset, limit, callback)
 ```
 #### Parameters
 
@@ -2960,11 +2911,10 @@ function createEmailListunsubscribedemail(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['offset'] = 'Offset';
-        input['limit'] = 'Limit';
+    var offset = 'Offset';
+    var limit = 'Limit';
 
-    controller.createEmailListunsubscribedemail(input, function(error, response, context) {
+    controller.createListUnsubscribedEmails(offset, limit, function(error, response, context) {
 
     
     });
@@ -2972,13 +2922,13 @@ function createEmailListunsubscribedemail(input, callback)
 
 
 
-### <a name="create_email_deleteunsubscribedemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailDeleteunsubscribedemail") createEmailDeleteunsubscribedemail
+### <a name="create_remove_unsubscribed_email"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createRemoveUnsubscribedEmail") createRemoveUnsubscribedEmail
 
 > Remove an email address from the list of unsubscribed emails.
 
 
 ```javascript
-function createEmailDeleteunsubscribedemail(email, callback)
+function createRemoveUnsubscribedEmail(email, callback)
 ```
 #### Parameters
 
@@ -2994,7 +2944,7 @@ function createEmailDeleteunsubscribedemail(email, callback)
 
     var email = 'email';
 
-    controller.createEmailDeleteunsubscribedemail(email, function(error, response, context) {
+    controller.createRemoveUnsubscribedEmail(email, function(error, response, context) {
 
     
     });
@@ -3002,13 +2952,13 @@ function createEmailDeleteunsubscribedemail(email, callback)
 
 
 
-### <a name="create_email_addunsubscribesemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailAddunsubscribesemail") createEmailAddunsubscribesemail
+### <a name="add_email_unsubscribe"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.addEmailUnsubscribe") addEmailUnsubscribe
 
 > Add an email to the unsubscribe list
 
 
 ```javascript
-function createEmailAddunsubscribesemail(email, callback)
+function addEmailUnsubscribe(email, callback)
 ```
 #### Parameters
 
@@ -3024,7 +2974,7 @@ function createEmailAddunsubscribesemail(email, callback)
 
     var email = 'email';
 
-    controller.createEmailAddunsubscribesemail(email, function(error, response, context) {
+    controller.addEmailUnsubscribe(email, function(error, response, context) {
 
     
     });
@@ -3032,13 +2982,13 @@ function createEmailAddunsubscribesemail(email, callback)
 
 
 
-### <a name="create_email_deleteblocksemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailDeleteblocksemail") createEmailDeleteblocksemail
+### <a name="create_remove_blocked_address"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createRemoveBlockedAddress") createRemoveBlockedAddress
 
 > Remove an email from blocked emails list.
 
 
 ```javascript
-function createEmailDeleteblocksemail(email, callback)
+function createRemoveBlockedAddress(email, callback)
 ```
 #### Parameters
 
@@ -3054,7 +3004,7 @@ function createEmailDeleteblocksemail(email, callback)
 
     var email = 'Email';
 
-    controller.createEmailDeleteblocksemail(email, function(error, response, context) {
+    controller.createRemoveBlockedAddress(email, function(error, response, context) {
 
     
     });
@@ -3062,13 +3012,13 @@ function createEmailDeleteblocksemail(email, callback)
 
 
 
-### <a name="create_email_deletespamemail"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailDeletespamemail") createEmailDeletespamemail
+### <a name="create_remove_spam_address"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createRemoveSpamAddress") createRemoveSpamAddress
 
 > Remove an email from the spam email list.
 
 
 ```javascript
-function createEmailDeletespamemail(email, callback)
+function createRemoveSpamAddress(email, callback)
 ```
 #### Parameters
 
@@ -3084,7 +3034,7 @@ function createEmailDeletespamemail(email, callback)
 
     var email = 'Email';
 
-    controller.createEmailDeletespamemail(email, function(error, response, context) {
+    controller.createRemoveSpamAddress(email, function(error, response, context) {
 
     
     });
@@ -3092,13 +3042,13 @@ function createEmailDeletespamemail(email, callback)
 
 
 
-### <a name="create_email_sendemails"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createEmailSendemails") createEmailSendemails
+### <a name="create_send_email"></a>![Method: ](https://apidocs.io/img/method.png ".EmailController.createSendEmail") createSendEmail
 
 > Create and submit an email message to one or more email addresses.
 
 
 ```javascript
-function createEmailSendemails(input, callback)
+function createSendEmail(to, type, subject, message, from, cc, bcc, attachment, callback)
 ```
 #### Parameters
 
@@ -3119,17 +3069,16 @@ function createEmailSendemails(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['to'] = 'To';
-        input['type'] = Object.keys(Type)[0];
-        input['subject'] = 'Subject';
-        input['message'] = 'Message';
-        input['from'] = 'From';
-        input['cc'] = 'Cc';
-        input['bcc'] = 'Bcc';
-        input['attachment'] = 'Attachment';
+    var to = 'To';
+    var type = Object.keys(Type)[0];
+    var subject = 'Subject';
+    var message = 'Message';
+    var from = 'From';
+    var cc = 'Cc';
+    var bcc = 'Bcc';
+    var attachment = 'Attachment';
 
-    controller.createEmailSendemails(input, function(error, response, context) {
+    controller.createSendEmail(to, type, subject, message, from, cc, bcc, attachment, function(error, response, context) {
 
     
     });
@@ -3149,13 +3098,13 @@ The singleton instance of the ``` AccountController ``` class can be accessed fr
 var controller = lib.AccountController;
 ```
 
-### <a name="create_accounts_viewaccount"></a>![Method: ](https://apidocs.io/img/method.png ".AccountController.createAccountsViewaccount") createAccountsViewaccount
+### <a name="create_view_account"></a>![Method: ](https://apidocs.io/img/method.png ".AccountController.createViewAccount") createViewAccount
 
 > Retrieve information regarding your Ytel account by a specific date. The response object will contain data such as account status, balance, and account usage totals.
 
 
 ```javascript
-function createAccountsViewaccount(date, callback)
+function createViewAccount(date, callback)
 ```
 #### Parameters
 
@@ -3171,7 +3120,7 @@ function createAccountsViewaccount(date, callback)
 
     var date = 'Date';
 
-    controller.createAccountsViewaccount(date, function(error, response, context) {
+    controller.createViewAccount(date, function(error, response, context) {
 
     
     });
@@ -3191,13 +3140,13 @@ The singleton instance of the ``` SubAccountController ``` class can be accessed
 var controller = lib.SubAccountController;
 ```
 
-### <a name="create_user_subaccountactivation"></a>![Method: ](https://apidocs.io/img/method.png ".SubAccountController.createUserSubaccountactivation") createUserSubaccountactivation
+### <a name="create_toggle_subaccount_status"></a>![Method: ](https://apidocs.io/img/method.png ".SubAccountController.createToggleSubaccountStatus") createToggleSubaccountStatus
 
 > Suspend or unsuspend
 
 
 ```javascript
-function createUserSubaccountactivation(input, callback)
+function createToggleSubaccountStatus(subAccountSID, mActivate, callback)
 ```
 #### Parameters
 
@@ -3212,11 +3161,10 @@ function createUserSubaccountactivation(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['subAccountSID'] = 'SubAccountSID';
-        input['mActivate'] = Object.keys(mActivate)[0];
+    var subAccountSID = 'SubAccountSID';
+    var mActivate = Object.keys(mActivate)[0];
 
-    controller.createUserSubaccountactivation(input, function(error, response, context) {
+    controller.createToggleSubaccountStatus(subAccountSID, mActivate, function(error, response, context) {
 
     
     });
@@ -3224,13 +3172,13 @@ function createUserSubaccountactivation(input, callback)
 
 
 
-### <a name="create_user_deletesubaccount"></a>![Method: ](https://apidocs.io/img/method.png ".SubAccountController.createUserDeletesubaccount") createUserDeletesubaccount
+### <a name="create_delete_subaccount"></a>![Method: ](https://apidocs.io/img/method.png ".SubAccountController.createDeleteSubaccount") createDeleteSubaccount
 
 > Delete sub account or merge numbers into parent
 
 
 ```javascript
-function createUserDeletesubaccount(input, callback)
+function createDeleteSubaccount(subAccountSID, mergeNumber, callback)
 ```
 #### Parameters
 
@@ -3245,11 +3193,10 @@ function createUserDeletesubaccount(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['subAccountSID'] = 'SubAccountSID';
-        input['mergeNumber'] = Object.keys(MergeNumber)[0];
+    var subAccountSID = 'SubAccountSID';
+    var mergeNumber = Object.keys(MergeNumber)[0];
 
-    controller.createUserDeletesubaccount(input, function(error, response, context) {
+    controller.createDeleteSubaccount(subAccountSID, mergeNumber, function(error, response, context) {
 
     
     });
@@ -3257,13 +3204,13 @@ function createUserDeletesubaccount(input, callback)
 
 
 
-### <a name="create_user_createsubaccount"></a>![Method: ](https://apidocs.io/img/method.png ".SubAccountController.createUserCreatesubaccount") createUserCreatesubaccount
+### <a name="create_subaccount"></a>![Method: ](https://apidocs.io/img/method.png ".SubAccountController.createSubaccount") createSubaccount
 
 > Create a sub user account under the parent account
 
 
 ```javascript
-function createUserCreatesubaccount(input, callback)
+function createSubaccount(firstName, lastName, email, friendlyName, password, callback)
 ```
 #### Parameters
 
@@ -3281,14 +3228,13 @@ function createUserCreatesubaccount(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['firstName'] = 'FirstName';
-        input['lastName'] = 'LastName';
-        input['email'] = 'Email';
-        input['friendlyName'] = 'FriendlyName';
-        input['password'] = 'Password';
+    var firstName = 'FirstName';
+    var lastName = 'LastName';
+    var email = 'Email';
+    var friendlyName = 'FriendlyName';
+    var password = 'Password';
 
-    controller.createUserCreatesubaccount(input, function(error, response, context) {
+    controller.createSubaccount(firstName, lastName, email, friendlyName, password, function(error, response, context) {
 
     
     });
@@ -3308,13 +3254,13 @@ The singleton instance of the ``` AddressController ``` class can be accessed fr
 var controller = lib.AddressController;
 ```
 
-### <a name="address_deleteaddress"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.addressDeleteaddress") addressDeleteaddress
+### <a name="create_delete_address"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.createDeleteAddress") createDeleteAddress
 
 > To delete Address to your address book
 
 
 ```javascript
-function addressDeleteaddress(addressid, callback)
+function createDeleteAddress(addressid, callback)
 ```
 #### Parameters
 
@@ -3330,7 +3276,7 @@ function addressDeleteaddress(addressid, callback)
 
     var addressid = 'addressid';
 
-    controller.addressDeleteaddress(addressid, function(error, response, context) {
+    controller.createDeleteAddress(addressid, function(error, response, context) {
 
     
     });
@@ -3338,13 +3284,13 @@ function addressDeleteaddress(addressid, callback)
 
 
 
-### <a name="address_verifyaddress"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.addressVerifyaddress") addressVerifyaddress
+### <a name="create_verify_address"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.createVerifyAddress") createVerifyAddress
 
 > Validates an address given.
 
 
 ```javascript
-function addressVerifyaddress(addressid, callback)
+function createVerifyAddress(addressid, callback)
 ```
 #### Parameters
 
@@ -3360,7 +3306,7 @@ function addressVerifyaddress(addressid, callback)
 
     var addressid = 'addressid';
 
-    controller.addressVerifyaddress(addressid, function(error, response, context) {
+    controller.createVerifyAddress(addressid, function(error, response, context) {
 
     
     });
@@ -3368,13 +3314,13 @@ function addressVerifyaddress(addressid, callback)
 
 
 
-### <a name="address_viewaddress"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.addressViewaddress") addressViewaddress
+### <a name="create_view_address"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.createViewAddress") createViewAddress
 
 > View Address Specific address Book by providing the address id
 
 
 ```javascript
-function addressViewaddress(addressid, callback)
+function createViewAddress(addressid, callback)
 ```
 #### Parameters
 
@@ -3390,7 +3336,7 @@ function addressViewaddress(addressid, callback)
 
     var addressid = 'addressid';
 
-    controller.addressViewaddress(addressid, function(error, response, context) {
+    controller.createViewAddress(addressid, function(error, response, context) {
 
     
     });
@@ -3398,13 +3344,49 @@ function addressViewaddress(addressid, callback)
 
 
 
-### <a name="address_createaddress"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.addressCreateaddress") addressCreateaddress
+### <a name="create_list_addresses"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.createListAddresses") createListAddresses
+
+> List All Address 
+
+
+```javascript
+function createListAddresses(page, pagesize, addressid, dateCreated, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | How many results to return, default is 10, max is 100, must be an integer |
+| addressid |  ``` Optional ```  | addresses Sid |
+| dateCreated |  ``` Optional ```  | date created address. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 207;
+    var pagesize = 207;
+    var addressid = 'addressid';
+    var dateCreated = 'dateCreated';
+
+    controller.createListAddresses(page, pagesize, addressid, dateCreated, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_address"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.createAddress") createAddress
 
 > To add an address to your address book, you create a new address object. You can retrieve and delete individual addresses as well as get a list of addresses. Addresses are identified by a unique random ID.
 
 
 ```javascript
-function addressCreateaddress(input, callback)
+function createAddress(name, address, country, state, city, zip, description, email, phone, callback)
 ```
 #### Parameters
 
@@ -3426,55 +3408,17 @@ function addressCreateaddress(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['name'] = 'Name';
-        input['address'] = 'Address';
-        input['country'] = 'Country';
-        input['state'] = 'State';
-        input['city'] = 'City';
-        input['zip'] = 'Zip';
-        input['description'] = 'Description';
-        input['email'] = 'email';
-        input['phone'] = 'Phone';
+    var name = 'Name';
+    var address = 'Address';
+    var country = 'Country';
+    var state = 'State';
+    var city = 'City';
+    var zip = 'Zip';
+    var description = 'Description';
+    var email = 'email';
+    var phone = 'Phone';
 
-    controller.addressCreateaddress(input, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="address_listaddress"></a>![Method: ](https://apidocs.io/img/method.png ".AddressController.addressListaddress") addressListaddress
-
-> List All Address 
-
-
-```javascript
-function addressListaddress(input, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | How many results to return, default is 10, max is 100, must be an integer |
-| addressid |  ``` Optional ```  | addresses Sid |
-| dateCreated |  ``` Optional ```  | date created address. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var input = [];
-        input['page'] = 221;
-        input['pagesize'] = 221;
-        input['addressid'] = 'addressid';
-        input['dateCreated'] = 'dateCreated';
-
-    controller.addressListaddress(input, function(error, response, context) {
+    controller.createAddress(name, address, country, state, city, zip, description, email, phone, function(error, response, context) {
 
     
     });
@@ -3494,13 +3438,13 @@ The singleton instance of the ``` RecordingController ``` class can be accessed 
 var controller = lib.RecordingController;
 ```
 
-### <a name="create_recording_deleterecording"></a>![Method: ](https://apidocs.io/img/method.png ".RecordingController.createRecordingDeleterecording") createRecordingDeleterecording
+### <a name="create_delete_recording"></a>![Method: ](https://apidocs.io/img/method.png ".RecordingController.createDeleteRecording") createDeleteRecording
 
 > Remove a recording from your Ytel account.
 
 
 ```javascript
-function createRecordingDeleterecording(recordingsid, callback)
+function createDeleteRecording(recordingsid, callback)
 ```
 #### Parameters
 
@@ -3516,7 +3460,7 @@ function createRecordingDeleterecording(recordingsid, callback)
 
     var recordingsid = 'recordingsid';
 
-    controller.createRecordingDeleterecording(recordingsid, function(error, response, context) {
+    controller.createDeleteRecording(recordingsid, function(error, response, context) {
 
     
     });
@@ -3524,13 +3468,13 @@ function createRecordingDeleterecording(recordingsid, callback)
 
 
 
-### <a name="create_recording_viewrecording"></a>![Method: ](https://apidocs.io/img/method.png ".RecordingController.createRecordingViewrecording") createRecordingViewrecording
+### <a name="create_view_recording"></a>![Method: ](https://apidocs.io/img/method.png ".RecordingController.createViewRecording") createViewRecording
 
 > Retrieve the recording of a call by its RecordingSid. This resource will return information regarding the call such as start time, end time, duration, and so forth.
 
 
 ```javascript
-function createRecordingViewrecording(recordingsid, callback)
+function createViewRecording(recordingsid, callback)
 ```
 #### Parameters
 
@@ -3546,7 +3490,7 @@ function createRecordingViewrecording(recordingsid, callback)
 
     var recordingsid = 'recordingsid';
 
-    controller.createRecordingViewrecording(recordingsid, function(error, response, context) {
+    controller.createViewRecording(recordingsid, function(error, response, context) {
 
     
     });
@@ -3554,20 +3498,20 @@ function createRecordingViewrecording(recordingsid, callback)
 
 
 
-### <a name="create_recording_listrecording"></a>![Method: ](https://apidocs.io/img/method.png ".RecordingController.createRecordingListrecording") createRecordingListrecording
+### <a name="create_list_recordings"></a>![Method: ](https://apidocs.io/img/method.png ".RecordingController.createListRecordings") createListRecordings
 
 > Retrieve a list of recording objects.
 
 
 ```javascript
-function createRecordingListrecording(input, callback)
+function createListRecordings(page, pagesize, datecreated, callsid, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | The count of objects to return per page. |
 | datecreated |  ``` Optional ```  | Filter results by creation date |
 | callsid |  ``` Optional ```  | The unique identifier for a call. |
 
@@ -3577,13 +3521,12 @@ function createRecordingListrecording(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['page'] = 221;
-        input['pagesize'] = 221;
-        input['datecreated'] = 'Datecreated';
-        input['callsid'] = 'callsid';
+    var page = 207;
+    var pagesize = 207;
+    var datecreated = 'Datecreated';
+    var callsid = 'callsid';
 
-    controller.createRecordingListrecording(input, function(error, response, context) {
+    controller.createListRecordings(page, pagesize, datecreated, callsid, function(error, response, context) {
 
     
     });
@@ -3603,13 +3546,13 @@ The singleton instance of the ``` TranscriptionController ``` class can be acces
 var controller = lib.TranscriptionController;
 ```
 
-### <a name="create_transcriptions_audiourltranscription"></a>![Method: ](https://apidocs.io/img/method.png ".TranscriptionController.createTranscriptionsAudiourltranscription") createTranscriptionsAudiourltranscription
+### <a name="create_transcribe_audio_url"></a>![Method: ](https://apidocs.io/img/method.png ".TranscriptionController.createTranscribeAudioURL") createTranscribeAudioURL
 
 > Transcribe an audio recording from a file.
 
 
 ```javascript
-function createTranscriptionsAudiourltranscription(audiourl, callback)
+function createTranscribeAudioURL(audiourl, callback)
 ```
 #### Parameters
 
@@ -3625,7 +3568,7 @@ function createTranscriptionsAudiourltranscription(audiourl, callback)
 
     var audiourl = 'audiourl';
 
-    controller.createTranscriptionsAudiourltranscription(audiourl, function(error, response, context) {
+    controller.createTranscribeAudioURL(audiourl, function(error, response, context) {
 
     
     });
@@ -3633,13 +3576,13 @@ function createTranscriptionsAudiourltranscription(audiourl, callback)
 
 
 
-### <a name="create_transcriptions_recordingtranscription"></a>![Method: ](https://apidocs.io/img/method.png ".TranscriptionController.createTranscriptionsRecordingtranscription") createTranscriptionsRecordingtranscription
+### <a name="create_transcribe_recording"></a>![Method: ](https://apidocs.io/img/method.png ".TranscriptionController.createTranscribeRecording") createTranscribeRecording
 
 > Transcribe a recording by its RecordingSid.
 
 
 ```javascript
-function createTranscriptionsRecordingtranscription(recordingSid, callback)
+function createTranscribeRecording(recordingSid, callback)
 ```
 #### Parameters
 
@@ -3655,7 +3598,7 @@ function createTranscriptionsRecordingtranscription(recordingSid, callback)
 
     var recordingSid = 'recordingSid';
 
-    controller.createTranscriptionsRecordingtranscription(recordingSid, function(error, response, context) {
+    controller.createTranscribeRecording(recordingSid, function(error, response, context) {
 
     
     });
@@ -3663,13 +3606,13 @@ function createTranscriptionsRecordingtranscription(recordingSid, callback)
 
 
 
-### <a name="create_transcriptions_viewtranscription"></a>![Method: ](https://apidocs.io/img/method.png ".TranscriptionController.createTranscriptionsViewtranscription") createTranscriptionsViewtranscription
+### <a name="create_view_transcription"></a>![Method: ](https://apidocs.io/img/method.png ".TranscriptionController.createViewTranscription") createViewTranscription
 
 > Retrieve information about a transaction by its TranscriptionSid.
 
 
 ```javascript
-function createTranscriptionsViewtranscription(transcriptionsid, callback)
+function createViewTranscription(transcriptionsid, callback)
 ```
 #### Parameters
 
@@ -3685,7 +3628,7 @@ function createTranscriptionsViewtranscription(transcriptionsid, callback)
 
     var transcriptionsid = 'transcriptionsid';
 
-    controller.createTranscriptionsViewtranscription(transcriptionsid, function(error, response, context) {
+    controller.createViewTranscription(transcriptionsid, function(error, response, context) {
 
     
     });
@@ -3693,20 +3636,20 @@ function createTranscriptionsViewtranscription(transcriptionsid, callback)
 
 
 
-### <a name="create_transcriptions_listtranscription"></a>![Method: ](https://apidocs.io/img/method.png ".TranscriptionController.createTranscriptionsListtranscription") createTranscriptionsListtranscription
+### <a name="create_list_transcriptions"></a>![Method: ](https://apidocs.io/img/method.png ".TranscriptionController.createListTranscriptions") createListTranscriptions
 
 > Retrieve a list of transcription objects for your Ytel account.
 
 
 ```javascript
-function createTranscriptionsListtranscription(input, callback)
+function createListTranscriptions(page, pagesize, status, dateTranscribed, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| page |  ``` Optional ```  ``` DefaultValue ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
-| pagesize |  ``` Optional ```  ``` DefaultValue ```  | The count of objects to return per page. |
+| page |  ``` Optional ```  | The page count to retrieve from the total results in the collection. Page indexing starts at 1. |
+| pagesize |  ``` Optional ```  | The count of objects to return per page. |
 | status |  ``` Optional ```  | The state of the transcription. |
 | dateTranscribed |  ``` Optional ```  | The date the transcription took place. |
 
@@ -3716,13 +3659,12 @@ function createTranscriptionsListtranscription(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['page'] = 221;
-        input['pagesize'] = 221;
-        input['status'] = Object.keys(Status)[0];
-        input['dateTranscribed'] = 'dateTranscribed';
+    var page = 207;
+    var pagesize = 207;
+    var status = Object.keys(status12)[0];
+    var dateTranscribed = 'dateTranscribed';
 
-    controller.createTranscriptionsListtranscription(input, function(error, response, context) {
+    controller.createListTranscriptions(page, pagesize, status, dateTranscribed, function(error, response, context) {
 
     
     });
@@ -3742,21 +3684,21 @@ The singleton instance of the ``` UsageController ``` class can be accessed from
 var controller = lib.UsageController;
 ```
 
-### <a name="create_usage_listusage"></a>![Method: ](https://apidocs.io/img/method.png ".UsageController.createUsageListusage") createUsageListusage
+### <a name="create_list_usage"></a>![Method: ](https://apidocs.io/img/method.png ".UsageController.createListUsage") createListUsage
 
 > Retrieve usage metrics regarding your Ytel account. The results includes inbound/outbound voice calls and inbound/outbound SMS messages as well as carrier lookup requests.
 
 
 ```javascript
-function createUsageListusage(input, callback)
+function createListUsage(productCode, startDate, endDate, includeSubAccounts, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| productCode |  ``` Optional ```  ``` DefaultValue ```  | Filter usage results by product type. |
-| startDate |  ``` Optional ```  ``` DefaultValue ```  | Filter usage objects by start date. |
-| endDate |  ``` Optional ```  ``` DefaultValue ```  | Filter usage objects by end date. |
+| productCode |  ``` Optional ```  | Filter usage results by product type. |
+| startDate |  ``` Optional ```  | Filter usage objects by start date. |
+| endDate |  ``` Optional ```  | Filter usage objects by end date. |
 | includeSubAccounts |  ``` Optional ```  | Will include all subaccount usage data |
 
 
@@ -3765,13 +3707,12 @@ function createUsageListusage(input, callback)
 
 ```javascript
 
-    var input = [];
-        input['productCode'] = Object.keys(ProductCode27)[0];
-        input['startDate'] = 'startDate';
-        input['endDate'] = 'endDate';
-        input['includeSubAccounts'] = 'IncludeSubAccounts';
+    var productCode = Object.keys(ProductCode)[0];
+    var startDate = 'startDate';
+    var endDate = 'endDate';
+    var includeSubAccounts = 'IncludeSubAccounts';
 
-    controller.createUsageListusage(input, function(error, response, context) {
+    controller.createListUsage(productCode, startDate, endDate, includeSubAccounts, function(error, response, context) {
 
     
     });
